@@ -35,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ComponenteAD c = new ComponenteAD(this);
 
+
         xmlToJava();
         activarAnimacion();
-
+       Toast.makeText(getApplicationContext(), "Probando versiones", Toast.LENGTH_SHORT).show();
 
         botonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
