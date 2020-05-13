@@ -44,4 +44,20 @@
         />
 
 
+    <Button
+        android:id="@+id/botonSos"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="50dp"
+        android:text="SOS"
+        android:layout_below="@id/botonVerFotos"
+        android:textSize="20dp"
+        android:textColor="@color/roji"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/b1"
+        android:foreground="@drawable/b1"
+        />
+
+
 </RelativeLayout>

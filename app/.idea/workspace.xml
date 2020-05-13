@@ -7,26 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_volley_volley_1_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ComponenteAD.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ComponenteAD2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ComponenteAD3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuAdmin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuAdminApicultor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuApicultor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuApicultor2.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuUsuarioPelon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuUsuarioPelon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin_apicultor.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_apicultor.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_apicultor2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_vip.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_vip.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.Registrarse">
+  <component name="RunManager" selected="Android App.MenuVip">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -290,9 +275,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Android App.Registrarse" />
-        <item itemvalue="Android App.MainActivity" />
         <item itemvalue="Android App.MenuVip" />
+        <item itemvalue="Android App.MainActivity" />
+        <item itemvalue="Android App.Registrarse" />
       </list>
     </recent_temporary>
   </component>
@@ -335,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589338595355</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="limpieza de archivos+inicio sockets">
+      <created>1589391709376</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1589391709377</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -356,6 +348,7 @@
     <MESSAGE value="v2" />
     <MESSAGE value="v3(fotos)" />
     <MESSAGE value="v4" />
-    <option name="LAST_COMMIT_MESSAGE" value="v4" />
+    <MESSAGE value="limpieza de archivos+inicio sockets" />
+    <option name="LAST_COMMIT_MESSAGE" value="limpieza de archivos+inicio sockets" />
   </component>
 </project>

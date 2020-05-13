@@ -1,8 +1,11 @@
 package es.jordan.sistemaalarma;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +13,7 @@ import android.widget.Button;
 public class MenuVip extends AppCompatActivity {
 Button BotonVerCamara;
 Button BotonVerFotos;
+Button BotonSos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +40,16 @@ Button BotonVerFotos;
             }
         });
 
+        BotonSos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //la diferencia que radica entre un action_dial y un action_call es que en el call
+                //esq dial puedes editar el numero y el call llama directamente
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:693246245"));
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -44,6 +58,7 @@ Button BotonVerFotos;
 
         BotonVerCamara=(Button)findViewById(R.id.botonVerCamara);
         BotonVerFotos=(Button)findViewById(R.id.botonVerFotos);
+        BotonSos=(Button)findViewById(R.id.botonSos);
     }
 
 }
