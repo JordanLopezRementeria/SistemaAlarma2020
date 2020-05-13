@@ -4,13 +4,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/copia2"
     >
 
+    <TextView
+        android:layout_marginTop="30dp"
+        android:id="@+id/editStreaming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="@font/titulin"
+        android:text="STREAMING EN DIRECTO"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textColor="@color/roji">
+</TextView>
 
     <WebView
+        android:layout_below="@id/editStreaming"
         android:id="@+id/webview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+
+        android:layout_centerHorizontal="true"
+        android:layout_width="312dp"
+        android:layout_height="487dp" />
 
 </RelativeLayout>

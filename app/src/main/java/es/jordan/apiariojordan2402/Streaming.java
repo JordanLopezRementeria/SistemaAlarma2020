@@ -11,20 +11,23 @@ import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Streaming extends AppCompatActivity {
 private WebView webView;
+private TextView textStreaming;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_streaming);
+xmlToJava();
 
 
 
-        webView = (WebView)findViewById(R.id.webview);
         webView.setWebViewClient(new WebViewClient());
         webView.clearCache(true);
         webView.getSettings().setLoadsImagesAutomatically(true);
@@ -57,6 +60,12 @@ private WebView webView;
         });
         webView.loadUrl("http://alarmacaserajordan.ddns.net:8081/");
 
+
+    }
+
+    private void xmlToJava() {
+        webView = (WebView)findViewById(R.id.webview);
+        textStreaming=(TextView)findViewById(R.id.editStreaming);
 
     }
 

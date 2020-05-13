@@ -25,6 +25,7 @@ public class Registrarse extends AppCompatActivity {
     EditText editNombre;
     EditText editContraseña;
     EditText editEmail;
+    TTSManager ttsManager=null;
 
 
     @Override
@@ -32,6 +33,7 @@ public class Registrarse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrarse);
         xmlToJava();
+        textoToVoz();
 
         botonCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,11 +83,16 @@ public class Registrarse extends AppCompatActivity {
 
 
                  alert.setTitle("Registro exitoso");
+
+
                  alert.setCancelable(true);
 
                  alert.setMessage("Usuario con nombre "+usuario1.getNombre()+" has sido registrado, un administrador comprobará si tu foto es correcta");
                  alert.setPositiveButton("Ok, volver al menú", new DialogInterface.OnClickListener() {//onclick del boton del dialog
                      public void onClick(DialogInterface dialog, int which) {
+                        //mensaje de voz personalizado
+                         String text="Bienvenido "+editNombre.getText().toString(); //le damos la bienvenido al usuario insertado
+                         ttsManager.initQueue(text);//quiero que se oiga ya cuando pulse
                          Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                          startActivityForResult(intent, 0);
                      }
@@ -112,7 +119,11 @@ public class Registrarse extends AppCompatActivity {
         editEmail = (EditText) findViewById(R.id.direccion1);
     }
 
-
+    public void textoToVoz()
+    {
+        ttsManager=new TTSManager();
+        ttsManager.init(this);
+    }
 
 
 

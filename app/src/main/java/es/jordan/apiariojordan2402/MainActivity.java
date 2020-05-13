@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         xmlToJava();
         activarAnimacion();
-       Toast.makeText(getApplicationContext(), "Probando versiones", Toast.LENGTH_SHORT).show();
+       //Toast.makeText(getApplicationContext(), "Probando versiones", Toast.LENGTH_SHORT).show();
 
         botonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
