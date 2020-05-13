@@ -13,9 +13,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
     private final String EXTRA_USUARIO = "";
     Button botonIniciar, botonRegistrar;
     EditText nombre1, email1, contraseña1;
@@ -26,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ComponenteAD c = new ComponenteAD(this);
+
 
 
         xmlToJava();
@@ -47,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         botonIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ComponenteAD componente = new ComponenteAD(getApplicationContext());
-                componente.openForWrite();
-                componente.openForRead();
+                //ComponenteAD componente = new ComponenteAD(getApplicationContext());
+              //  componente.openForWrite();
+               // componente.openForRead();
                 boolean encontradoEnBD = false;
                 boolean encontradoVacio = false;
 
@@ -63,37 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 usuario1.setEmail(email1.getText().toString());
                 usuario1.setContraseña(contraseña1.getText().toString());
 
-                ArrayList<Usuario> listaUsuarios = componente.leerUsuarios(); //vamos a buscar si esta el usuario en la bd y si coinciden los datos
-                for (Usuario aux : listaUsuarios) {
-                    if (aux.getNombre().equals(usuario1.getNombre()) && aux.getContraseña().equals(usuario1.getContraseña()) && (aux.getEmail().equals(usuario1.getEmail()))) {
-                        usuario1.setRol(aux.getRol()); //ahora ya sabemos que rol tiene ademas de haber visto que existe
-                        encontradoEnBD = true;
-                        break;//queremos salir del loop si esto pasa
-                    }
 
-                }
-
-
-                if (encontradoEnBD && encontradoVacio == false) { //si llegamos aqui es porque 100% el usuario esta en la BD y ha metido todos los datos
-
-                       if (usuario1.getRol().equals("admin")) { //parte admin
-                       limpiar();
-                        pantallaAdmin(usuario1);
-                    }
-                       else if (usuario1.getRol().equals("apicultor")) { //parte admin
-                           limpiar();
-                           pantallaApicultor(usuario1);
-                    }
-
-                       else {              //si esta en bd y no es ni admin, ni apicultor entonces es usuario
-                           limpiar();
-                        pantallaUsuario(usuario1);
-                    }
-                }else {
-                    Toast.makeText(getApplicationContext(), "El usuario no existe", Toast.LENGTH_SHORT).show();
-                    limpiar();
-
-                }
 
 
             }
@@ -113,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         usuario1.setNombre(nombre1.getText().toString());
         usuario1.setContraseña(contraseña1.getText().toString());
         usuario1.setEmail(email1.getText().toString());
-        usuario1.setRol("admin");
+
         Intent intent2 = new Intent(MainActivity.this, MenuAdmin.class); //ponemos en la actividad el objeto usuario
         intent2.putExtra(EXTRA_USUARIO, usuario1);
         startActivity(intent2);
@@ -151,5 +130,15 @@ public class MainActivity extends AppCompatActivity {
         miImagen.startAnimation(miAnim);
     }
 
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        Toast.makeText(getApplicationContext(), "No se ha encontrado usuario", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+        Toast.makeText(getApplicationContext(), "No se ha encontrado usuario", Toast.LENGTH_SHORT).show();
+    }
 
 }

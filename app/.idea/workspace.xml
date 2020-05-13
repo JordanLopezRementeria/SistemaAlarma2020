@@ -7,232 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/.idea/runConfigurations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/proguard-rules.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/androidTest/java/es/jordan/apiariojordan2402/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/androidTest/java/es/jordan/sistemaalarma/ExampleInstrumentedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/apicultor-web.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/apicultor-web.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/eliminar1-web.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/eliminar1-web.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/AdaptadorDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdaptadorDatos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/Apiario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/Apiario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/Colmena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Colmena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/ComponenteAD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ComponenteAD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/ComponenteAD2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/ComponenteAD2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/ComponenteAD3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/ComponenteAD3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/DatosColmena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/DatosColmena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/ItemColmenaAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ItemColmenaAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/MenuAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/MenuAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/MenuApicultor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/MenuApicultor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/MenuApicultor2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/MenuApicultor2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/MenuUsuarioPelon.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/MenuUsuarioPelon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/ModificarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ModificarUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/Registrarse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/TTSManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/TTSManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/UsuarioBaseSQLite.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/UsuarioBaseSQLite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/java/es/jordan/apiariojordan2402/itemColmena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/itemColmena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/lista1-web.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/lista1-web.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/mas1-web.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/mas1-web.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/microfono-web.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/microfono-web.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/modificar1-web.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/modificar1-web.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/mostrar1-web.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/mostrar1-web.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/anim/anim.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/anim/anim.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/anim/anim2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/anim/anim2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/ab2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/ab2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/abeja.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/abeja.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/abeja2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/abeja2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/abejilla.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/abejilla.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/add.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/add.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/admin.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/admin.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/apicultor_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/apicultor_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/b1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/b1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/b1texto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/b1texto.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/b2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/b2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/ball.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/ball.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/bee.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/bee.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/bee2.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/bee2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/cambiazo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/cambiazo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/colmena.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/colmena.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/eliminar1_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/eliminar1_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/eliminar1_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/eliminar1_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/lechuga.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/lechuga.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/list.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/list.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/list2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/list2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/lista1_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/lista1_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/lista1_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/lista1_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/mas1_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/mas1_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/mas1_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/mas1_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/microfono_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/microfono_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/microfono_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/microfono_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/modificar1_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/modificar1_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/modificar1_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/modificar1_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/mostrar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/mostrar.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/mostrar1_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/mostrar1_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/mostrar1_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/mostrar1_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/naranjas.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/naranjas.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/next.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/next.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/patatas.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/patatas.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/update.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/update.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/drawable/usuario.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/drawable/usuario.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/font/police_person.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/font/police_person.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/font/titulin.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/font/titulin.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/layout/activity_menu_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/layout/activity_menu_admin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/layout/activity_menu_apicultor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/layout/activity_menu_apicultor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/layout/activity_menu_apicultor2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/layout/activity_menu_apicultor2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/layout/activity_menu_usuario_pelon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/layout/activity_menu_usuario_pelon.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/layout/activity_modificar_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/layout/activity_modificar_usuario.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/layout/activity_registrarse.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/layout/activity_registrarse.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/layout/itemlist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/layout/itemlist.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/layout/list_item_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/layout/list_item_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/apicultor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/apicultor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/apicultor_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/apicultor_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/eliminar1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/eliminar1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/eliminar1_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/eliminar1_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/lista1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/lista1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/lista1_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/lista1_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/mas1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/mas1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/mas1_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/mas1_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/microfono.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/microfono.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/microfono_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/microfono_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/modificar1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/modificar1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/modificar1_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/modificar1_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/mostrar1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/mostrar1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-anydpi-v26/mostrar1_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-anydpi-v26/mostrar1_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/apicultor.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/apicultor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/apicultor_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/apicultor_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/eliminar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/eliminar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/eliminar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/eliminar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/lista1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/lista1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/lista1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/lista1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/mas1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/mas1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/mas1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/mas1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/microfono.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/microfono.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/microfono_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/microfono_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/modificar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/modificar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/modificar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/modificar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/mostrar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/mostrar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-hdpi/mostrar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-hdpi/mostrar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/apicultor.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/apicultor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/apicultor_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/apicultor_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/eliminar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/eliminar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/eliminar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/eliminar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/lista1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/lista1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/lista1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/lista1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/mas1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/mas1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/mas1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/mas1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/microfono.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/microfono.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/microfono_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/microfono_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/modificar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/modificar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/modificar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/modificar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/mostrar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/mostrar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-mdpi/mostrar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-mdpi/mostrar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/apicultor.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/apicultor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/apicultor_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/apicultor_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/eliminar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/eliminar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/eliminar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/eliminar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/lista1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/lista1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/lista1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/lista1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/mas1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/mas1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/mas1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/mas1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/microfono.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/microfono.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/microfono_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/microfono_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/modificar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/modificar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/modificar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/modificar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/mostrar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/mostrar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xhdpi/mostrar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xhdpi/mostrar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/apicultor.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/apicultor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/apicultor_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/apicultor_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/eliminar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/eliminar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/eliminar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/eliminar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/lista1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/lista1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/lista1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/lista1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/mas1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/mas1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/mas1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/mas1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/microfono.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/microfono.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/microfono_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/microfono_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/modificar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/modificar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/modificar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/modificar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/mostrar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/mostrar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxhdpi/mostrar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxhdpi/mostrar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/apicultor.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/apicultor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/apicultor_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/apicultor_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/eliminar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/eliminar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/eliminar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/eliminar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/lista1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/lista1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/lista1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/lista1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/mas1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/mas1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/mas1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/mas1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/microfono.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/microfono.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/microfono_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/microfono_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/modificar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/modificar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/modificar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/modificar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/mostrar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/mostrar1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/mipmap-xxxhdpi/mostrar1_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/mipmap-xxxhdpi/mostrar1_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/values/apicultor_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/values/apicultor_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/values/dimens.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/app/src/test/java/es/jordan/apiariojordan2402/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/es/jordan/sistemaalarma/ExampleUnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiarioJordan2402/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_volley_volley_1_1_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/androidTest/java/es/jordan/apiariojordan2402/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/androidTest/java/es/jordan/apiariojordan2402/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/AdaptadorDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/AdaptadorDatos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/Apiario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Apiario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/ApiarioColmena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ApiarioColmena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/Colmena.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/Colmena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/ComponenteAD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/ComponenteAD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/ComponenteAD2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ComponenteAD2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/ComponenteAD3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ComponenteAD3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/DatosColmena.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/DatosColmena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/ItemColmenaAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/ItemColmenaAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/MenuAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/MenuAdminApicultor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuAdminApicultor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/MenuApicultor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuApicultor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/MenuApicultor2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuApicultor2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/MenuInvitado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuInvitado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/MenuUsuarioPelon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuUsuarioPelon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/MenuVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/ModificarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/ModificarUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/Streaming.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Streaming.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/TTSManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/TTSManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/UsuarioBaseSQLite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/UsuarioBaseSQLite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/itemColmena.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/main/java/es/jordan/apiariojordan2402/itemColmena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/apiariojordan2402/preCarga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/preCarga.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_registrarse.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_registrarse.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/es/jordan/apiariojordan2402/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SistemaAlarma/app/src/test/java/es/jordan/apiariojordan2402/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ComponenteAD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ComponenteAD2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ComponenteAD3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuAdmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuAdminApicultor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuApicultor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuApicultor2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuUsuarioPelon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuUsuarioPelon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin_apicultor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_apicultor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_apicultor2.xml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -259,9 +53,16 @@
   <component name="ProjectId" id="1bpIhj7tYuiOfxpsoX8cfAXvNKx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jordan\Desktop\ProyectoDoc\ApiarioJordan2402\ApiarioJordan2402" />
+      <recent name="C:\Users\Jordan\Desktop\ProyectoDoc\ApiarioJordan2402\ApiarioJordan2402\app" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -275,7 +76,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.MainActivity">
+  <component name="RunManager" selected="Android App.Registrarse">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -385,6 +186,57 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Registrarse" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="specific_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="es.jordan.sistemaalarma.Registrarse" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
       <option name="DEPLOY" value="true" />
@@ -438,6 +290,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Android App.Registrarse" />
         <item itemvalue="Android App.MainActivity" />
         <item itemvalue="Android App.MenuVip" />
       </list>
@@ -475,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589337057601</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="v4">
+      <created>1589338595355</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589338595355</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -495,6 +355,7 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="v2" />
     <MESSAGE value="v3(fotos)" />
-    <option name="LAST_COMMIT_MESSAGE" value="v3(fotos)" />
+    <MESSAGE value="v4" />
+    <option name="LAST_COMMIT_MESSAGE" value="v4" />
   </component>
 </project>

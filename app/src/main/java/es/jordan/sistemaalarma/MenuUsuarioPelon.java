@@ -58,42 +58,8 @@ Button cerrar;
             @Override
             public void onClick(View v) {
 
-                if(miRecycler.getVisibility()==View.VISIBLE) //es como un togglebutton
-                {
-                    miRecycler.setVisibility(View.GONE);
-                }
-                else
-                    miRecycler.setVisibility(View.VISIBLE);
 
 
-                editNombre.setVisibility(View.GONE);
-                editEmail.setVisibility(View.GONE);
-                editContraseña.setVisibility(View.GONE);
-
-                ComponenteAD componente = new ComponenteAD(getApplicationContext());
-                componente.openForRead();
-                //componente.openForWrite();
-                //componente.borrarTodos();
-                ArrayList<Usuario>listaUsuarios=new ArrayList<>();
-                listaUsuarios=componente.leerUsuarios();
-                miLista = new ArrayList<DatosColmena>();//Lista de objetos
-                for(Usuario aux:listaUsuarios)
-                {
-                    if(aux.getRol().equals("admin"))
-                    {
-                        miLista.add(new DatosColmena(aux.getNombre(), "Rol admin", R.drawable.admin));
-                    }
-                    else if(aux.getRol().equals("apicultor"))
-                    {
-                        miLista.add(new DatosColmena(aux.getNombre(), "Rol usuario", R.drawable.dolar_foreground));
-                    }
-                    else
-                        miLista.add(new DatosColmena(aux.getNombre(), "Rol invitado", R.drawable.usuario));
-
-                    final AdaptadorDatos elAdaptador = new AdaptadorDatos(miLista);
-                    elAdaptador.notifyDataSetChanged();
-                    miRecycler.setAdapter(elAdaptador);
-                }
 
 
             }
@@ -103,44 +69,7 @@ Button cerrar;
         imagenVer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                miRecycler.setVisibility(View.INVISIBLE);
-                editNombre.setVisibility(View.INVISIBLE);
-                editEmail.setVisibility(View.INVISIBLE);
-                editContraseña.setVisibility(View.INVISIBLE);
-                AlertDialog.Builder alert = new AlertDialog.Builder(MenuUsuarioPelon.this);
-                alert.setTitle("Datos de usuario");
-                ComponenteAD componente = new ComponenteAD(getApplicationContext());
-                componente.openForRead();
-                Usuario usuario2=new Usuario();
 
-                usuario2.setNombre(usuarioPasado.getNombre());  //estoy poniendo en un objeto usuario los datos del login
-                usuario2.setEmail(usuarioPasado.getEmail());
-                usuario2.setContraseña(usuarioPasado.getContraseña());
-
-                ArrayList<Usuario> listaUsuarios = componente.leerUsuarios();
-                for (Usuario aux : listaUsuarios) {
-                    if (aux.getNombre().equals(usuario2.getNombre()) && aux.getContraseña().equals(usuario2.getContraseña()) && (aux.getEmail().equals(usuario2.getEmail()))) {
-
-                        usuario2.setNombre(aux.getNombre());
-                        usuario2.setContraseña(aux.getContraseña());
-                        usuario2.setEmail(aux.getEmail());
-                        usuario2.setRol(aux.getRol());
-
-                        //metemos los datos que faltan y salimos
-                        break;//usuario encontrado salimos del loop
-                    }
-
-                }
-                //ahora sabemos que usuario 2 tiene todos los datos metidos y esta en la bd
-                alert.setCancelable(true);
-                alert.setIcon(R.drawable.ab2);
-                alert.setMessage("Nombre: "+usuario2.getNombre()+" Email: "+usuario2.getEmail()+" Rol: "+usuario2.getRol());
-                alert.setPositiveButton("Leído", new DialogInterface.OnClickListener() {//onclick del boton del dialog
-                    public void onClick(DialogInterface dialog, int which) {
-                      dialog.cancel();//vuelvo a la intent sin mas
-                    }
-                });
-                alert.create().show();
             }
         });
 
@@ -148,35 +77,7 @@ Button cerrar;
             @Override
             public void onClick(View v) {
 
-                miRecycler.setVisibility(View.INVISIBLE);
-                editNombre.setVisibility(View.VISIBLE);
-                editEmail.setVisibility(View.VISIBLE);
-                editContraseña.setVisibility(View.VISIBLE);
-                if (editNombre.getText().toString().trim().length() == 0 || editContraseña.getText().toString().trim().length() == 0 || editEmail.getText().toString().trim().length() == 0)
-                    Toast.makeText(getApplicationContext(), "Escribe el nombre,contraseña y email que deseas tener", Toast.LENGTH_LONG).show();
-                else {
-                    ComponenteAD componente = new ComponenteAD(getApplicationContext());
-                    Usuario usuarioDatosNuevos = new Usuario();
-
-                    usuarioDatosNuevos.setNombre(editNombre.getText().toString());
-                    usuarioDatosNuevos.setContraseña(editContraseña.getText().toString());
-                    usuarioDatosNuevos.setEmail(editEmail.getText().toString());
-                    usuarioDatosNuevos.setRol("usuario");  //el rol no lo puede cambiar siempre sera usuario
-                    componente.openForWrite();
-                    componente.modificarUsuario2(usuarioPasado.getNombre(),usuarioDatosNuevos);
-                    //tenemos que actualizar el objeto que nos veia de la anterior pantalla con los datos nuevos
-                    //por si volvemos a llamar a modificar, que modifique lo actual
-                    usuarioPasado.setNombre(usuarioDatosNuevos.getNombre());
-                    usuarioPasado.setEmail(usuarioDatosNuevos.getEmail());
-                    usuarioPasado.setContraseña(usuarioDatosNuevos.getContraseña());
-
-                   //limpiamos los edit
-                    limpiar();
-
-                    Toast.makeText(getApplicationContext(), "Usuario modificado con exito", Toast.LENGTH_SHORT).show();
-
-                }
-
+            
             }
         });
 
