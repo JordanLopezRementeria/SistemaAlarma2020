@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="es.jordan.apiariojordan2402">
+    package="es.jordan.sistemaalarma">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
@@ -29,7 +29,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MenuVip">
+        <activity android:name="es.jordan.sistemaalarma.MenuVip">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,95 +37,95 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".MenuInvitado">
+        <activity android:name="es.jordan.sistemaalarma.MenuInvitado">
             <intent-filter>
 
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".preCarga">
+        <activity android:name="es.jordan.sistemaalarma.preCarga">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Streaming">
+        <activity android:name="es.jordan.sistemaalarma.Streaming">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ApiarioColmena">
+        <activity android:name="es.jordan.sistemaalarma.ApiarioColmena">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuAdminApicultor" />
-        <activity android:name=".MenuApicultor2">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MenuApicultor">
+        <activity android:name="es.jordan.sistemaalarma.MenuAdminApicultor" />
+        <activity android:name="es.jordan.sistemaalarma.MenuApicultor2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuAdmin">
+        <activity android:name="es.jordan.sistemaalarma.MenuApicultor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ModificarUsuario">
+        <activity android:name="es.jordan.sistemaalarma.MenuAdmin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="es.jordan.sistemaalarma.ModificarUsuario">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ComponenteAD">
+        <activity android:name="es.jordan.sistemaalarma.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuUsuarioPelon">
+        <activity android:name="es.jordan.sistemaalarma.ComponenteAD">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Usuario">
+        <activity android:name="es.jordan.sistemaalarma.MenuUsuarioPelon">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UsuarioBaseSQLite">
+        <activity android:name="es.jordan.sistemaalarma.Usuario">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Registrarse">
+        <activity android:name="es.jordan.sistemaalarma.UsuarioBaseSQLite">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="es.jordan.sistemaalarma.Registrarse">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
