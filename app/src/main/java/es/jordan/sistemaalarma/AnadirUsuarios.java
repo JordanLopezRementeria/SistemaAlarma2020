@@ -11,7 +11,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -30,7 +32,15 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
         StrictMode.setThreadPolicy(policy);
 
         xmlToJava();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar3);
+        if (null != toolbar) {
+            setSupportActionBar(toolbar);
+        }
 
+        ActionBar actionBar = getSupportActionBar();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+        actionBar.setDisplayHomeAsUpEnabled(true);//indicando en el manifest quien es el padre de esta actividad
+        //cuando le de a la flecha volvera ahi
         spinner1 = (Spinner) findViewById(R.id.spPais);
         spinner1.setPrompt("Selecciona un rol");
         String []opciones={"Admin","Usuario","Invitado"};
@@ -47,7 +57,14 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
                 usuario1.setContraseña(contraseñaInsertar.getText().toString());
                 usuario1.setEmail(direccionInsertar.getText().toString());
                 //usuario1.setRol("invitado");
-                insertarUsuario(usuario1);
+                if (usuario1.getNombre().trim().length() == 0 || usuario1.getContraseña().trim().length() == 0 || usuario1.getEmail().trim().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+                    insertarUsuario(usuario1);
+                    limpiarCajas();
+                }
 
             }
 
@@ -59,6 +76,14 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
 
 
 
+
+
+    }
+
+    private void limpiarCajas() {
+        nombreInsertar.setText("");
+        contraseñaInsertar.setText("");
+        direccionInsertar.setText("");
 
 
     }
