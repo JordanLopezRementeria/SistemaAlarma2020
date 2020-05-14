@@ -64,6 +64,8 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
                 else {
                     insertarUsuario(usuario1);
                     limpiarCajas();
+                    Toast.makeText(getApplicationContext(), "Usuario añadido con éxito", Toast.LENGTH_SHORT).show();
+
                 }
 
             }
