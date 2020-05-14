@@ -18,6 +18,7 @@ import java.net.Socket;
 
 public class EliminarUsuario extends AppCompatActivity {
 Button eliminarUsu;
+
 EditText texto2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

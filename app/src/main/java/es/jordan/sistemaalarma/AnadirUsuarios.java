@@ -3,6 +3,7 @@ package es.jordan.sistemaalarma;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,9 +25,13 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anadir_usuarios);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         xmlToJava();
 
-
+        spinner1 = (Spinner) findViewById(R.id.spPais);
         spinner1.setPrompt("Selecciona un rol");
         String []opciones={"Admin","Usuario","Invitado"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones);
@@ -88,10 +93,6 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
             ObjectOutputStream objetoEntregar = new ObjectOutputStream(socketCliente.getOutputStream());
             System.out.println("El objeto que mandara el cliente al servidor es: " + usuario1);
             objetoEntregar.writeObject(usuario1);//el cliente manda el objeto al server
-
-
-
-
 
             objetoEntregar.close();
         } catch (IOException ex) {

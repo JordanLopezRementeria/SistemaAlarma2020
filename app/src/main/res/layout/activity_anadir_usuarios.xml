@@ -50,24 +50,15 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Correo electrónico" />
+    <Spinner
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/spPais"
+        android:layout_below="@id/direccionInsertar"
+        android:spinnerMode="dialog"
+        android:layout_width="match_parent"
+        android:layout_height="38dp" />
 
-
-    <Button
-        android:id="@+id/botonCancelarXML2"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="40dp"
-
-        android:text="CANCELAR"
-        android:layout_below="@id/botonAceptarXML2"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
-        android:textSize="20dp"
-
-        android:textColor="@color/roji"
-
-        android:textStyle="bold" />
 
     <Button
         android:id="@+id/botonAceptarXML2"
@@ -75,8 +66,8 @@
         android:layout_height="75dp"
         android:layout_marginTop="50dp"
 
-        android:text="ACEPTAR"
-        android:layout_below="@id/direccionInsertar"
+        android:text="AÑADIR"
+        android:layout_below="@id/spPais"
         android:textSize="20dp"
         android:textColor="@color/roji"
         android:textStyle="bold"
