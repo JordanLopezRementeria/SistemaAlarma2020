@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/copia2"
+    android:theme="@android:style/ThemeOverlay.Material.Dark">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:background="?attr/colorPrimary" />
+
+
+    <TextView
+        android:id="@+id/titulo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/titulin"
+        android:textColor="@color/roji"
+        android:text="ELIMINAR USUARIO"
+        android:textSize="30dp"></TextView>
+
+    <EditText
+        android:id="@+id/nombre2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titulo1"
+        android:textColorHint="@color/blanquito"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="Nombre" />
+
+
+
+
+    <Button
+        android:id="@+id/botonEliminar"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="40dp"
+
+        android:text="BORRAR"
+        android:layout_below="@id/nombre2"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/b1"
+        android:foreground="@drawable/b1"
+        android:textSize="20dp"
+
+        android:textColor="@color/roji"
+
+        android:textStyle="bold" />
+
+
+
+
+</RelativeLayout>

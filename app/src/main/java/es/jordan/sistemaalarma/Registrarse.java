@@ -113,6 +113,10 @@ public class Registrarse extends AppCompatActivity {
             System.out.println("El objeto que mandara el cliente al servidor es: " + usuario1);
             objetoEntregar.writeObject(usuario1);//el cliente manda el objeto al server
 
+
+
+
+
             objetoEntregar.close();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

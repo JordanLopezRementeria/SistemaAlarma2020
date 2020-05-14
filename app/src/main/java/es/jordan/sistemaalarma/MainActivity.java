@@ -2,6 +2,7 @@ package es.jordan.sistemaalarma;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -22,6 +23,11 @@ import com.android.volley.toolbox.JsonRequest;
 
 import org.json.JSONObject;
 
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
@@ -35,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
 
         xmlToJava();
@@ -72,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
                 usuario1.setEmail(email1.getText().toString());
                 usuario1.setContraseña(contraseña1.getText().toString());
 
+                leerUsuario(usuario1);
 
 
 
@@ -128,6 +136,51 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         ImageView miImagen = (ImageView) findViewById(R.id.imagenXML);
         Animation miAnim = AnimationUtils.loadAnimation(this, R.anim.anim2);
         miImagen.startAnimation(miAnim);
+    }
+
+    public void leerUsuario(Usuario usuario1)
+    {
+        try {
+            String equipoServidor = "192.168.1.40";
+            int puertoServidor = 30501;
+            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+            gestionarComunicacion(socketCliente, usuario1);
+            socketCliente.close();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
+    public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
+
+        try {
+
+            ObjectOutputStream objetoEntregar = new ObjectOutputStream(socketCliente.getOutputStream());
+            System.out.println("El objeto que mandara el cliente al servidor es: " + usuario1);
+            objetoEntregar.writeObject(usuario1);//el cliente manda el objeto al server
+            objetoEntregar.close();
+
+            InputStream inputStream = socketCliente.getInputStream();
+            // create a DataInputStream so we can read data from it.
+            DataInputStream leerMensaje = new DataInputStream(inputStream);
+            if(leerMensaje.toString().equals("existe"))
+            {
+
+                Toast toast = Toast.makeText(getApplicationContext(),"usuario existe pasa a siguiente menu", Toast.LENGTH_LONG);
+                toast.show();
+            }
+            else
+            {
+                Toast toast = Toast.makeText(getApplicationContext(),"usuario no existe", Toast.LENGTH_LONG);
+            }
+
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+
+
     }
 
 
