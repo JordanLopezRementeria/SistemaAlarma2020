@@ -55,7 +55,9 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
                 Usuario usuario1 = new Usuario();
                 usuario1.setNombre(nombreInsertar.getText().toString());
                 usuario1.setContraseña(contraseñaInsertar.getText().toString());
+                usuario1.setRaspberryId(1);
                 usuario1.setEmail(direccionInsertar.getText().toString());
+                usuario1.setRol(spinner1.getSelectedItem().toString()); //obtengo la opcion que esta seleccionada
                 //usuario1.setRol("invitado");
                 if (usuario1.getNombre().trim().length() == 0 || usuario1.getContraseña().trim().length() == 0 || usuario1.getEmail().trim().length() == 0) {
                     Toast.makeText(getApplicationContext(), "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
@@ -102,7 +104,7 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
     public void insertarUsuario(Usuario usuario1) {
         try {
 
-            String equipoServidor = "192.168.1.33";
+            String equipoServidor = "192.168.1.42";
             int puertoServidor = 30500;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
             gestionarComunicacion(socketCliente, usuario1);

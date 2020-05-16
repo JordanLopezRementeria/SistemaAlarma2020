@@ -1,16 +1,16 @@
 package es.jordan.sistemaalarma;
 import java.io.Serializable;
 
-public class Notificacion implements Serializable {
+public class Incidencia implements Serializable {
 
     int incidenciaId;
     int usuarioId;
     String hora;
 
-    public Notificacion() {
+    public Incidencia() {
     }
 
-    public Notificacion(int incidenciaId, int usuarioId, String hora) {
+    public Incidencia(int incidenciaId, int usuarioId, String hora) {
         this.incidenciaId = incidenciaId;
         this.usuarioId = usuarioId;
         this.hora = hora;

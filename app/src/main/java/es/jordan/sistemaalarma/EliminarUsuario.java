@@ -65,7 +65,7 @@ EditText texto2;
     private void eliminarUsu(Usuario usuario1) {
         try {
 
-            String equipoServidor = "192.168.1.33";
+            String equipoServidor = "192.168.1.42";
             int puertoServidor = 30503;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
             gestionarComunicacion(socketCliente, usuario1);
