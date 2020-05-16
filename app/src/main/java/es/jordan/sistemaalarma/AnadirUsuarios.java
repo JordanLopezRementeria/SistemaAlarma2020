@@ -102,7 +102,7 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
     public void insertarUsuario(Usuario usuario1) {
         try {
 
-            String equipoServidor = "192.168.1.40";
+            String equipoServidor = "192.168.1.33";
             int puertoServidor = 30500;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
             gestionarComunicacion(socketCliente, usuario1);
