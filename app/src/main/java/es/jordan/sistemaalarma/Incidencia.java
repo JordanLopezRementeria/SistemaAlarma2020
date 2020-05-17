@@ -1,18 +1,19 @@
 package es.jordan.sistemaalarma;
 import java.io.Serializable;
 
+
 public class Incidencia implements Serializable {
 
     int incidenciaId;
-    int usuarioId;
+    Raspberry raspberryId;
     String hora;
 
     public Incidencia() {
     }
 
-    public Incidencia(int incidenciaId, int usuarioId, String hora) {
+    public Incidencia(int incidenciaId, Raspberry raspberryId, String hora) {
         this.incidenciaId = incidenciaId;
-        this.usuarioId = usuarioId;
+        this.raspberryId = raspberryId;
         this.hora = hora;
     }
 
@@ -24,12 +25,12 @@ public class Incidencia implements Serializable {
         this.incidenciaId = incidenciaId;
     }
 
-    public int getUsuarioId() {
-        return usuarioId;
+    public Raspberry getRaspberryId() {
+        return raspberryId;
     }
 
-    public void setUsuarioId(int usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setRaspberryId(Raspberry raspberryId) {
+        this.raspberryId = raspberryId;
     }
 
     public String getHora() {
@@ -42,7 +43,7 @@ public class Incidencia implements Serializable {
 
     @Override
     public String toString() {
-        return "Notificacion{" + "incidenciaId=" + incidenciaId + ", usuarioId=" + usuarioId + ", hora=" + hora + '}';
+        return "Notificacion{" + "incidenciaId=" + incidenciaId + ", raspberryId=" + raspberryId + ", hora=" + hora + '}';
     }
 
 
