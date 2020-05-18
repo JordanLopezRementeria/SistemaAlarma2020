@@ -11,9 +11,9 @@ import android.view.View;
 import android.widget.Button;
 
 public class MenuVip extends AppCompatActivity {
-Button BotonVerCamara;
-Button BotonVerFotos;
-Button BotonSos;
+Button BotonVerCamara,BotonVerFotos,BotonSos,botonListarIncidencias;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,23 @@ Button BotonSos;
                 startActivity(intent);
             }
         });
+
+        botonListarIncidencias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //la diferencia que radica entre un action_dial y un action_call es que en el call
+                //esq dial puedes editar el numero y el call llama directamente
+                Intent intent = new Intent(v.getContext(), ListarIncidencias.class);
+                startActivityForResult(intent, 0);
+            }
+        });
     }
+
+
+
+
+
+
 
 
 
@@ -59,6 +75,7 @@ Button BotonSos;
         BotonVerCamara=(Button)findViewById(R.id.botonVerCamara);
         BotonVerFotos=(Button)findViewById(R.id.botonVerFotos);
         BotonSos=(Button)findViewById(R.id.botonSos);
+        botonListarIncidencias=(Button)findViewById(R.id.botonListarIncidencias);
     }
 
 }

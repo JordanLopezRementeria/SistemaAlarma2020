@@ -31,16 +31,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AnadirUsuarios" android:parentActivityName=".MenuAdmin">
+        <activity android:name=".ListarIncidencias"  android:parentActivityName=".MenuAdmin">
+
+
+        </activity>
+        <activity
+            android:name=".AnadirUsuarios"
+            android:parentActivityName=".MenuAdmin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListarUsuarios" android:parentActivityName=".MenuAdmin">
+        <activity
+            android:name=".ListarUsuarios"
+            android:parentActivityName=".MenuAdmin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

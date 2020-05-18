@@ -5,11 +5,13 @@
  */
 package es.jordan.sistemaalarma;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jordan
  */
-public class Raspberry {
+public class Raspberry implements Serializable {
 
     Integer raspberryId;
     String modelo;
