@@ -34,24 +34,12 @@
         android:textSize="30dp"
         android:textColor="@color/roji"
 
-        app:layout_constraintBottom_toTopOf="@id/nombreXML"
+        app:layout_constraintBottom_toTopOf="@id/emailXML"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"></TextView>
 
 
-    <EditText
-        android:id="@+id/nombreXML"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="64dp"
-        android:hint="Nombre"
-        android:textColorHint="@color/blanquito"
-        android:textColor="@color/blanquito"
-        app:layout_constraintBottom_toBottomOf="@+id/emailXML"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
     <EditText
         android:id="@+id/emailXML"

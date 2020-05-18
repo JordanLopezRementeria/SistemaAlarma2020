@@ -10,30 +10,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
-
-import org.json.JSONObject;
 
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener {
+public class MainActivity extends AppCompatActivity  {
     private final String EXTRA_USUARIO = "";
     Button botonIniciar, botonRegistrar;
-    EditText nombre1, email1, contraseña1;
+    EditText email1, contraseña1;
 
 
 
@@ -66,20 +57,70 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
                 //ComponenteAD componente = new ComponenteAD(getApplicationContext());
               //  componente.openForWrite();
                // componente.openForRead();
-                boolean encontradoEnBD = false;
-                boolean encontradoVacio = false;
+                boolean detector1 = false;
+                boolean detector2 = false;
+                boolean detector3 = false; //nos ayudaran a saber si el usuario ya existe
 
-                if (nombre1.getText().toString().trim().length() == 0 || contraseña1.getText().toString().trim().length() == 0 || email1.getText().toString().trim().length() == 0) {
+                if (email1.getText().toString().trim().length() == 0 || contraseña1.getText().toString().trim().length() == 0) {
                     Toast.makeText(getApplicationContext(), "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
-                    encontradoVacio = true;
-                }
 
+                }
                 Usuario usuario1 = new Usuario();
-                usuario1.setNombre(nombre1.getText().toString());
+                // usuario1.setNombre(nombre1.getText().toString());
                 usuario1.setEmail(email1.getText().toString());
                 usuario1.setContraseña(contraseña1.getText().toString());
+                //una vez vemos que los datos se han insertado, necesitamos saber si coinciden con la BD de ser asi
+                //ira a la pantall correspondiente.
 
-                leerUsuario(usuario1);
+                ArrayList<Usuario> listaUsuarios = new ArrayList();
+                listaUsuarios=obtenerLista();
+
+
+                    for (Usuario u : listaUsuarios) {
+                        if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(usuario1.getContraseña()) && (u.getRol().toUpperCase().equals("ADMIN")))) {
+                            detector1=true;
+                            Toast.makeText(getApplicationContext(), "Credenciales validos, eres admin", Toast.LENGTH_LONG).show();
+                            pantallaAdmin(u);
+                            limpiar();
+
+
+                        }
+                           else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(usuario1.getContraseña()) && (u.getRol().toUpperCase().equals("USUARIO"))))
+
+                           {
+                               detector2=true;
+                               Toast.makeText(getApplicationContext(), "Credenciales validos, eres usuario", Toast.LENGTH_LONG).show();
+                               pantallaUsuario(u); //vamos a la pantalla usuario pasandole ese usu
+                               limpiar(); //limpiamos datos del login
+
+
+
+                        }
+                        else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(usuario1.getContraseña()) && (u.getRol().toUpperCase().equals("INVITADO"))))
+
+                        {
+                            detector3=true;
+                            Toast.makeText(getApplicationContext(), "Credenciales validos, eres invitado", Toast.LENGTH_LONG).show();
+                            pantallaInvitado(u);
+                            limpiar();
+
+
+                        }
+
+
+
+                    }
+                   if(detector1==false||detector2==false||detector3==false)
+                {
+                    Toast.makeText(getApplicationContext(), "Credenciales o usuario invalido", Toast.LENGTH_LONG).show();
+
+                }
+
+
+
+
+
+
 
 
 
@@ -90,14 +131,14 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
     }
 
     public void limpiar() {
-        nombre1.setText("");
+       // nombre1.setText("");
         email1.setText("");
         contraseña1.setText("");
     }
 
 
     public void pantallaAdmin(Usuario usuario1) {
-        usuario1.setNombre(nombre1.getText().toString());
+//        usuario1.setNombre(nombre1.getText().toString());
         usuario1.setContraseña(contraseña1.getText().toString());
         usuario1.setEmail(email1.getText().toString());
 
@@ -108,13 +149,13 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
 
     public void pantallaUsuario(Usuario usuario1) {
-        Intent intent = new Intent(MainActivity.this, MenuInvitado.class); //ponemos en la actividad el objeto usuario
+        Intent intent = new Intent(MainActivity.this, MenuVip.class); //ponemos en la actividad el objeto usuario
         intent.putExtra(EXTRA_USUARIO, usuario1);
         startActivity(intent);
     }
 
-    public void pantallaApicultor(Usuario usuario1) {
-        Intent intent = new Intent(MainActivity.this, MenuVip.class); //ponemos en la actividad el objeto usuario
+    public void pantallaInvitado(Usuario usuario1) {
+        Intent intent = new Intent(MainActivity.this, MenuInvitado.class); //ponemos en la actividad el objeto usuario
         intent.putExtra(EXTRA_USUARIO, usuario1);
         startActivity(intent);
     }
@@ -123,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
 
         botonIniciar = (Button) findViewById(R.id.botonIniciarXML);
         botonRegistrar = (Button) findViewById(R.id.botonAceptarXML);
-        nombre1 = (EditText) findViewById(R.id.nombreXML);
+//        nombre1 = (EditText) findViewById(R.id.nombreXML);
         contraseña1 = (EditText) findViewById(R.id.contraseñaXML);
         email1 = (EditText) findViewById(R.id.emailXML);
 
@@ -141,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
     public void leerUsuario(Usuario usuario1)
     {
         try {
-            String equipoServidor = "192.168.1.40";
+            String equipoServidor = "192.168.1.42";
             int puertoServidor = 30501;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
             gestionarComunicacion(socketCliente, usuario1);
@@ -151,6 +192,31 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
         }
 
     }
+
+    public ArrayList<Usuario> obtenerLista() {
+        ArrayList<Usuario> listaUsuarios = new ArrayList();
+        try {
+
+            String equipoServidor = "192.168.1.42";
+            int puertoServidor = 30504;
+            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+
+            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
+            listaUsuarios= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            socketCliente.close();
+            return listaUsuarios;
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return listaUsuarios;
+
+    }
+
+
     public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
 
         try {
@@ -184,14 +250,6 @@ public class MainActivity extends AppCompatActivity implements Response.Listener
     }
 
 
-    @Override
-    public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getApplicationContext(), "No se ha encontrado usuario", Toast.LENGTH_SHORT).show();
-    }
 
-    @Override
-    public void onResponse(JSONObject response) {
-        Toast.makeText(getApplicationContext(), "No se ha encontrado usuario", Toast.LENGTH_SHORT).show();
-    }
 
 }
