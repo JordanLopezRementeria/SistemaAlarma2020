@@ -45,7 +45,7 @@ Button BotonVerCamara,BotonVerFotos,BotonSos,botonListarIncidencias;
             public void onClick(View v) {
                 //la diferencia que radica entre un action_dial y un action_call es que en el call
                 //esq dial puedes editar el numero y el call llama directamente
-                Intent intent = new Intent(Intent.ACTION_CALL);
+                Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:693246245"));
                 startActivity(intent);
             }

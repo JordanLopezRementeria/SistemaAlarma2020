@@ -11,14 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ListarIncidencias.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_listar_incidencias.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Combo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/fondillo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ListarIncidencias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ListarIncidencias.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Raspberry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Raspberry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_vip.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_vip.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +52,8 @@
   <component name="ProjectId" id="1bpIhj7tYuiOfxpsoX8cfAXvNKx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="7f56762" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-18T13:30:16.454Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/res/drawable" />
@@ -81,7 +82,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.MenuVip">
+  <component name="RunManager" selected="Android App.MainActivity">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -397,11 +398,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Android App.MainActivity" />
         <item itemvalue="Android App.MenuVip" />
         <item itemvalue="Android App.MenuAdmin" />
         <item itemvalue="Android App.MenuInvitado" />
         <item itemvalue="Android App.ListarUsuarios" />
-        <item itemvalue="Android App.MainActivity" />
       </list>
     </recent_temporary>
   </component>
@@ -507,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589747138770</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="arreglado el flujo stream">
+      <created>1589807290754</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1589807290755</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,7 +542,8 @@
     <MESSAGE value="listando.." />
     <MESSAGE value="PreRoles" />
     <MESSAGE value="Objetos bd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Objetos bd" />
+    <MESSAGE value="arreglado el flujo stream" />
+    <option name="LAST_COMMIT_MESSAGE" value="arreglado el flujo stream" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

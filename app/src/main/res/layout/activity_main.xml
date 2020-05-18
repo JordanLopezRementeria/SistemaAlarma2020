@@ -6,7 +6,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/copia2"
+    android:background="@drawable/fondillo"
     android:theme="@android:style/ThemeOverlay.Material.Dark">
 
 

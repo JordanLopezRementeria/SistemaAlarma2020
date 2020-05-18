@@ -3,6 +3,7 @@ package es.jordan.sistemaalarma;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -31,7 +32,7 @@ public class ListarIncidencias extends AppCompatActivity {
     RecyclerView miRecycler;
     TextView titulillo,prueba;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_incidencias);
         xmlToJava();
@@ -74,14 +75,20 @@ public class ListarIncidencias extends AppCompatActivity {
 
 
         //cuando le de a la flecha volvera ahi
-        ArrayList<Incidencia> listaIncidencias = new ArrayList();
-        listaIncidencias=obtenerLista();
-        Toast.makeText(getApplicationContext(), listaIncidencias.toString(), Toast.LENGTH_LONG).show();
-        miLista = new ArrayList<DatosColmena>();
-        System.out.println(listaIncidencias);
-        for (Incidencia aux: listaIncidencias) {
+        //ArrayList<Incidencia> listaIncidencias = new ArrayList();
+        //listaIncidencias=obtenerLista();
+        //Toast.makeText(getApplicationContext(), listaIncidencias.toString(), Toast.LENGTH_LONG).show();
+       // miLista = new ArrayList<DatosColmena>();
+
+        ArrayList<Combo> listaCombo = new ArrayList();
+        listaCombo=obtenerLista2();
+
+             //Incidencias    //listaincidencias
+        for (Combo aux: listaCombo) {
+
+            //Toast.makeText(getApplicationContext(), aux.hora.toString(), Toast.LENGTH_LONG).show();
              //aqui sacamos datos de 2 tablas, el modelo y la hora(raspberryId) es un objeto de Raspberry
-            miLista.add(new DatosColmena(aux.getRaspberryId().getModelo(), aux.getHora(), R.drawable.alarmi));
+            miLista.add(new DatosColmena(aux.getModelo(), aux.getHora(), R.drawable.alarmi));
             elAdaptador = new AdaptadorDatos(miLista);
             elAdaptador.notifyDataSetChanged();
             miRecycler.setAdapter(elAdaptador);
@@ -127,6 +134,29 @@ public class ListarIncidencias extends AppCompatActivity {
             e.printStackTrace();
         }
         return listaIncidencias;
+
+    }
+
+    public ArrayList<Combo> obtenerLista2() {
+        ArrayList<Combo> listaCombo = new ArrayList();
+        try {
+
+            String equipoServidor = "192.168.1.42";
+            int puertoServidor = 30509;
+            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+
+            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
+            listaCombo= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            socketCliente.close();
+            return listaCombo;
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return listaCombo;
 
     }
 
