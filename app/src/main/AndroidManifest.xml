@@ -78,7 +78,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Streaming">
+        <activity android:name=".Streaming" android:parentActivityName=".MenuVip">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

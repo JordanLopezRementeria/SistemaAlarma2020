@@ -1,6 +1,9 @@
 package es.jordan.sistemaalarma;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -23,7 +26,15 @@ private TextView textStreaming;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_streaming);
 xmlToJava();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar5);
+        if (null != toolbar) {
+            setSupportActionBar(toolbar);
+        }
 
+        ActionBar actionBar = getSupportActionBar();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+        actionBar.setDisplayHomeAsUpEnabled(true);//indicando en el manifest quien es el padre de esta actividad
+        //cuando le de a la flecha volvera ahi
 
 
         webView.setWebViewClient(new WebViewClient());

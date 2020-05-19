@@ -19,7 +19,7 @@
         android:layout_marginTop="50dp"
         android:fontFamily="@font/titulin"
         android:textColor="@color/roji"
-        android:text="MENU ADMIN: AÑADIR UN USUARIO"
+        android:text="AÑADIR UN USUARIO"
         android:textSize="30dp"></TextView>
 
     <EditText
@@ -62,16 +62,22 @@
         android:spinnerMode="dialog"
         android:layout_width="match_parent"
         android:layout_height="38dp" />
-
+    <Spinner
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/spinnerR"
+        android:layout_below="@id/spPais"
+        android:spinnerMode="dialog"
+        android:layout_width="match_parent"
+        android:layout_height="38dp" />
 
     <Button
         android:id="@+id/botonAceptarXML2"
         android:layout_width="200dp"
         android:layout_height="75dp"
         android:layout_marginTop="50dp"
-
         android:text="AÑADIR"
-        android:layout_below="@id/spPais"
+        android:layout_below="@id/spinnerR"
         android:textSize="20dp"
         android:textColor="@color/roji"
         android:textStyle="bold"

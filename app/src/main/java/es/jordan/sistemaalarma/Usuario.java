@@ -7,16 +7,17 @@ public class Usuario implements Serializable {
 
     private Integer usuarioId;
     private String nombre;
+
     private String contraseña;
     private String email;
     private String rol;
-    private Integer raspberryId;
+    private Raspberry raspberryId;
 
     public Usuario() {
 
     }
 
-    public Usuario(Integer usuarioId, String nombre, String contraseña, String email,String rol,Integer raspberryId) {
+    public Usuario(Integer usuarioId, String nombre, String contraseña, String email,String rol,Raspberry raspberryId) {
         this.usuarioId = usuarioId;
         this.nombre = nombre;
 
@@ -27,14 +28,13 @@ public class Usuario implements Serializable {
 
     }
 
-    public Integer getRaspberryId() {
+    public Raspberry getRaspberryId() {
         return raspberryId;
     }
 
-    public void setRaspberryId(Integer raspberryId) {
+    public void setRaspberryId(Raspberry raspberryId) {
         this.raspberryId = raspberryId;
     }
-
 
 
 
@@ -86,6 +86,7 @@ public class Usuario implements Serializable {
     public String toString() {
         return "Usuario{" + "usuarioId=" + usuarioId + ", nombre=" + nombre + ", contrase\u00f1a=" + contraseña + ", email=" + email + ", rol=" + rol + ", raspberryId=" + raspberryId + '}';
     }
+
 
 
 

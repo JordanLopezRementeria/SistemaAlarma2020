@@ -11,12 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_android_28.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_android_28.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AnadirUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AnadirUsuarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Raspberry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Raspberry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Streaming.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Streaming.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_anadir_usuarios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_anadir_usuarios.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_streaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_streaming.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +29,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_6_API_23" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="7f56762" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -81,7 +86,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.MainActivity">
+  <component name="RunManager" selected="Android App.MenuAdmin">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -89,7 +94,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ListarUsuarios" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
+    <configuration name="AnadirUsuarios" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -135,7 +140,7 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="es.jordan.sistemaalarma.ListarUsuarios" />
+      <option name="ACTIVITY_CLASS" value="es.jordan.sistemaalarma.AnadirUsuarios" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
@@ -397,11 +402,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Android App.MainActivity" />
         <item itemvalue="Android App.MenuAdmin" />
+        <item itemvalue="Android App.AnadirUsuarios" />
+        <item itemvalue="Android App.MainActivity" />
         <item itemvalue="Android App.MenuVip" />
         <item itemvalue="Android App.MenuInvitado" />
-        <item itemvalue="Android App.ListarUsuarios" />
       </list>
     </recent_temporary>
   </component>
@@ -521,7 +526,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589825990663</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="logica login arreglada buen paso entre pantallas">
+      <created>1589843508657</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1589843508657</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -550,7 +562,8 @@
     <MESSAGE value="Objetos bd" />
     <MESSAGE value="arreglado el flujo stream" />
     <MESSAGE value="pre mejorar cositas" />
-    <option name="LAST_COMMIT_MESSAGE" value="pre mejorar cositas" />
+    <MESSAGE value="logica login arreglada buen paso entre pantallas" />
+    <option name="LAST_COMMIT_MESSAGE" value="logica login arreglada buen paso entre pantallas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -16,12 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class AnadirUsuarios extends AppCompatActivity {
 Button botonAñadir;
-Spinner spinner1;
+Spinner spinner1,spinnerR;
 EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,28 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones);
         spinner1.setAdapter(adapter);
 
+
+        ArrayList<Raspberry> listaRaspberrys = new ArrayList();
+        listaRaspberrys=obtenerListaRaspberry();
+        ArrayList<String> opciones3 = new ArrayList(); //en un array de string meto
+        //las raspberrys disponibles de la BD y lo muestro en un spinner si fuera un array
+        //de objetos no funcionaria el counstrucotr del spinner
+       for(Raspberry r:listaRaspberrys)
+       {
+          opciones3.add(r.getModelo());
+       }
+
+
+        spinnerR = (Spinner) findViewById(R.id.spinnerR);
+        spinnerR.setPrompt("Selecciona una raspberry");
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones3);
+        spinnerR.setAdapter(adapter2);
+
+
+
+
+
+
         String text = spinner1.getSelectedItem().toString(); //con esto obtengo el texto actual
         botonAñadir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +79,11 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
                 Usuario usuario1 = new Usuario();
                 usuario1.setNombre(nombreInsertar.getText().toString());
                 usuario1.setContraseña(contraseñaInsertar.getText().toString());
-                usuario1.setRaspberryId(1);
+                Raspberry r=new Raspberry();
+                r.setRaspberryId(1);
+                r.setMemoria("x");
+                r.setModelo("x");
+                usuario1.setRaspberryId(r);
                 usuario1.setEmail(direccionInsertar.getText().toString());
                 usuario1.setRol(spinner1.getSelectedItem().toString()); //obtengo la opcion que esta seleccionada
                 //usuario1.setRol("invitado");
@@ -95,6 +123,7 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
     private void xmlToJava() {
         botonAñadir=(Button)findViewById(R.id.botonAceptarXML2);
         spinner1 = (Spinner) findViewById(R.id.spPais);
+        spinnerR = (Spinner) findViewById(R.id.spinnerR);
         nombreInsertar=(EditText) findViewById(R.id.nombreInsertar);
         contraseñaInsertar=(EditText) findViewById(R.id.contraseñaInsertar);
         direccionInsertar=(EditText)findViewById(R.id.direccionInsertar);
@@ -131,6 +160,33 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
 
 
     }
+
+
+    public ArrayList<Raspberry> obtenerListaRaspberry() {
+        ArrayList<Raspberry> listaRaspberrys = new ArrayList();
+        try {
+
+            String equipoServidor = "192.168.1.42";
+            int puertoServidor = 30510;
+            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+
+            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
+            listaRaspberrys= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            socketCliente.close();
+            return listaRaspberrys;
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return listaRaspberrys;
+
+    }
+
+
+
 
 
 }

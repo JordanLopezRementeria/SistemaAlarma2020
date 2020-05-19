@@ -11,11 +11,26 @@ import java.io.Serializable;
  *
  * @author jordan
  */
-public class Raspberry implements Serializable {
+public class Raspberry implements Serializable{
 
     Integer raspberryId;
     String modelo;
     String memoria;
+
+    public Raspberry() {
+    }
+
+    public Raspberry(Integer raspberryId, String modelo, String memoria) {
+        this.raspberryId = raspberryId;
+        this.modelo = modelo;
+        this.memoria = memoria;
+    }
+
+
+
+
+
+
 
     public Integer getRaspberryId() {
         return raspberryId;

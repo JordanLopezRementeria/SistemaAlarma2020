@@ -57,13 +57,14 @@ public class MainActivity extends AppCompatActivity  {
                 //ComponenteAD componente = new ComponenteAD(getApplicationContext());
               //  componente.openForWrite();
                // componente.openForRead();
+                boolean detector0=false;
                 boolean detector1 = false;
                 boolean detector2 = false;
                 boolean detector3 = false; //nos ayudaran a saber si el usuario ya existe
 
                 if (email1.getText().toString().trim().length() == 0 || contraseña1.getText().toString().trim().length() == 0) {
                     Toast.makeText(getApplicationContext(), "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
-
+                    detector0=true;
                 }
                 Usuario usuario1 = new Usuario();
                 // usuario1.setNombre(nombre1.getText().toString());
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity  {
                             detector1=true;
                             Toast.makeText(getApplicationContext(), "Credenciales validos, eres admin", Toast.LENGTH_LONG).show();
                             pantallaAdmin(u);
+                            finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
                             limpiar();
 
 
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity  {
                                detector2=true;
                                Toast.makeText(getApplicationContext(), "Credenciales validos, eres usuario", Toast.LENGTH_LONG).show();
                                pantallaUsuario(u); //vamos a la pantalla usuario pasandole ese usu
+                               finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
                                limpiar(); //limpiamos datos del login
 
 
@@ -102,6 +105,7 @@ public class MainActivity extends AppCompatActivity  {
                             detector3=true;
                             Toast.makeText(getApplicationContext(), "Credenciales validos, eres invitado", Toast.LENGTH_LONG).show();
                             pantallaInvitado(u);
+                            finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
                             limpiar();
 
 
@@ -110,7 +114,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
                     }
-                   if(detector1==false||detector2==false||detector3==false)
+                   if(detector0==false && detector1==false && detector2==false && detector3==false)
                 {
                     Toast.makeText(getApplicationContext(), "Credenciales o usuario invalido", Toast.LENGTH_LONG).show();
 

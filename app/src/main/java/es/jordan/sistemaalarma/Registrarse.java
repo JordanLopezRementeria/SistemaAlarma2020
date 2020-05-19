@@ -59,11 +59,18 @@ public class Registrarse extends AppCompatActivity {
         botonRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Raspberry r=new Raspberry();
+                r.setRaspberryId(1); //por defecto el usuario es invitado y no tiene raspberry
+                //asignada
+                r.setMemoria("");
+                r.setModelo("");
 
                 Usuario usuario1 = new Usuario();
                 usuario1.setNombre(editNombre.getText().toString());
                 usuario1.setContraseña(editContraseña.getText().toString());
                 usuario1.setEmail(editEmail.getText().toString());
+                usuario1.setRol("invitado");
+                usuario1.setRaspberryId(r);
                 //usuario1.setRol("invitado");
                 insertarUsuario(usuario1);
 
@@ -94,7 +101,7 @@ public class Registrarse extends AppCompatActivity {
     public void insertarUsuario(Usuario usuario1) {
         try {
 
-            String equipoServidor = "192.168.1.40";
+            String equipoServidor = "192.168.1.42";
             int puertoServidor = 30500;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
             gestionarComunicacion(socketCliente, usuario1);
