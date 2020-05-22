@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity  {
                     for (Usuario u : listaUsuarios) {
                         if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(usuario1.getContraseña()) && (u.getRol().toUpperCase().equals("ADMIN")))) {
                             detector1=true;
+
                             Toast.makeText(getApplicationContext(), "Credenciales validos, eres admin", Toast.LENGTH_LONG).show();
                             pantallaAdmin(u);
                             finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
@@ -166,11 +167,11 @@ public class MainActivity extends AppCompatActivity  {
 
     public void xmlToJava() {
 
-        botonIniciar = (Button) findViewById(R.id.botonIniciarXML);
-        botonRegistrar = (Button) findViewById(R.id.botonAceptarXML);
+        botonIniciar = findViewById(R.id.botonIniciarXML);
+        botonRegistrar = findViewById(R.id.botonAceptarXML);
 //        nombre1 = (EditText) findViewById(R.id.nombreXML);
-        contraseña1 = (EditText) findViewById(R.id.contraseñaXML);
-        email1 = (EditText) findViewById(R.id.emailXML);
+        contraseña1 = findViewById(R.id.contraseñaXML);
+        email1 = findViewById(R.id.emailXML);
 
 
     }
@@ -178,7 +179,7 @@ public class MainActivity extends AppCompatActivity  {
 
     public void activarAnimacion()
     {
-        ImageView miImagen = (ImageView) findViewById(R.id.imagenXML);
+        ImageView miImagen = findViewById(R.id.imagenXML);
         Animation miAnim = AnimationUtils.loadAnimation(this, R.anim.anim2);
         miImagen.startAnimation(miAnim);
     }
@@ -231,7 +232,6 @@ public class MainActivity extends AppCompatActivity  {
             objetoEntregar.close();
 
             InputStream inputStream = socketCliente.getInputStream();
-            // create a DataInputStream so we can read data from it.
             DataInputStream leerMensaje = new DataInputStream(inputStream);
             if(leerMensaje.toString().equals("existe"))
             {

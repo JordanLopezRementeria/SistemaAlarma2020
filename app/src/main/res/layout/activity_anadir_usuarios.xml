@@ -6,10 +6,11 @@
     android:background="@drawable/copia2"
     android:theme="@android:style/ThemeOverlay.Material.Dark">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar3"
+        android:id="@+id/toolbarAñadir"
         android:layout_width="match_parent"
-        android:layout_height="39dp"
-        android:background="?attr/colorPrimary" />
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/negro" />
 
     <TextView
         android:id="@+id/titulo1"

@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/copia2"
     tools:context=".MenuInvitado">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarInvitado"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/negro" />
+
+
+
     <TextView
         android:id="@+id/titulo99"
         android:layout_marginTop="50dp"

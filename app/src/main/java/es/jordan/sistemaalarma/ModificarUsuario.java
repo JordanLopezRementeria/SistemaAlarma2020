@@ -24,12 +24,12 @@ public class ModificarUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar_usuario);
-        botonCancelar = (Button) findViewById(R.id.botonCancelarXML);
-        botonAceptar = (Button) findViewById(R.id.botonAceptarXML);
-        editNombre = (EditText) findViewById(R.id.nombre1);
+        botonCancelar = findViewById(R.id.botonCancelarXML);
+        botonAceptar = findViewById(R.id.botonAceptarXML);
+        editNombre = findViewById(R.id.nombre1);
 
-        editContraseña = (EditText) findViewById(R.id.contraseña1);
-        editEmail = (EditText) findViewById(R.id.direccion1);
+        editContraseña = findViewById(R.id.contraseña1);
+        editEmail = findViewById(R.id.direccion1);
         //hacemos una instancia de la clase componente para poder hacer crud
 
 

@@ -7,35 +7,23 @@ public class Usuario implements Serializable {
 
     private Integer usuarioId;
     private String nombre;
-
     private String contraseña;
     private String email;
     private String rol;
-    private Raspberry raspberryId;
+
 
     public Usuario() {
 
     }
 
-    public Usuario(Integer usuarioId, String nombre, String contraseña, String email,String rol,Raspberry raspberryId) {
+
+    public Usuario(Integer usuarioId, String nombre, String contraseña, String email, String rol) {
         this.usuarioId = usuarioId;
         this.nombre = nombre;
-
         this.contraseña = contraseña;
         this.email = email;
-        this.rol=rol;
-        this.raspberryId=raspberryId;
-
+        this.rol = rol;
     }
-
-    public Raspberry getRaspberryId() {
-        return raspberryId;
-    }
-
-    public void setRaspberryId(Raspberry raspberryId) {
-        this.raspberryId = raspberryId;
-    }
-
 
 
     public Integer getUsuarioId() {
@@ -84,8 +72,10 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuario{" + "usuarioId=" + usuarioId + ", nombre=" + nombre + ", contrase\u00f1a=" + contraseña + ", email=" + email + ", rol=" + rol + ", raspberryId=" + raspberryId + '}';
+        return "Usuario{" + "usuarioId=" + usuarioId + ", nombre=" + nombre + ", contrase\u00f1a=" + contraseña + ", email=" + email + ", rol=" + rol + '}';
     }
+
+
 
 
 

@@ -43,13 +43,13 @@ public class preCarga extends AppCompatActivity {
     }
 
     private void xmlTojava() {
-        video=(VideoView) findViewById(R.id.videoView);
+        video= findViewById(R.id.videoView);
 
     }
 
     public void activarAnimacion()
     {
-        ImageView miImagen = (ImageView) findViewById(R.id.imagenXML);
+        ImageView miImagen = findViewById(R.id.imagenXML);
         Animation miAnim = AnimationUtils.loadAnimation(this, R.anim.anim2);
         miImagen.startAnimation(miAnim);
     }

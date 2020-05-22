@@ -53,14 +53,14 @@ public class ItemColmenaAdapter extends BaseAdapter {
 
         itemColmena item = items.get(position);
 
-        ImageView image = (ImageView) vi.findViewById(R.id.imagen);
+        ImageView image = vi.findViewById(R.id.imagen);
         int imageResource = activity.getResources().getIdentifier(item.getRutaImagen(), null, activity.getPackageName());
         image.setImageDrawable(activity.getResources().getDrawable(imageResource));
 
-        TextView nombre = (TextView) vi.findViewById(R.id.nombre);
+        TextView nombre = vi.findViewById(R.id.nombre);
         nombre.setText(item.getNombre());
 
-        TextView tipo = (TextView) vi.findViewById(R.id.tipo);
+        TextView tipo = vi.findViewById(R.id.tipo);
         tipo.setText(item.getTipo());
 
         return vi;

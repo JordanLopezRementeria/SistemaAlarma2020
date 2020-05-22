@@ -79,8 +79,8 @@ public class MenuInvitado extends AppCompatActivity {
     }
 
     private void xmlTojava() {
-        video=(VideoView) findViewById(R.id.videoView3);
-        textoCorreo=(TextView)findViewById(R.id.textoCorreo);
+        video= findViewById(R.id.videoView3);
+        textoCorreo= findViewById(R.id.textoCorreo);
 
 
     }

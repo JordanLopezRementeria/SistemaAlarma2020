@@ -3,8 +3,14 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/copia2"
     android:theme="@android:style/ThemeOverlay.Material.Dark">
-
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarModificarUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/negro" />
 
     <TextView
         android:id="@+id/titulo1"
@@ -13,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/titulin"
-        android:text="Crear una cuenta"
+        android:text="Modificar usuario"
         android:textSize="30dp"></TextView>
 
     <EditText

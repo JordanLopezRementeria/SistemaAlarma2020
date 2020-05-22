@@ -80,8 +80,8 @@ ListView lv;
     }
     public void xmlToJava()
     {
-        b1=(Button)findViewById(R.id.cerrarUsuario6);
-        lv=(ListView)findViewById(R.id.listView3);
+        b1= findViewById(R.id.cerrarUsuario6);
+        lv= findViewById(R.id.listView3);
     }
 
 

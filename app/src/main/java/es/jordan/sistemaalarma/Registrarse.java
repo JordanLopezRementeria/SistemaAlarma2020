@@ -59,18 +59,14 @@ public class Registrarse extends AppCompatActivity {
         botonRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Raspberry r=new Raspberry();
-                r.setRaspberryId(1); //por defecto el usuario es invitado y no tiene raspberry
-                //asignada
-                r.setMemoria("");
-                r.setModelo("");
+
 
                 Usuario usuario1 = new Usuario();
                 usuario1.setNombre(editNombre.getText().toString());
                 usuario1.setContraseña(editContraseña.getText().toString());
                 usuario1.setEmail(editEmail.getText().toString());
                 usuario1.setRol("invitado");
-                usuario1.setRaspberryId(r);
+
                 //usuario1.setRol("invitado");
                 insertarUsuario(usuario1);
 
@@ -86,11 +82,11 @@ public class Registrarse extends AppCompatActivity {
 
 
     public void xmlToJava() {
-        botonRegistrarse = (Button) findViewById(R.id.botonAceptarXML);
-        botonCancelar = (Button) findViewById(R.id.botonCancelarXML);
-        editNombre = (EditText) findViewById(R.id.nombre1);
-        editContraseña = (EditText) findViewById(R.id.contraseña1);
-        editEmail = (EditText) findViewById(R.id.direccion1);
+        botonRegistrarse = findViewById(R.id.botonAceptarXML);
+        botonCancelar = findViewById(R.id.botonCancelarXML);
+        editNombre = findViewById(R.id.nombre1);
+        editContraseña = findViewById(R.id.contraseña1);
+        editEmail = findViewById(R.id.direccion1);
     }
 
     public void textoToVoz() {

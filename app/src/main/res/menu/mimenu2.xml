@@ -5,8 +5,14 @@
     <item
 
         android:id="@+id/item1"
-        android:icon="@drawable/ic_menu"
-        android:title="Administrar Apiarios"
+        android:icon="@drawable/atras"
+        android:title="Volver"
         app:showAsAction="ifRoom" />
 
+    <item
+
+        android:id="@+id/item3"
+        android:icon="@drawable/salida"
+        android:title="Salir"
+        app:showAsAction="ifRoom" />
 </menu>

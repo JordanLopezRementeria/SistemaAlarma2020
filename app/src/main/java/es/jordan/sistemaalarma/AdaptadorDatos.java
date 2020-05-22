@@ -59,9 +59,9 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
 
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
-            elNombre = (TextView) itemView.findViewById(R.id.idNombre);
-            laInformacion = (TextView) itemView.findViewById(R.id.idInformacion);
-            laFoto = (ImageView) itemView.findViewById(R.id.idFoto);
+            elNombre = itemView.findViewById(R.id.idNombre);
+            laInformacion = itemView.findViewById(R.id.idInformacion);
+            laFoto = itemView.findViewById(R.id.idFoto);
         }
 
         public void asignarDatos(DatosColmena datosColmena) {

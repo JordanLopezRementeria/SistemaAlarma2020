@@ -1,40 +1,56 @@
 package es.jordan.sistemaalarma;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Streaming extends AppCompatActivity {
 private WebView webView;
+private final String EXTRA_USUARIO = "";
 private TextView textStreaming;
+private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_streaming);
-xmlToJava();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar5);
-        if (null != toolbar) {
-            setSupportActionBar(toolbar);
-        }
+        final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+        Toast toast = Toast.makeText(getApplicationContext(),usuarioPasado.toString(), Toast.LENGTH_LONG);
+        toast.show();
 
-        ActionBar actionBar = getSupportActionBar();
+        xmlToJava();
+         toolbar = findViewById(R.id.toolbar5);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
-        actionBar.setDisplayHomeAsUpEnabled(true);//indicando en el manifest quien es el padre de esta actividad
-        //cuando le de a la flecha volvera ahi
+
+
+
+
+
+
+
+
+
+
 
 
         webView.setWebViewClient(new WebViewClient());
@@ -67,14 +83,95 @@ xmlToJava();
                 }
             }
         });
+        //necesito obtener el id de usuario y el id de raspberry para en funcion de eso cargar una direccion
+
+        elegirRaspberry();
+
+
         webView.loadUrl("http://alarmacaserajordan.ddns.net:8081/");
+
+
+    }
+public boolean onCreateOptionsMenu(Menu menu)
+{
+    MenuInflater inflater=getMenuInflater();
+    inflater.inflate(R.menu.mimenu2,menu);
+    return true;
+}
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
+        //para que cada icono asignarle tareas diferentes
+        switch (item.getItemId()) {
+            case R.id.item1:
+                Intent intent = new Intent(getApplicationContext(), MenuVip.class); //flechita que vuelve al
+                //menu usuario pasando el usuario que esta logueado
+                final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+                intent.putExtra(EXTRA_USUARIO, usuarioPasado);
+                Toast toast = Toast.makeText(getApplicationContext(),usuarioPasado.toString(), Toast.LENGTH_LONG);
+                toast.show();
+
+                startActivityForResult(intent, 0);
+                return true;
+
+            case R.id.item2:
+                Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
+                toast2.show();
+                return true;
+
+            case R.id.item3:
+                AlertDialog.Builder alert = new AlertDialog.Builder(Streaming.this);
+                alert.setTitle("Advertencia");
+                alert.setCancelable(true);
+                alert.setIcon(R.drawable.exit);
+
+                alert.setMessage("¿Desea desconectarse?");
+
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                });
+                alert.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent llamada = new Intent(Streaming.this, MainActivity.class);
+                        startActivity(llamada);
+                    }
+                });
+                alert.create().show();
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
+
+
+
+
+
+
+    private void elegirRaspberry() {
+
+
 
 
     }
 
     private void xmlToJava() {
-        webView = (WebView)findViewById(R.id.webview);
-        textStreaming=(TextView)findViewById(R.id.editStreaming);
+        webView = findViewById(R.id.webview);
+        textStreaming= findViewById(R.id.editStreaming);
 
     }
 
@@ -90,4 +187,8 @@ xmlToJava();
             super.onBackPressed();
         }
     }
+
+
+
+
 }

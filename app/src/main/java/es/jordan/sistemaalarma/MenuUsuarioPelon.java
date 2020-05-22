@@ -127,21 +127,21 @@ Button cerrar;
 
   public void xmlToJava() {
 
-        imagenVer = (ImageView) findViewById(R.id.imagenverXML);
-        imagenActualizar = (ImageView) findViewById(R.id.imagenmodificarXML);
-        imagenListar = (ImageView) findViewById(R.id.imagenlistarXML);
-        cerrar=(Button)findViewById(R.id.cerrarUsuario);
-        editNombre = (EditText) findViewById(R.id.nombre1);
-        editContraseña = (EditText) findViewById(R.id.contraseña1);
-        editEmail = (EditText) findViewById(R.id.direccion1);
-        miRecycler = (RecyclerView) findViewById(R.id.miRecyclerVista2);
+        imagenVer = findViewById(R.id.imagenverXML);
+        imagenActualizar = findViewById(R.id.imagenmodificarXML);
+        imagenListar = findViewById(R.id.imagenlistarXML);
+        cerrar= findViewById(R.id.cerrarUsuario);
+        editNombre = findViewById(R.id.nombre1);
+        editContraseña = findViewById(R.id.contraseña1);
+        editEmail = findViewById(R.id.direccion1);
+        miRecycler = findViewById(R.id.miRecyclerVista2);
     }
 
     private void seleccionaFoto() {
         Intent miItem = new Intent(Intent.ACTION_GET_CONTENT,
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         miItem.setType("image/");
-        startActivityForResult(miItem.createChooser(miItem, "Selecciona una aplicación"),
+        startActivityForResult(Intent.createChooser(miItem, "Selecciona una aplicación"),
                 COD_MARCADA);
 
     }

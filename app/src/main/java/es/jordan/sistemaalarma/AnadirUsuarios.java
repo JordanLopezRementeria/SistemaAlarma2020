@@ -1,9 +1,14 @@
 package es.jordan.sistemaalarma;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,6 +30,7 @@ public class AnadirUsuarios extends AppCompatActivity {
 Button botonAñadir;
 Spinner spinner1,spinnerR;
 EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
+private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,16 +40,11 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
         StrictMode.setThreadPolicy(policy);
 
         xmlToJava();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar3);
-        if (null != toolbar) {
-            setSupportActionBar(toolbar);
-        }
-
-        ActionBar actionBar = getSupportActionBar();
+        toolbar = findViewById(R.id.toolbarAñadir);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
-        actionBar.setDisplayHomeAsUpEnabled(true);//indicando en el manifest quien es el padre de esta actividad
-        //cuando le de a la flecha volvera ahi
-        spinner1 = (Spinner) findViewById(R.id.spPais);
+
+        spinner1 = findViewById(R.id.spPais);
         spinner1.setPrompt("Selecciona un rol");
         String []opciones={"Admin","Usuario","Invitado"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones);
@@ -61,7 +62,7 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
        }
 
 
-        spinnerR = (Spinner) findViewById(R.id.spinnerR);
+        spinnerR = findViewById(R.id.spinnerR);
         spinnerR.setPrompt("Selecciona una raspberry");
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones3);
         spinnerR.setAdapter(adapter2);
@@ -79,11 +80,7 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
                 Usuario usuario1 = new Usuario();
                 usuario1.setNombre(nombreInsertar.getText().toString());
                 usuario1.setContraseña(contraseñaInsertar.getText().toString());
-                Raspberry r=new Raspberry();
-                r.setRaspberryId(1);
-                r.setMemoria("x");
-                r.setModelo("x");
-                usuario1.setRaspberryId(r);
+
                 usuario1.setEmail(direccionInsertar.getText().toString());
                 usuario1.setRol(spinner1.getSelectedItem().toString()); //obtengo la opcion que esta seleccionada
                 //usuario1.setRol("invitado");
@@ -111,6 +108,63 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
 
 
     }
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.mimenu2,menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
+        //para que cada icono asignarle tareas diferentes
+        switch (item.getItemId()) {
+            case R.id.item1:
+                Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
+                startActivityForResult(intent, 0);
+                return true;
+
+            case R.id.item2:
+                Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
+                toast2.show();
+                return true;
+
+            case R.id.item3:
+                AlertDialog.Builder alert = new AlertDialog.Builder(AnadirUsuarios.this);
+                alert.setTitle("Advertencia");
+                alert.setCancelable(true);
+                alert.setIcon(R.drawable.exit);
+
+                alert.setMessage("¿Desea desconectarse?");
+
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                });
+                alert.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent llamada = new Intent(AnadirUsuarios.this, MainActivity.class);
+                        startActivity(llamada);
+                    }
+                });
+                alert.create().show();
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
 
     private void limpiarCajas() {
         nombreInsertar.setText("");
@@ -121,12 +175,12 @@ EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
     }
 
     private void xmlToJava() {
-        botonAñadir=(Button)findViewById(R.id.botonAceptarXML2);
-        spinner1 = (Spinner) findViewById(R.id.spPais);
-        spinnerR = (Spinner) findViewById(R.id.spinnerR);
-        nombreInsertar=(EditText) findViewById(R.id.nombreInsertar);
-        contraseñaInsertar=(EditText) findViewById(R.id.contraseñaInsertar);
-        direccionInsertar=(EditText)findViewById(R.id.direccionInsertar);
+        botonAñadir= findViewById(R.id.botonAceptarXML2);
+        spinner1 = findViewById(R.id.spPais);
+        spinnerR = findViewById(R.id.spinnerR);
+        nombreInsertar= findViewById(R.id.nombreInsertar);
+        contraseñaInsertar= findViewById(R.id.contraseñaInsertar);
+        direccionInsertar= findViewById(R.id.direccionInsertar);
 
     }
 

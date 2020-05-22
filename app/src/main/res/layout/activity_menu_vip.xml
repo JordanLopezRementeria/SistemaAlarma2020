@@ -6,7 +6,12 @@
     android:background="@drawable/copia2"
     android:theme="@android:style/ThemeOverlay.Material.Dark">
 
-
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMenuVip"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/negro" />
 
 
 

@@ -7,17 +7,20 @@
     android:theme="@android:style/ThemeOverlay.Material.Dark">
 
 
-
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/negro" />
 
 
     <Button
         android:id="@+id/botonAñadir"
         android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_marginTop="50dp"
-
+        android:layout_marginTop="20dp"
         android:text="AÑADIR USUARIO"
-
         android:textSize="20dp"
         android:textColor="@color/roji"
         android:textStyle="bold"
@@ -30,8 +33,7 @@
         android:id="@+id/botonEliminar"
         android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_marginTop="50dp"
-
+        android:layout_marginTop="20dp"
         android:text="ELIMINAR USUARIO"
         android:layout_below="@id/botonAñadir"
         android:textSize="20dp"
@@ -47,7 +49,7 @@
         android:id="@+id/botonListar"
         android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="LISTAR USUARIO"
         android:layout_below="@id/botonEliminar"
         android:textSize="20dp"
@@ -62,7 +64,7 @@
         android:id="@+id/botonModificar"
         android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="MODIFICAR USUARIO"
         android:layout_below="@id/botonListar"
         android:textSize="20dp"
@@ -76,9 +78,24 @@
         android:id="@+id/botonCopia"
         android:layout_width="200dp"
         android:layout_height="75dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="COPIA SEGURIDAD"
         android:layout_below="@id/botonModificar"
+        android:textSize="20dp"
+        android:textColor="@color/roji"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/b1"
+        android:foreground="@drawable/b1"
+        />
+
+    <Button
+        android:id="@+id/botonRecuperar"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:text="RECUPERAR COPIA"
+        android:layout_below="@id/botonCopia"
         android:textSize="20dp"
         android:textColor="@color/roji"
         android:textStyle="bold"
