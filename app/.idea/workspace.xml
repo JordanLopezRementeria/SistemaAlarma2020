@@ -11,44 +11,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuras.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/atras.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_arrow_back_black_24dp.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_exit_to_app_black_24dp.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/ic_menu_black_24dp.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/menu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/salida.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/menu/mimenu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/menu/mimenu2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdministrarRespaldo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/activity_administrar_respaldo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/menu/mimenu3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/menu/mimenusolosalida.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/menu/pesysalida.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdaptadorDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdaptadorDatos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AnadirUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AnadirUsuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ApiarioColmena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ApiarioColmena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ItemColmenaAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ItemColmenaAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ListarIncidencias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ListarIncidencias.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuInvitado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuInvitado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuUsuarioPelon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuUsuarioPelon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ModificarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ModificarUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Raspberry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Raspberry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Streaming.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Streaming.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/preCarga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/preCarga.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_anadir_usuarios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_anadir_usuarios.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_eliminar_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_eliminar_usuario.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_listar_incidencias.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_listar_incidencias.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_invitado.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_invitado.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_vip.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_vip.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_modificar_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_modificar_usuario.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_registrarse.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_registrarse.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_streaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_streaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/menu/example_menu.xml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +28,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_6_API_23" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="762fda180504" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -74,6 +46,7 @@
       <list>
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -115,7 +88,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.AnadirUsuarios">
+  <component name="RunManager" selected="Android App.MainActivity">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -431,8 +404,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Android App.AnadirUsuarios" />
         <item itemvalue="Android App.MainActivity" />
+        <item itemvalue="Android App.AnadirUsuarios" />
         <item itemvalue="Android App.Streaming" />
         <item itemvalue="Android App.MenuVip" />
         <item itemvalue="Android App.MenuAdmin" />
@@ -576,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589998401778</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Poniendo toolbars a todo">
+      <created>1590157039922</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1590157039923</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -608,7 +588,8 @@
     <MESSAGE value="logica login arreglada buen paso entre pantallas" />
     <MESSAGE value="muchas mejoras" />
     <MESSAGE value="Respaldo iniciando" />
-    <option name="LAST_COMMIT_MESSAGE" value="Respaldo iniciando" />
+    <MESSAGE value="Poniendo toolbars a todo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poniendo toolbars a todo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -31,13 +31,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ListarIncidencias"  android:parentActivityName=".MenuAdmin">
-
-
-        </activity>
+        <activity android:name=".AdministrarRespaldo"></activity>
+        <activity
+            android:name=".ListarIncidencias"
+            android:parentActivityName=".MenuAdmin"></activity>
         <activity
             android:name=".AnadirUsuarios"
             android:parentActivityName=".MenuAdmin">
@@ -78,7 +77,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Streaming" android:parentActivityName=".MenuVip">
+        <activity
+            android:name=".Streaming"
+            android:parentActivityName=".MenuVip">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

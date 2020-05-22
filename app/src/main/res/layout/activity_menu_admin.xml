@@ -5,10 +5,21 @@
     android:layout_height="match_parent"
     android:background="@drawable/copia2"
     android:theme="@android:style/ThemeOverlay.Material.Dark">
-
+    <TextView
+        android:layout_marginTop="30dp"
+        android:id="@+id/tituloMenuAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="@font/titulin"
+        android:text="Administrar usuarios"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textColor="@color/roji">
+    </TextView>
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarAdmin"
+        android:id="@+id/toolbarMenuAdmin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
@@ -24,6 +35,7 @@
         android:textSize="20dp"
         android:textColor="@color/roji"
         android:textStyle="bold"
+        android:layout_below="@id/tituloMenuAdmin"
         android:layout_centerHorizontal="true"
         android:background="@drawable/b1"
         android:foreground="@drawable/b1"
@@ -104,24 +116,9 @@
         android:foreground="@drawable/b1"
         />
 
-    <ImageView
 
-        android:id="@+id/salida"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/botonListar"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="212dp"
-        android:src="@drawable/salida_foreground" />
 
-    <TextView
-        android:id="@+id/textito"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/salida"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="0dp"
-        android:text="Cerrar sesión"></TextView>
+
 
 
 </RelativeLayout>

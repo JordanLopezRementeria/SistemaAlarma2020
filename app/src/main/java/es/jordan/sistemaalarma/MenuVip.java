@@ -3,24 +3,38 @@ package es.jordan.sistemaalarma;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
+import androidx.appcompat.widget.Toolbar;
 public class MenuVip extends AppCompatActivity {
 Button BotonVerCamara,BotonVerFotos,BotonSos,botonListarIncidencias;
     private final String EXTRA_USUARIO = "";
-
+Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_vip);
         final Usuario  usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+        toolbar = findViewById(R.id.toolbarMenuVip);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
         xmlToJava();
+
+
+
+
+
+
         BotonVerCamara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +82,62 @@ Button BotonVerCamara,BotonVerFotos,BotonSos,botonListarIncidencias;
         });
     }
 
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.mimenu,menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
+        //para que cada icono asignarle tareas diferentes
+        switch (item.getItemId()) {
+            case R.id.item1:
+                Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
+                startActivityForResult(intent, 0);
+                return true;
 
+            case R.id.item2:
+                Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
+                toast2.show();
+                return true;
+
+            case R.id.item3:
+                AlertDialog.Builder alert = new AlertDialog.Builder(MenuVip.this);
+                alert.setTitle("Advertencia");
+                alert.setCancelable(true);
+                alert.setIcon(R.drawable.exit);
+
+                alert.setMessage("¿Desea desconectarse?");
+
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                });
+                alert.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent llamada = new Intent(MenuVip.this, MainActivity.class);
+                        startActivity(llamada);
+                    }
+                });
+                alert.create().show();
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
 
 
 
