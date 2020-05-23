@@ -3,14 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
     <item
 
         android:id="@+id/item2"
         android:icon="@drawable/menu"
-        android:title="Administrar backup"
+        android:title="Administrar usuarios"
         app:showAsAction="ifRoom" />
-
 
     <item
 
@@ -18,6 +16,5 @@
         android:icon="@drawable/salida"
         android:title="Salir"
         app:showAsAction="ifRoom" />
-
 
 </menu>

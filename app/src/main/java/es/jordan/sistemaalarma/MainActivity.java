@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity  {
 
         Intent intent2 = new Intent(MainActivity.this, MenuAdmin.class); //ponemos en la actividad el objeto usuario
         intent2.putExtra(EXTRA_USUARIO, usuario1);
+        finish();
         startActivity(intent2);
     }
 
@@ -156,12 +157,14 @@ public class MainActivity extends AppCompatActivity  {
     public void pantallaUsuario(Usuario usuario1) {
         Intent intent = new Intent(MainActivity.this, MenuVip.class); //ponemos en la actividad el objeto usuario
         intent.putExtra(EXTRA_USUARIO, usuario1);
+        finish();
         startActivity(intent);
     }
 
     public void pantallaInvitado(Usuario usuario1) {
         Intent intent = new Intent(MainActivity.this, MenuInvitado.class); //ponemos en la actividad el objeto usuario
         intent.putExtra(EXTRA_USUARIO, usuario1);
+        finish();
         startActivity(intent);
     }
 

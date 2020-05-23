@@ -32,15 +32,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListarIncidencias extends AppCompatActivity {
-
-Toolbar toolbar;
+    private final String EXTRA_USUARIO = "";
+    Toolbar toolbar;
     ArrayList<DatosColmena> miLista;
     RecyclerView miRecycler;
-    TextView titulillo,prueba;
+    TextView titulillo;
+    Spinner spinner1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_incidencias);
+        final Usuario  usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         xmlToJava();
         toolbar = findViewById(R.id.toolbarListarIncidencias);
         setSupportActionBar(toolbar);
@@ -48,6 +50,38 @@ Toolbar toolbar;
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
+
+        ArrayList<Raspberry> listaRaspberrysPropias = new ArrayList();
+        listaRaspberrysPropias=mandarUsuarioYrecibirListaDeSusRaspberrys(usuarioPasado); //mando el usuario del
+        //que quiero recibir raspberrys
+        ArrayList<String> opciones4 = new ArrayList(); //en un array de string meto
+        for(Raspberry r:listaRaspberrysPropias)
+        {
+            opciones4.add(r.getModelo()+" "+r.getDireccion());
+        }
+
+        spinner1 = findViewById(R.id.spinnerlistarraspberrys);
+        spinner1.setPrompt("¿De cual de tus raspb quieres ver incidencias?");
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones4);
+        spinner1.setAdapter(adapter2);
+
+        String eleccion=spinner1.getSelectedItem().toString();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         miRecycler.setLayoutManager(new LinearLayoutManager(this));
 
@@ -70,14 +104,7 @@ Toolbar toolbar;
 
 
 
-        Toolbar toolbar = findViewById(R.id.toolbarListarIncidencias); //poniendo toolbar cn flechita de retroceso
-        if (null != toolbar) {
-            setSupportActionBar(toolbar);
-        }
 
-        ActionBar actionBar = getSupportActionBar();
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
-        actionBar.setDisplayHomeAsUpEnabled(true);//indicando en el manifest quien es el padre de esta actividad
 
 
 
@@ -88,22 +115,22 @@ Toolbar toolbar;
         //Toast.makeText(getApplicationContext(), listaIncidencias.toString(), Toast.LENGTH_LONG).show();
        // miLista = new ArrayList<DatosColmena>();
 
-        ArrayList<Combo> listaCombo = new ArrayList();
-        listaCombo=obtenerLista2();
+        //ArrayList<Combo> listaCombo = new ArrayList();
+        //listaCombo=obtenerLista2();
 
              //Incidencias    //listaincidencias
-        for (Combo aux: listaCombo) {
+        //for (Combo aux: listaCombo) {
 
             //Toast.makeText(getApplicationContext(), aux.hora.toString(), Toast.LENGTH_LONG).show();
              //aqui sacamos datos de 2 tablas, el modelo y la hora(raspberryId) es un objeto de Raspberry
-            miLista.add(new DatosColmena(aux.getModelo(), aux.getHora(), R.drawable.alarmi));
-            elAdaptador = new AdaptadorDatos(miLista);
-            elAdaptador.notifyDataSetChanged();
-            miRecycler.setAdapter(elAdaptador);
+            //miLista.add(new DatosColmena(aux.getModelo(), aux.getHora(), R.drawable.alarmi));
+           // elAdaptador = new AdaptadorDatos(miLista);
+            //elAdaptador.notifyDataSetChanged();
+            //miRecycler.setAdapter(elAdaptador);
 
 
 
-        }
+      //  }
 
 
 
@@ -175,9 +202,41 @@ Toolbar toolbar;
         miLista=new ArrayList<DatosColmena>();
         miRecycler= findViewById(R.id.recicler2);
         titulillo= findViewById(R.id.titulistar2);
-        prueba= findViewById(R.id.prueba);
+
+        spinner1 = findViewById(R.id.spinnerlistarraspberrys);
     }
 
+    public ArrayList<Raspberry>mandarUsuarioYrecibirListaDeSusRaspberrys(Usuario usuarioPasado){
+        ArrayList<Raspberry> listaRaspberrys = new ArrayList();
+        try {
+
+            //1º paso conectarse al servidor
+            String equipoServidor = "192.168.1.42";
+            int puertoServidor = 30560;
+            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+            //2º paso mandar el usuario que esta conectado como objeto
+            ObjectOutputStream objetoEntregar = new ObjectOutputStream(socketCliente.getOutputStream());
+            System.out.println("El objeto que mandara el cliente al servidor es: " + usuarioPasado);
+            objetoEntregar.writeObject(usuarioPasado);//el cliente manda el objeto al server
+            objetoEntregar.flush();
+            //3º paso recibir la lista de raspberrys que tiene ese usuario
+            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
+            listaRaspberrys= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+
+
+            listaRecibida.close();
+            objetoEntregar.close();
+            return listaRaspberrys;
+        }  catch (IOException ex) {
+        System.out.println(ex.getMessage());
+
+
+
+    } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return listaRaspberrys;
+    }
 
     public ArrayList<Incidencia> obtenerLista() {
         ArrayList<Incidencia> listaIncidencias = new ArrayList();
@@ -222,6 +281,28 @@ Toolbar toolbar;
             e.printStackTrace();
         }
         return listaCombo;
+
+    }
+    public ArrayList<Raspberry> obtenerListaRaspberry() {
+        ArrayList<Raspberry> listaRaspberrys = new ArrayList();
+        try {
+
+            String equipoServidor = "192.168.1.42";
+            int puertoServidor = 30510;
+            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+
+            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
+            listaRaspberrys= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            socketCliente.close();
+            return listaRaspberrys;
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return listaRaspberrys;
 
     }
 

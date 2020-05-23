@@ -40,11 +40,12 @@ private Toolbar toolbar;
         StrictMode.setThreadPolicy(policy);
 
         xmlToJava();
+        //iniciando toolbar
         toolbar = findViewById(R.id.toolbarAñadir);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+        //iniciando spinner
 
-        spinner1 = findViewById(R.id.spPais);
         spinner1.setPrompt("Selecciona un rol");
         String []opciones={"Admin","Usuario","Invitado"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones);
@@ -62,7 +63,7 @@ private Toolbar toolbar;
        }
 
 
-        spinnerR = findViewById(R.id.spinnerR);
+
         spinnerR.setPrompt("Selecciona una raspberry");
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones3);
         spinnerR.setAdapter(adapter2);

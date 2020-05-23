@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="es.jordan.sistemaalarma.AdministrarRespaldo">
+    android:background="@drawable/copia2"
+    android:theme="@android:style/ThemeOverlay.Material.Dark">
+    <TextView
+        android:layout_marginTop="30dp"
+        android:id="@+id/tituloAdministrarRespaldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="@font/titulin"
+        android:text="Administrar backup"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textColor="@color/roji">
+    </TextView>
 
-</android.support.constraint.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarRespaldo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/negro" />
+
+
+    <Button
+        android:id="@+id/botonCopia"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:text="REALIZAR BACKUP"
+        android:layout_below="@id/tituloAdministrarRespaldo"
+        android:textSize="20dp"
+        android:textColor="@color/roji"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/b1"
+        android:foreground="@drawable/b1"
+        />
+
+    <Button
+        android:id="@+id/botonRecuperar"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:text="IMPORTAR BACKUP"
+        android:layout_below="@id/botonCopia"
+        android:textSize="20dp"
+        android:textColor="@color/roji"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/b1"
+        android:foreground="@drawable/b1"
+        />
+
+
+
+
+
+
+</RelativeLayout>

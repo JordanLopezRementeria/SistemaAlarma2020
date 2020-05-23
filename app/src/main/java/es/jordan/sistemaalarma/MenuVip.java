@@ -17,9 +17,10 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 public class MenuVip extends AppCompatActivity {
-Button BotonVerCamara,BotonVerFotos,BotonSos,botonListarIncidencias;
+    Button BotonVerCamara,BotonVerFotos,BotonSos,botonListarIncidencias;
     private final String EXTRA_USUARIO = "";
-Toolbar toolbar;
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +78,7 @@ Toolbar toolbar;
                 //la diferencia que radica entre un action_dial y un action_call es que en el call
                 //esq dial puedes editar el numero y el call llama directamente
                 Intent intent = new Intent(v.getContext(), ListarIncidencias.class);
+                intent.putExtra(EXTRA_USUARIO, usuarioPasado);
                 startActivityForResult(intent, 0);
             }
         });
