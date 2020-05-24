@@ -16,24 +16,50 @@
         android:background="@color/negro" />
 
     <TextView
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/editStreaming"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
         android:fontFamily="@font/titulin"
         android:text="STREAMING EN DIRECTO"
         android:layout_centerHorizontal="true"
         android:textSize="30dp"
-        android:textColor="@color/roji">
-</TextView>
+        android:textColor="@color/roji"/>
+
+        <Spinner
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+
+            android:id="@+id/spinnerverstreaming"
+            android:layout_below="@id/editStreaming"
+            android:spinnerMode="dialog"
+            android:layout_width="match_parent"
+            android:layout_height="38dp" />
+
+
 
     <WebView
-        android:layout_below="@id/editStreaming"
+        android:layout_below="@id/spinnerverstreaming"
         android:id="@+id/webview"
-
+        android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_width="312dp"
-        android:layout_height="487dp" />
+        android:layout_height="300dp" />
+
+    <Button
+        android:id="@+id/botonvisualizar"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="15dp"
+        android:text="VISUALIZAR"
+        android:layout_below="@id/webview"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/b1"
+        android:foreground="@drawable/b1"
+        android:textSize="20dp"
+        android:textColor="@color/roji"
+        android:textStyle="bold" />
+
+
 
 </RelativeLayout>

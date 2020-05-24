@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -24,25 +25,30 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListarIncidencias extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
     Toolbar toolbar;
+    Button ver;
     ArrayList<DatosColmena> miLista;
     RecyclerView miRecycler;
     TextView titulillo;
     Spinner spinner1;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_incidencias);
-        final Usuario  usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+        final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         xmlToJava();
         toolbar = findViewById(R.id.toolbarListarIncidencias);
         setSupportActionBar(toolbar);
@@ -53,33 +59,34 @@ public class ListarIncidencias extends AppCompatActivity {
 
 
         ArrayList<Raspberry> listaRaspberrysPropias = new ArrayList();
-        listaRaspberrysPropias=mandarUsuarioYrecibirListaDeSusRaspberrys(usuarioPasado); //mando el usuario del
-        //que quiero recibir raspberrys
-        ArrayList<String> opciones4 = new ArrayList(); //en un array de string meto
-        for(Raspberry r:listaRaspberrysPropias)
-        {
-            opciones4.add(r.getModelo()+" "+r.getDireccion());
+        listaRaspberrysPropias = mandarUsuarioYrecibirListaDeSusRaspberrys(usuarioPasado); //mando el usuario del
+        //que quiero recibir raspberrys al servidor y este me contesta devolviendome la lista
+        ArrayList<String> opciones4 = new ArrayList(); //en un array de string meto el modelo y la direccion
+        //de cada raspB que he recibido
+        for (Raspberry r : listaRaspberrysPropias) {
+            opciones4.add(r.getRaspberryId()+":"+r.getModelo() + ":" + r.getDireccion());
         }
 
         spinner1 = findViewById(R.id.spinnerlistarraspberrys);
         spinner1.setPrompt("¿De cual de tus raspb quieres ver incidencias?");
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones4);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, opciones4);
         spinner1.setAdapter(adapter2);
 
-        String eleccion=spinner1.getSelectedItem().toString();
+
+
+        ver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String eleccion = spinner1.getSelectedItem().toString();
+               // Toast.makeText(getApplicationContext(), eleccion, Toast.LENGTH_SHORT).show();
+                obtenerIncidenciasDeLaRaspberryElegida(eleccion);
 
 
 
 
-
-
-
-
-
-
-
-
-
+            }
+        });
 
 
 
@@ -103,44 +110,72 @@ public class ListarIncidencias extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-        //cuando le de a la flecha volvera ahi
-        //ArrayList<Incidencia> listaIncidencias = new ArrayList();
-        //listaIncidencias=obtenerLista();
-        //Toast.makeText(getApplicationContext(), listaIncidencias.toString(), Toast.LENGTH_LONG).show();
-       // miLista = new ArrayList<DatosColmena>();
-
-        //ArrayList<Combo> listaCombo = new ArrayList();
-        //listaCombo=obtenerLista2();
-
-             //Incidencias    //listaincidencias
-        //for (Combo aux: listaCombo) {
-
-            //Toast.makeText(getApplicationContext(), aux.hora.toString(), Toast.LENGTH_LONG).show();
-             //aqui sacamos datos de 2 tablas, el modelo y la hora(raspberryId) es un objeto de Raspberry
-            //miLista.add(new DatosColmena(aux.getModelo(), aux.getHora(), R.drawable.alarmi));
-           // elAdaptador = new AdaptadorDatos(miLista);
-            //elAdaptador.notifyDataSetChanged();
-            //miRecycler.setAdapter(elAdaptador);
-
-
-
-      //  }
-
-
-
-
-
-
-
     }
 
-    public boolean onCreateOptionsMenu(Menu menu)
+    private void obtenerIncidenciasDeLaRaspberryElegida(String eleccion) {
+
+        ArrayList<Incidencia>listaIncidencias=new ArrayList();
+        String[] datos=eleccion.split(":");
+
+        String id="";
+        for(String item : datos) //solo recorremos el for una vez porque tan solo queremos hasta los dos primeros :
+        {
+           id=item;
+           break;
+        }
+      //  Toast toast2 = Toast.makeText(getApplicationContext(),id, Toast.LENGTH_LONG);
+        // toast2.show();
+        //1º paso una vez que tenemos el id de la raspberry que ya habiamos sacado de la base de datos
+        // se lo mandamos al server para que me diga que incidencias tiene
+        try{
+        String equipoServidor = "192.168.1.42";
+        int puertoServidor = 30570;
+        Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+        //2º paso mandar el usuario que esta conectado como objeto
+            OutputStream socketSalida = socketCliente.getOutputStream();
+            DataOutputStream escribir = new DataOutputStream(socketSalida);
+            escribir.writeUTF(id);
+         //3º paso recibir la lista de las incidencias de ese id de raspberry
+            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
+            listaIncidencias= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibo
+            //4º paso una vez tengo la lista solo seleccionare unos datos para mostrar en el recycler asi que la
+            //recorro voy poniendo los datos en la lista del recycler y luego lo vuelvo visible
+            miLista = new ArrayList<DatosColmena>();
+            AdaptadorDatos elAdaptador=new AdaptadorDatos(miLista);
+            for (Incidencia aux:listaIncidencias) {
+
+
+                //aqui sacamos datos de 2 tablas, el modelo y la hora(raspberryId) es un objeto de Raspberry
+                miLista.add(new DatosColmena(aux.getRaspberryId().getModelo(), aux.getHora(), R.drawable.alarma2));
+                elAdaptador = new AdaptadorDatos(miLista);
+                elAdaptador.notifyDataSetChanged();
+                miRecycler.setAdapter(elAdaptador);
+
+
+
+            }
+
+            miRecycler.setVisibility(View.VISIBLE);
+            elAdaptador.notifyDataSetChanged();
+
+
+
+
+
+            listaRecibida.close();
+
+
+
+
+    } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+        public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.mimenu2,menu);
@@ -149,15 +184,17 @@ public class ListarIncidencias extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
+        final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         switch (item.getItemId()) {
             case R.id.item1:
-                Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
+                Intent intent = new Intent(getApplicationContext(), MenuVip.class); //flechita que vuelve al
+                intent.putExtra(EXTRA_USUARIO, usuarioPasado);
                 startActivityForResult(intent, 0);
                 return true;
 
             case R.id.item2:
-                Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
-                toast2.show();
+               // Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
+            //    toast2.show();
                 return true;
 
             case R.id.item3:
@@ -202,7 +239,7 @@ public class ListarIncidencias extends AppCompatActivity {
         miLista=new ArrayList<DatosColmena>();
         miRecycler= findViewById(R.id.recicler2);
         titulillo= findViewById(R.id.titulistar2);
-
+        ver=findViewById(R.id.botonVer);
         spinner1 = findViewById(R.id.spinnerlistarraspberrys);
     }
 
