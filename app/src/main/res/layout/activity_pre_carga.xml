@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,30 +8,42 @@
     android:theme="@style/AppTheme"
     tools:context=".preCarga">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacion"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:lottie_fileName="animacionportada.json"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+  />
 
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="98dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imagenXML"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+
+        android:id="@+id/textoprecarga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/titulin"
+
+        android:text="Desarrollado por Jordan"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/blanquito">
+    </TextView>
     <ImageView
 
         android:id="@+id/imagenXML"
 
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="27dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:src="@drawable/alarmita_foreground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:foregroundGravity="center_horizontal"
+       />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

@@ -9,30 +9,35 @@ import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 public class preCarga extends AppCompatActivity {
     private VideoView video;
+    TextView texto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pre_carga);
-
-
-        activarAnimacion();
-        xmlTojava();
-        reproducirVideo();
+        xmlToJava();
+      // activarAnimacion();
 
 
 
-        new Handler().postDelayed(new Runnable() {
+
+
+        new Handler().postDelayed(new Runnable() { //actua similar a un hilo
             @Override
-            public void run() {
+            public void run() { //
                 Intent intent=new Intent(preCarga.this,MainActivity.class);
                 startActivity(intent); //ejecutamos el intent que hemos creado despues de 4s
             }
-        },1000);
+        },4000);
 
+    }
+
+    private void xmlToJava() {
+        texto=findViewById(R.id.textoprecarga);
     }
 
     private void reproducirVideo() {
@@ -42,10 +47,6 @@ public class preCarga extends AppCompatActivity {
         video.start();
     }
 
-    private void xmlTojava() {
-        video= findViewById(R.id.videoView);
-
-    }
 
     public void activarAnimacion()
     {
