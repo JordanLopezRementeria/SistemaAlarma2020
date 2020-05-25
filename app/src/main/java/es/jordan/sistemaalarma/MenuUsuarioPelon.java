@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class MenuUsuarioPelon extends AppCompatActivity {
 ImageView imagenVer,imagenActualizar,imagenListar;
 RecyclerView miRecycler;
-ArrayList<DatosColmena> miLista;
+ArrayList<DatosRecicler> miLista;
 TextView texto;
 EditText editNombre,editContraseña,editEmail;
 Button cerrar;
@@ -37,7 +37,7 @@ Button cerrar;
         Intent it = getIntent();
         final Usuario usuarioPasado = (Usuario) it.getSerializableExtra(EXTRA_USUARIO);
 
-        miLista=new ArrayList<DatosColmena>();//Lista de objetos
+        miLista=new ArrayList<DatosRecicler>();//Lista de objetos
         miRecycler.setLayoutManager(new LinearLayoutManager(this));
         AdaptadorDatos elAdaptador=new AdaptadorDatos(miLista);
         elAdaptador.setOnClickListener(new View.OnClickListener() {

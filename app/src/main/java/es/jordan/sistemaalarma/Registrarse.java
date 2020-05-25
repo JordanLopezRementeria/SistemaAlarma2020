@@ -97,7 +97,7 @@ public class Registrarse extends AppCompatActivity {
     public void insertarUsuario(Usuario usuario1) {
         try {
 
-            String equipoServidor = "192.168.1.42";
+            String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30500;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
             gestionarComunicacion(socketCliente, usuario1);

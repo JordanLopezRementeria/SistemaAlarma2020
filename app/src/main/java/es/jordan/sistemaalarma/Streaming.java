@@ -79,7 +79,7 @@ Button ver;
 
 
 
-        webView.loadUrl("http://alarmacaserajordan.ddns.net:8081/");
+       // webView.loadUrl("http://alarmacaserajordan.ddns.net:8081/");
 
 
 
@@ -246,7 +246,7 @@ Button ver;
         try {
 
             //1º paso conectarse al servidor
-            String equipoServidor = "192.168.1.42";
+            String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30560;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
             //2º paso mandar el usuario que esta conectado como objeto

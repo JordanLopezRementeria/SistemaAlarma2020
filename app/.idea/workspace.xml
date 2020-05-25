@@ -11,16 +11,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_airbnb_android_lottie_3_4_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_17_4_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_volley_volley_1_1_1_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdaptadorDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdaptadorDatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdministrarRespaldo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdministrarRespaldo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AnadirUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AnadirUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Apiario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Colmena.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/DatosColmena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/DatosRecicler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ListarIncidencias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ListarIncidencias.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/preCarga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/preCarga.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/anim/anim.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/anim/anim.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuUsuarioPelon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuUsuarioPelon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_pre_carga.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_pre_carga.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,6 +32,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="762fda180504" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -56,8 +60,8 @@
   <component name="ProjectId" id="1bpIhj7tYuiOfxpsoX8cfAXvNKx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_6_API_23" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-22T04:28:31.657Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="762fda180504" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-25T01:14:31.614Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/res/drawable" />
@@ -91,7 +95,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.preCarga">
+  <component name="RunManager" selected="Android App.MainActivity">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -407,8 +411,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Android App.preCarga" />
         <item itemvalue="Android App.MainActivity" />
+        <item itemvalue="Android App.preCarga" />
         <item itemvalue="Android App.Streaming" />
         <item itemvalue="Android App.AnadirUsuarios" />
         <item itemvalue="Android App.MenuVip" />
@@ -580,7 +584,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590339327938</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="pre nuevo diseño">
+      <created>1590358431593</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1590358431593</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -616,7 +627,8 @@
     <MESSAGE value="Poniendo toolbars a todo + mejorando menus" />
     <MESSAGE value="Viendo raspberrys de cada usuario" />
     <MESSAGE value="añadir camaras" />
-    <option name="LAST_COMMIT_MESSAGE" value="añadir camaras" />
+    <MESSAGE value="pre nuevo diseño" />
+    <option name="LAST_COMMIT_MESSAGE" value="pre nuevo diseño" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

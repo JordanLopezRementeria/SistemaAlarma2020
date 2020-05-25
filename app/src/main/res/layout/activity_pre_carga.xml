@@ -8,15 +8,6 @@
     android:theme="@style/AppTheme"
     tools:context=".preCarga">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animacion"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:lottie_fileName="animacionportada.json"
-        app:lottie_imageAssetsFolder="assets"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-  />
 
 
     <TextView
@@ -26,10 +17,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:fontFamily="@font/titulin"
-
-        android:text="Desarrollado por Jordan"
+        android:text="Desarrollado por Jordan López"
         android:layout_centerHorizontal="true"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:gravity="center_horizontal"
         android:textColor="@color/blanquito">
     </TextView>

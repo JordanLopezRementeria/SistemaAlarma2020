@@ -141,7 +141,7 @@ public class AdministrarRespaldo extends AppCompatActivity {
 
         try {
 
-            String equipoServidor = "192.168.1.42";
+            String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30520;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
             OutputStream socketSalida = socketCliente.getOutputStream();
@@ -161,7 +161,7 @@ public class AdministrarRespaldo extends AppCompatActivity {
     {
         try {
 
-            String equipoServidor = "192.168.1.42";
+            String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30530;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
             OutputStream socketSalida2 = socketCliente.getOutputStream();

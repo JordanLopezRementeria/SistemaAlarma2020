@@ -1,11 +1,11 @@
 package es.jordan.sistemaalarma;
 
-public class DatosColmena {
+public class DatosRecicler {
     private String nombre;
     private String informacion;
     private int foto;
 
-    public DatosColmena(String nombre, String informacion, int foto) {
+    public DatosRecicler(String nombre, String informacion, int foto) {
         this.nombre = nombre;
         this.informacion = informacion;
         this.foto = foto;

@@ -4,9 +4,7 @@ package es.jordan.sistemaalarma;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.os.StrictMode;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,12 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,13 +29,12 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ListarIncidencias extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
     Toolbar toolbar;
     Button ver;
-    ArrayList<DatosColmena> miLista;
+    ArrayList<DatosRecicler> miLista;
     RecyclerView miRecycler;
     TextView titulillo;
     Spinner spinner1;
@@ -128,7 +123,7 @@ public class ListarIncidencias extends AppCompatActivity {
         //1º paso una vez que tenemos el id de la raspberry que ya habiamos sacado de la base de datos
         // se lo mandamos al server para que me diga que incidencias tiene
         try{
-        String equipoServidor = "192.168.1.42";
+        String equipoServidor = "servidorwebjordan.ddns.net";
         int puertoServidor = 30570;
         Socket socketCliente = new Socket(equipoServidor, puertoServidor);
         //2º paso mandar el usuario que esta conectado como objeto
@@ -140,13 +135,13 @@ public class ListarIncidencias extends AppCompatActivity {
             listaIncidencias= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibo
             //4º paso una vez tengo la lista solo seleccionare unos datos para mostrar en el recycler asi que la
             //recorro voy poniendo los datos en la lista del recycler y luego lo vuelvo visible
-            miLista = new ArrayList<DatosColmena>();
+            miLista = new ArrayList<DatosRecicler>();
             AdaptadorDatos elAdaptador=new AdaptadorDatos(miLista);
             for (Incidencia aux:listaIncidencias) {
 
 
                 //aqui sacamos datos de 2 tablas, el modelo y la hora(raspberryId) es un objeto de Raspberry
-                miLista.add(new DatosColmena(aux.getRaspberryId().getModelo(), aux.getHora(), R.drawable.alarma2));
+                miLista.add(new DatosRecicler(aux.getRaspberryId().getModelo(), aux.getHora(), R.drawable.alarma2));
                 elAdaptador = new AdaptadorDatos(miLista);
                 elAdaptador.notifyDataSetChanged();
                 miRecycler.setAdapter(elAdaptador);
@@ -236,7 +231,7 @@ public class ListarIncidencias extends AppCompatActivity {
 
     private void xmlToJava() {
 
-        miLista=new ArrayList<DatosColmena>();
+        miLista=new ArrayList<DatosRecicler>();
         miRecycler= findViewById(R.id.recicler2);
         titulillo= findViewById(R.id.titulistar2);
         ver=findViewById(R.id.botonVer);
@@ -248,7 +243,7 @@ public class ListarIncidencias extends AppCompatActivity {
         try {
 
             //1º paso conectarse al servidor
-            String equipoServidor = "192.168.1.42";
+            String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30560;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
             //2º paso mandar el usuario que esta conectado como objeto
@@ -279,7 +274,7 @@ public class ListarIncidencias extends AppCompatActivity {
         ArrayList<Incidencia> listaIncidencias = new ArrayList();
         try {
 
-            String equipoServidor = "192.168.1.42";
+            String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30509;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
@@ -302,7 +297,7 @@ public class ListarIncidencias extends AppCompatActivity {
         ArrayList<Combo> listaCombo = new ArrayList();
         try {
 
-            String equipoServidor = "192.168.1.42";
+            String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30509;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
@@ -324,7 +319,7 @@ public class ListarIncidencias extends AppCompatActivity {
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
         try {
 
-            String equipoServidor = "192.168.1.42";
+            String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30510;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 

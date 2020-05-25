@@ -110,7 +110,7 @@ public class MenuVip extends AppCompatActivity {
 
     @Override
     protected void onPause() { //cuando se quita
-        handler.removeCallbacks(runnable); //stop handler when activity not visible
+        handler.removeCallbacks(runnable); //parar handler cuando no esta visible la activity
         super.onPause();
     }
 

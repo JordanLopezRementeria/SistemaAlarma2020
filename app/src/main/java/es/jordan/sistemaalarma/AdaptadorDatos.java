@@ -13,10 +13,10 @@ import java.util.ArrayList;
 
 public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHolderDatos> implements View.OnClickListener {
 
-    ArrayList<DatosColmena> miLista;
+    ArrayList<DatosRecicler> miLista;
     private View.OnClickListener escuchador;
 
-    public AdaptadorDatos(ArrayList<DatosColmena> miLista) {
+    public AdaptadorDatos(ArrayList<DatosRecicler> miLista) {
         this.miLista = miLista;
     }
 
@@ -64,7 +64,7 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
             laFoto = itemView.findViewById(R.id.idFoto);
         }
 
-        public void asignarDatos(DatosColmena datosColmena) {
+        public void asignarDatos(DatosRecicler datosColmena) {
             //Se asigna los datos del objeto recibido a las variables
             elNombre.setText(datosColmena.getNombre());
             laInformacion.setText(datosColmena.getInformacion());

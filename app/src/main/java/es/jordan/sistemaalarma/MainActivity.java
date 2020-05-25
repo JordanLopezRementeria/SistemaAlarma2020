@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity  {
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         try {
 
-            String equipoServidor = "192.168.1.42";
+            String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30504;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
