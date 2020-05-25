@@ -11,6 +11,11 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="@color/negro" />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+android:layout_below="@id/botonAceptarXML2"
+        android:id="@+id/lv"/>
 
     <TextView
         android:id="@+id/titulo1"
@@ -86,6 +91,25 @@
         android:background="@drawable/b1"
         android:foreground="@drawable/b1"
         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/select"
+        android:layout_below="@id/lv"
+        android:text="Select all"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/deselect"
+        android:layout_below="@id/select"
+        android:text="Deselect all"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deselect"
+        android:id="@+id/next"
+        android:text="Next activity"/>
 
 
 </RelativeLayout>

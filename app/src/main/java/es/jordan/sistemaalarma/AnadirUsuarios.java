@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -30,6 +31,12 @@ public class AnadirUsuarios extends AppCompatActivity {
 Button botonAñadir;
 Spinner spinner1,spinnerR;
 EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
+    private ListView lv;
+    private ArrayList<Model> modelArrayList;
+    private CustomAdapter customAdapter;
+    private Button btnselect, btndeselect, btnnext;
+
+    private  String[] animallist = new String[]{"Lion", "Tiger", "Leopard", "Cat"};
 private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,14 @@ private Toolbar toolbar;
         StrictMode.setThreadPolicy(policy);
 
         xmlToJava();
+
+        modelArrayList = getModel(false);
+        customAdapter = new CustomAdapter(this,modelArrayList);
+        lv.setAdapter(customAdapter);
+
+
+
+
         //iniciando toolbar
         toolbar = findViewById(R.id.toolbarAñadir);
         setSupportActionBar(toolbar);
@@ -59,7 +74,7 @@ private Toolbar toolbar;
         //de objetos no funcionaria el counstrucotr del spinner
        for(Raspberry r:listaRaspberrys)
        {
-          opciones3.add(r.getModelo());
+          opciones3.add(r.getRaspberryId()+":"+r.getModelo());
        }
 
 
@@ -77,7 +92,12 @@ private Toolbar toolbar;
         botonAñadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for (int i = 0; i < CustomAdapter.modelArrayList.size(); i++){
+                    if(CustomAdapter.modelArrayList.get(i).getSelected()) {
+                        Toast.makeText(getApplicationContext(), CustomAdapter.modelArrayList.get(i).getAnimal()+" ha sido seleccionado", Toast.LENGTH_SHORT).show();
 
+                    }
+                }
                 Usuario usuario1 = new Usuario();
                 usuario1.setNombre(nombreInsertar.getText().toString());
                 usuario1.setContraseña(contraseñaInsertar.getText().toString());
@@ -109,6 +129,24 @@ private Toolbar toolbar;
 
 
     }
+
+    private ArrayList<Model> getModel(boolean isSelect){
+        ArrayList<Model> list = new ArrayList<>();
+        ArrayList<Raspberry> listaRaspberrys = new ArrayList();
+        listaRaspberrys=obtenerListaRaspberry();
+
+        for(Raspberry r:listaRaspberrys){
+
+            Model model = new Model();
+            model.setSelected(isSelect);
+            model.setAnimal(r.getModelo());
+            Toast toast = Toast.makeText(getApplicationContext(),r.getRaspberryId()+":"+r.getModelo(), Toast.LENGTH_LONG);
+            toast.show();
+            list.add(model);
+        }
+        return list;
+    }
+
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater=getMenuInflater();
@@ -182,6 +220,10 @@ private Toolbar toolbar;
         nombreInsertar= findViewById(R.id.nombreInsertar);
         contraseñaInsertar= findViewById(R.id.contraseñaInsertar);
         direccionInsertar= findViewById(R.id.direccionInsertar);
+        lv = (ListView) findViewById(R.id.lv);
+        btnselect = (Button) findViewById(R.id.select);
+        btndeselect = (Button) findViewById(R.id.deselect);
+        btnnext = (Button) findViewById(R.id.next);
 
     }
 
