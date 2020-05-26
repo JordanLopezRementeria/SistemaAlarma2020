@@ -8,12 +8,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,8 +20,9 @@ import android.widget.VideoView;
 
 public class MenuInvitado extends AppCompatActivity {
     private VideoView video;
-    private TextView textoCorreo;
-Toolbar toolbar;
+    private ImageView textoCorreo;
+    TextView titulo;
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +32,7 @@ Toolbar toolbar;
         getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
         xmlTojava();
         reproducirVideo();
-        textoSubrayado();
+
 
 
         textoCorreo.setOnClickListener(new View.OnClickListener() { //onclick del textview
@@ -47,7 +47,7 @@ Toolbar toolbar;
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.mimenu2,menu);
+        inflater.inflate(R.menu.mimenusolosalida,menu);
         return true;
     }
     @Override
@@ -55,7 +55,7 @@ Toolbar toolbar;
         //para que cada icono asignarle tareas diferentes
         switch (item.getItemId()) {
             case R.id.item1:
-                Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class); //flechita que vuelve al
                 startActivityForResult(intent, 0);
                 return true;
 
@@ -100,13 +100,7 @@ Toolbar toolbar;
 
         }
     }
-    private void textoSubrayado() {
-        //para subrayar el texto
-        SpannableString mitextoU = new SpannableString("¿Deseas saber más?");
-        mitextoU.setSpan(new UnderlineSpan(), 0, mitextoU.length(), 0);
-        textoCorreo.setText(mitextoU);
 
-    }
 
 
     private void enlaceMail() {
@@ -142,7 +136,8 @@ Toolbar toolbar;
 
     private void xmlTojava() {
         video= findViewById(R.id.videoView3);
-        textoCorreo= findViewById(R.id.textoCorreo);
+        textoCorreo= findViewById(R.id.imageninfo);
+        titulo=findViewById(R.id.titulo1);
 
 
     }

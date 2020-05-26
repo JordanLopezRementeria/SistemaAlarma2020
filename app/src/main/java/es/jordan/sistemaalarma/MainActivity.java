@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  {
     private final String EXTRA_USUARIO = "";
-    Button botonIniciar, botonRegistrar;
+    ImageView botonIniciar, botonRegistrar;
     EditText email1, contraseña1;
     TTSManager ttsManager = null;
 

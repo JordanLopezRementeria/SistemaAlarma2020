@@ -6,7 +6,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondillo"
+    android:background="@drawable/copia2"
     android:theme="@android:style/ThemeOverlay.Material.Dark">
 
 
@@ -48,8 +48,8 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="64dp"
-        android:textColorHint="@color/blanquito"
-        android:textColor="@color/blanquito"
+
+
         android:hint="Dirección de correo"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="@+id/input_layout_password"
@@ -64,8 +64,8 @@
         android:layout_marginRight="30dp"
         android:hint="Contraseña"
 
-        android:textColorHint="@color/blanquito"
-        android:textColor="@color/blanquito"
+
+
         android:paddingTop="280dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,43 +83,30 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
+    <ImageView
         android:id="@+id/botonIniciarXML"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="141dp"
         android:layout_marginTop="91dp"
         android:layout_marginEnd="141dp"
         android:layout_marginBottom="24dp"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
-        android:text="INICIAR"
+        android:src="@drawable/entrar"
         android:textSize="20dp"
-
-        android:textColor="@color/roji"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/botonAceptarXML"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_layout_password" />
 
-    <Button
+    <ImageView
         android:id="@+id/botonAceptarXML"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="141dp"
         android:layout_marginTop="70dp"
         android:layout_marginEnd="141dp"
         android:layout_marginBottom="170dp"
-        android:background="@drawable/b2"
-        android:foreground="@drawable/b2"
-        android:text="REGISTRARSE"
-        android:textSize="20dp"
-
-        android:textColor="@color/roji"
-        android:textStyle="bold"
-
-
+         android:src="@drawable/registrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

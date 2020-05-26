@@ -26,65 +26,48 @@
         android:background="@color/negro" />
 
 
-    <Button
+    <ImageView
         android:id="@+id/botonAñadir"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="AÑADIR USUARIO"
-        android:textSize="20dp"
-        android:textColor="@color/roji"
-        android:textStyle="bold"
+        android:src="@drawable/crearusuario"
         android:layout_below="@id/tituloMenuAdmin"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
+
         />
 
-    <Button
+    <ImageView
         android:id="@+id/botonEliminar"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="ELIMINAR USUARIO"
+        android:src="@drawable/eliminarusuario"
         android:layout_below="@id/botonAñadir"
-        android:textSize="20dp"
-        android:textColor="@color/roji"
-        android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
+
         />
 
 
-    <Button
+    <ImageView
         android:id="@+id/botonListar"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="LISTAR USUARIO"
+        android:src="@drawable/listarusuarios"
         android:layout_below="@id/botonEliminar"
-        android:textSize="20dp"
-        android:textColor="@color/roji"
-        android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
+
         />
 
-    <Button
+    <ImageView
         android:id="@+id/botonModificar"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="MODIFICAR USUARIO"
+        android:src="@drawable/modificarusuario"
         android:layout_below="@id/botonListar"
-        android:textSize="20dp"
-        android:textColor="@color/roji"
-        android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
         />
 
 

@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -22,7 +23,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 
 public class AdministrarRespaldo extends AppCompatActivity {
-    Button copia,recuperar;
+    ImageView copia,recuperar;
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

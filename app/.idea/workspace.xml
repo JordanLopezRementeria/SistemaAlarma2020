@@ -10,18 +10,53 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="">
+    <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="empiezo captchas">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_amitshekhar_android_android_networking_1_0_2_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_2_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_10_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_14_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/b3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/b4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/b6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/b7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/capcha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/cliente.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/copia2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/crearusuario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/eliminarusuario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/entrar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/hacercopia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/imagen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/info.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/listarusuarios.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/modificarusuario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/notificacion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/plantilla.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/registrar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/registrarnuevo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/restaurarcopia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/soli.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/sos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/ver.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/ver1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AnadirUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AnadirUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdministrarRespaldo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdministrarRespaldo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ListarIncidencias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ListarIncidencias.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuInvitado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuInvitado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuUsuarioPelon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuUsuarioPelon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ModificarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ModificarUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Streaming.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Streaming.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/preCarga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/PreCarga.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/copia2.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_administrar_respaldo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_administrar_respaldo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_anadir_usuarios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_anadir_usuarios.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_eliminar_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_eliminar_usuario.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_listar_incidencias.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_listar_incidencias.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_invitado.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_invitado.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_usuario_pelon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_usuario_pelon.xml" afterDir="false" />
@@ -30,6 +65,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_pre_carga.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_pre_carga.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_registrarse.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_registrarse.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_streaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_streaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/list_item_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/list_item_layout.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,9 +105,10 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="762fda180504" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-25T01:14:31.614Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/res/drawable" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -83,8 +120,8 @@
       <recent name="es.jordan.sistemaalarma" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Jordan\Desktop\ProyectoDoc\ApiarioJordan2402\ApiarioJordan2402\app" />
       <recent name="C:\Users\Jordan\Desktop\ProyectoDoc\ApiarioJordan2402\ApiarioJordan2402\app\src\main\res\drawable" />
+      <recent name="C:\Users\Jordan\Desktop\ProyectoDoc\ApiarioJordan2402\ApiarioJordan2402\app" />
       <recent name="C:\Users\Jordan\Desktop\ProyectoDoc\ApiarioJordan2402\ApiarioJordan2402\app\src\main\res\menu" />
       <recent name="C:\Users\Jordan\Desktop\ProyectoDoc\ApiarioJordan2402\ApiarioJordan2402" />
     </key>
@@ -105,57 +142,6 @@
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AnadirUsuarios" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
-      <module name="app" />
-      <option name="DEPLOY" value="true" />
-      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
-      <option name="DEPLOY_AS_INSTANT" value="false" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="specific_activity" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Hybrid>
-      <Java />
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
-      </Profilers>
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="es.jordan.sistemaalarma.AnadirUsuarios" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
@@ -262,7 +248,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Streaming" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
+    <configuration name="MenuUsuarioPelon" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -308,7 +294,58 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="es.jordan.sistemaalarma.Streaming" />
+      <option name="ACTIVITY_CLASS" value="es.jordan.sistemaalarma.MenuUsuarioPelon" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ModificarUsuario" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="specific_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="es.jordan.sistemaalarma.ModificarUsuario" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
@@ -410,7 +447,7 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="es.jordan.sistemaalarma.preCarga" />
+      <option name="ACTIVITY_CLASS" value="es.jordan.sistemaalarma.PreCarga" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
@@ -418,10 +455,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Android App.preCarga" />
+        <item itemvalue="Android App.MenuUsuarioPelon" />
+        <item itemvalue="Android App.ModificarUsuario" />
         <item itemvalue="Android App.ApiarioColmena" />
         <item itemvalue="Android App.MainActivity" />
-        <item itemvalue="Android App.Streaming" />
-        <item itemvalue="Android App.AnadirUsuarios" />
       </list>
     </recent_temporary>
   </component>
@@ -611,7 +648,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590379656894</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="empiezo captchas">
+      <created>1590459892896</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1590459892896</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -650,7 +694,8 @@
     <MESSAGE value="pre nuevo diseño" />
     <MESSAGE value="Servidor DNS en maquina virtual cambiando las ip" />
     <MESSAGE value="añadiendo checkbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="añadiendo checkbox" />
+    <MESSAGE value="empiezo captchas" />
+    <option name="LAST_COMMIT_MESSAGE" value="empiezo captchas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

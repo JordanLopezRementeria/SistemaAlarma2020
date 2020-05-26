@@ -12,22 +12,31 @@
         android:layout_alignParentTop="true"
         android:background="@color/negro" />
 
-    <TextView
-        android:id="@+id/titulo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/titulin"
-        android:text=""
-        android:textSize="30dp"></TextView>
-
+    <ListView
+           android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+         android:layout_below="@id/mensaje"
+        android:clickable="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:focusable="true"
+        android:visibility="visible"
+        android:id="@+id/listView" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/negro" />
     <EditText
         android:id="@+id/nombre1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titulo1"
-        android:layout_marginTop="30dp"
+        android:textColorHint="@color/blanquito"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:hint="Nombre" />
 
 
@@ -36,6 +45,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/nombre1"
+        android:textColorHint="@color/blanquito"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:hint="Contraseña"
         android:inputType="textPassword" />
 
@@ -44,38 +56,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/contraseña1"
+        android:textColorHint="@color/blanquito"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:hint="Correo electrónico" />
-
-
-    <Button
-        android:id="@+id/botonCancelarXML"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/mensaje"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/direccion1"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="68dp"
-        android:layout_toRightOf="@id/botonAceptarXML"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
+        android:layout_below="@+id/direccion1"
+        android:textSize="20dp"
+        android:textColorHint="@color/blanquito"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Selecciona el usuario a modificar" />
 
-        android:text="CANCELAR"
-        android:textColor="@drawable/b1texto"
 
-        />
-
-    <Button
-        android:id="@+id/botonAceptarXML"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/direccion1"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="68dp"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
-        android:text="ACEPTAR"
-        android:textColor="@drawable/b1texto"
-
-        />
 
 
 </RelativeLayout>

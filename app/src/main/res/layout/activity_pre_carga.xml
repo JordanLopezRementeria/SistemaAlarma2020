@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/copia2"
     android:theme="@style/AppTheme"
-    tools:context=".preCarga">
+    tools:context=".PreCarga">
 
 
 
@@ -20,6 +20,7 @@
         android:text="Desarrollado por Jordan López"
         android:layout_centerHorizontal="true"
         android:textSize="20dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
         android:textColor="@color/blanquito">
     </TextView>

@@ -13,71 +13,54 @@
         android:layout_alignParentTop="true"
         android:background="@color/negro" />
 
-
-
-
-    <Button
-        android:id="@+id/botonVerCamara"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="50dp"
-
-        android:text="VER CAMARA"
-
-        android:textSize="20dp"
-        android:textColor="@color/roji"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
-        />
-
-    <Button
-        android:id="@+id/botonVerFotos"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="50dp"
-
-        android:text="VER FOTOS"
-       android:layout_below="@id/botonVerCamara"
-        android:textSize="20dp"
-        android:textColor="@color/roji"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
-        />
-
-
-    <Button
+    <ImageView
+       android:layout_marginTop="20dp"
         android:id="@+id/botonSos"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="50dp"
-        android:text="SOS"
-        android:layout_below="@id/botonVerFotos"
-        android:textSize="20dp"
-        android:textColor="@color/roji"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
+        android:layout_marginLeft="40dp"
+       android:layout_below="@id/toolbarMenuVip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/sos"
+
         />
 
+    <ImageView
 
-    <Button
-        android:id="@+id/botonListarIncidencias"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="50dp"
-        android:text="Listar incidencias"
-        android:layout_below="@id/botonSos"
-        android:textSize="20dp"
-        android:textColor="@color/roji"
-        android:textStyle="bold"
+        android:id="@+id/botonVerCamara"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/botonSos"
+        android:src="@drawable/ver1" />
+
+
+
+
+    <ImageView
+
+        android:id="@+id/botonVerFotos"
+        android:layout_below="@id/botonVerCamara"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ver"
+
+        />
+
+    <ImageView
+
+        android:id="@+id/botonListarIncidencias"
+        android:layout_below="@id/botonVerFotos"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/notificacion"
+
         />
 
 

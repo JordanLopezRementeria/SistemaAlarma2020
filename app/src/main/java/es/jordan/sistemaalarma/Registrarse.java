@@ -1,37 +1,54 @@
 package es.jordan.sistemaalarma;
 
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.os.StrictMode;
 import android.os.StrictMode.ThreadPolicy;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.EditText;
 
+import android.widget.ImageView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
+
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.google.android.gms.common.api.GoogleApiClient;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Random;
 
 
-
-public class Registrarse extends AppCompatActivity {
+public class Registrarse extends AppCompatActivity  {
     private final String EXTRA_USUARIO = "";
     Button botonCancelar;
     Button botonRegistrarse;
     EditText editNombre;
     EditText editContraseña;
     EditText editEmail;
+    EditText respuesta;
     TTSManager ttsManager = null;
+    Toolbar toolbar;
+    ImageView captchaImagen;
+    String random="x";
+    Boolean detectorCaptcha=false; //lo pondremos a true cuando lo pase con exito
+    GoogleApiClient googleApiClient;//necesitamos entrar en recaptcha de google y configurar
+
+
 
 
     @Override
@@ -45,6 +62,14 @@ public class Registrarse extends AppCompatActivity {
         xmlToJava();
         textoToVoz();
 
+        toolbar = findViewById(R.id.toolbarRegistrarse);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+
+
+
+
+
         botonCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,13 +79,27 @@ public class Registrarse extends AppCompatActivity {
                 startActivityForResult(intent, 0);
             }
         });
+      captchaImagen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                reproducirSonidoRandom();
+
+            }
+        });
 
 
         botonRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                comprobacionCaptcha();
+                if(detectorCaptcha==false)
+                {
+                    Toast.makeText(getApplicationContext(), "Debes completar el formulario con éxito", Toast.LENGTH_LONG).show();
 
-
+                }
+                else
+                {
                 Usuario usuario1 = new Usuario();
                 usuario1.setNombre(editNombre.getText().toString());
                 usuario1.setContraseña(editContraseña.getText().toString());
@@ -94,7 +133,6 @@ public class Registrarse extends AppCompatActivity {
                     }
                     else {
                         insertarUsuario(usuario1);
-                        ttsManager.initQueue("Bienvenido "+usuario1.getNombre().toString());
                         limpiarCajas();
                         Intent intent = new Intent(v.getContext(), MainActivity.class);
                         startActivityForResult(intent, 0);
@@ -102,12 +140,67 @@ public class Registrarse extends AppCompatActivity {
                 }
 
             }
-
+            }
         });
 
 
     }
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.mimenusolosalida,menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
+        //para que cada icono asignarle tareas diferentes
+        switch (item.getItemId()) {
+            case R.id.item1:
+                Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
+                startActivityForResult(intent, 0);
+                return true;
 
+            case R.id.item2:
+              //  Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
+              //  toast2.show();
+                return true;
+
+            case R.id.item3:
+                AlertDialog.Builder alert = new AlertDialog.Builder(Registrarse.this);
+                alert.setTitle("Advertencia");
+                alert.setCancelable(true);
+                alert.setIcon(R.drawable.exit);
+
+                alert.setMessage("¿Desea desconectarse?");
+
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                });
+                alert.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent llamada = new Intent(Registrarse.this, MainActivity.class);
+                        startActivity(llamada);
+                    }
+                });
+                alert.create().show();
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
 
     public void xmlToJava() {
         botonRegistrarse = findViewById(R.id.botonAceptarXML);
@@ -115,7 +208,11 @@ public class Registrarse extends AppCompatActivity {
         editNombre = findViewById(R.id.nombre1);
         editContraseña = findViewById(R.id.contraseña1);
         editEmail = findViewById(R.id.direccion1);
-    }
+
+        respuesta=findViewById(R.id.respuesta);
+        captchaImagen=findViewById(R.id.captchaImagen);
+        }
+
 
     public void textoToVoz() {
         ttsManager = new TTSManager();
@@ -188,6 +285,34 @@ public class Registrarse extends AppCompatActivity {
 
     }
 
+    public void reproducirSonidoRandom()
+    {
+        String[] palabrasRandom = {"paludo","palabra","adivina","pera","rojo","sobresaliente","oculto","cabra","tigre","barco","rey","reina","llavero","improvisar","juego","coche","alucinante","alumno","profesor","pescar","anciano"};
+        int numeroGenerado = new Random().nextInt(palabrasRandom.length); //genero numero aleatorio con maximo la longitud del array
+                                                            //cada numero corresponde con 1 posicion del array y esa palabra le asocio ese id del array
+        random = (palabrasRandom[numeroGenerado]);
+        ttsManager.initQueue(random);
+    }
+
+
+    public void comprobacionCaptcha()
+    {
+
+        if(respuesta.getText().toString().toUpperCase().equals(random.toUpperCase())) //paso todo a mayus
+        {
+            detectorCaptcha=true;
+            Toast.makeText(getApplicationContext(), "Datos correctos", Toast.LENGTH_SHORT).show();
+
+        }
+        else
+        {
+            detectorCaptcha=false;
+            Toast.makeText(getApplicationContext(), "Captcha incorrecto o incompleto", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+    }
 
 
 

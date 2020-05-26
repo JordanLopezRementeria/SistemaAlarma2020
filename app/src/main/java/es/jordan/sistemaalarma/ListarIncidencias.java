@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +34,7 @@ import java.util.ArrayList;
 public class ListarIncidencias extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
     Toolbar toolbar;
-    Button ver;
+    ImageView ver;
     ArrayList<DatosRecicler> miLista;
     RecyclerView miRecycler;
     TextView titulillo;
@@ -58,20 +59,23 @@ public class ListarIncidencias extends AppCompatActivity {
         //que quiero recibir raspberrys al servidor y este me contesta devolviendome la lista
         ArrayList<String> opciones4 = new ArrayList(); //en un array de string meto el modelo y la direccion
         //de cada raspB que he recibido
-        for (Raspberry r : listaRaspberrysPropias) {
-            opciones4.add(r.getRaspberryId()+":"+r.getModelo() + ":" + r.getDireccion());
+
+        {
+            for (Raspberry r : listaRaspberrysPropias) {
+                opciones4.add(r.getRaspberryId() + ":" + r.getModelo() + ":" + r.getDireccion());
+            }
+
+            spinner1 = findViewById(R.id.spinnerlistarraspberrys);
+            spinner1.setPrompt("¿De cual de tus raspb quieres ver incidencias?");
+            ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, opciones4);
+            spinner1.setAdapter(adapter2);
+
+
         }
-
-        spinner1 = findViewById(R.id.spinnerlistarraspberrys);
-        spinner1.setPrompt("¿De cual de tus raspb quieres ver incidencias?");
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, opciones4);
-        spinner1.setAdapter(adapter2);
-
-
-
         ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 String eleccion = spinner1.getSelectedItem().toString();
                // Toast.makeText(getApplicationContext(), eleccion, Toast.LENGTH_SHORT).show();
@@ -136,26 +140,32 @@ public class ListarIncidencias extends AppCompatActivity {
             //4º paso una vez tengo la lista solo seleccionare unos datos para mostrar en el recycler asi que la
             //recorro voy poniendo los datos en la lista del recycler y luego lo vuelvo visible
             miLista = new ArrayList<DatosRecicler>();
-            AdaptadorDatos elAdaptador=new AdaptadorDatos(miLista);
-            for (Incidencia aux:listaIncidencias) {
+            if(listaIncidencias.toString().equals(null) || listaIncidencias.toString()==null || listaIncidencias.toString().equals("[]"))
+            {
+                miRecycler.setVisibility(View.INVISIBLE);
+                 Toast toast2 = Toast.makeText(getApplicationContext(),"Sin incidencias en la raspberry seleccionada", Toast.LENGTH_LONG);
+                   toast2.show();
+            }
+            else {
+                miRecycler.setVisibility(View.VISIBLE);
+                AdaptadorDatos elAdaptador = new AdaptadorDatos(miLista);
+                for (Incidencia aux : listaIncidencias) {
 
 
-                //aqui sacamos datos de 2 tablas, el modelo y la hora(raspberryId) es un objeto de Raspberry
-                miLista.add(new DatosRecicler(aux.getRaspberryId().getModelo(), aux.getHora(), R.drawable.alarma2));
-                elAdaptador = new AdaptadorDatos(miLista);
+                    //aqui sacamos datos de 2 tablas, el modelo y la hora(raspberryId) es un objeto de Raspberry
+                    miLista.add(new DatosRecicler(aux.getRaspberryId().getModelo(), aux.getHora(), R.drawable.alarma2));
+                    elAdaptador = new AdaptadorDatos(miLista);
+                    elAdaptador.notifyDataSetChanged();
+                    miRecycler.setAdapter(elAdaptador);
+
+
+                }
+
+                miRecycler.setVisibility(View.VISIBLE);
                 elAdaptador.notifyDataSetChanged();
-                miRecycler.setAdapter(elAdaptador);
-
 
 
             }
-
-            miRecycler.setVisibility(View.VISIBLE);
-            elAdaptador.notifyDataSetChanged();
-
-
-
-
 
             listaRecibida.close();
 

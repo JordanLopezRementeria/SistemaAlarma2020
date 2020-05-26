@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-public class preCarga extends AppCompatActivity {
+public class PreCarga extends AppCompatActivity {
     private VideoView video;
     TextView texto;
     @Override
@@ -29,7 +29,7 @@ public class preCarga extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() { //actua similar a un hilo
             @Override
             public void run() { //
-                Intent intent=new Intent(preCarga.this,MainActivity.class);
+                Intent intent=new Intent(PreCarga.this,MainActivity.class);
                 startActivity(intent); //ejecutamos el intent que hemos creado despues de 4s
             }
         },4000);
