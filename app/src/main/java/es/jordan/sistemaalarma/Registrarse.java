@@ -66,12 +66,40 @@ public class Registrarse extends AppCompatActivity {
                 usuario1.setContraseña(editContraseña.getText().toString());
                 usuario1.setEmail(editEmail.getText().toString());
                 usuario1.setRol("invitado");
-
                 //usuario1.setRol("invitado");
-                insertarUsuario(usuario1);
+                if (usuario1.getNombre().trim().length() == 0 || usuario1.getContraseña().trim().length() == 0 || usuario1.getEmail().trim().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(v.getContext(), MainActivity.class);
-                startActivityForResult(intent, 0);
+                }
+                else {
+                    boolean detector=false;
+                    ArrayList<Usuario> listaUsuarios = new ArrayList();
+                    listaUsuarios=obtenerLista();
+
+
+                    for (Usuario aux: listaUsuarios) {
+
+                        if (aux.getNombre().equals(usuario1.getNombre()) || aux.getEmail().equals(usuario1.getEmail())) {
+                            detector=true;//hemos detectado un usuario con esos datos
+                            break;
+
+                        }
+
+                    }
+
+                    if(detector==true)
+                    {
+                        Toast.makeText(getApplicationContext(), "Ya existe un usuario con ese nombre o email", Toast.LENGTH_SHORT).show();
+                        limpiarCajas();
+                    }
+                    else {
+                        insertarUsuario(usuario1);
+                        ttsManager.initQueue("Bienvenido "+usuario1.getNombre().toString());
+                        limpiarCajas();
+                        Intent intent = new Intent(v.getContext(), MainActivity.class);
+                        startActivityForResult(intent, 0);
+                    }
+                }
 
             }
 
@@ -128,4 +156,39 @@ public class Registrarse extends AppCompatActivity {
 
 
     }
+
+
+    public ArrayList<Usuario> obtenerLista() {
+        ArrayList<Usuario> listaUsuarios = new ArrayList();
+        try {
+
+            String equipoServidor = "servidorwebjordan.ddns.net";
+            int puertoServidor = 30504;
+            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+
+            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
+            listaUsuarios= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            socketCliente.close();
+            return listaUsuarios;
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return listaUsuarios;
+
+    }
+    private void limpiarCajas() {
+        editNombre.setText("");
+        editContraseña.setText("");
+        editEmail.setText("");
+
+
+    }
+
+
+
+
 }

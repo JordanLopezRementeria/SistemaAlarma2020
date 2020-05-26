@@ -29,14 +29,13 @@ import java.util.ArrayList;
 
 public class AnadirUsuarios extends AppCompatActivity {
 Button botonAñadir;
-Spinner spinner1,spinnerR;
+Spinner spinner1;
 EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
-    private ListView lv;
+
     private ArrayList<Model> modelArrayList;
     private CustomAdapter customAdapter;
-    private Button btnselect, btndeselect, btnnext;
 
-    private  String[] animallist = new String[]{"Lion", "Tiger", "Leopard", "Cat"};
+
 private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +44,8 @@ private Toolbar toolbar;
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
         xmlToJava();
 
-        modelArrayList = getModel(false);
-        customAdapter = new CustomAdapter(this,modelArrayList);
-        lv.setAdapter(customAdapter);
 
 
 
@@ -79,9 +74,7 @@ private Toolbar toolbar;
 
 
 
-        spinnerR.setPrompt("Selecciona una raspberry");
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones3);
-        spinnerR.setAdapter(adapter2);
+
 
 
 
@@ -92,12 +85,8 @@ private Toolbar toolbar;
         botonAñadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i = 0; i < CustomAdapter.modelArrayList.size(); i++){
-                    if(CustomAdapter.modelArrayList.get(i).getSelected()) {
-                        Toast.makeText(getApplicationContext(), CustomAdapter.modelArrayList.get(i).getAnimal()+" ha sido seleccionado", Toast.LENGTH_SHORT).show();
 
-                    }
-                }
+
                 Usuario usuario1 = new Usuario();
                 usuario1.setNombre(nombreInsertar.getText().toString());
                 usuario1.setContraseña(contraseñaInsertar.getText().toString());
@@ -110,11 +99,35 @@ private Toolbar toolbar;
 
                 }
                 else {
-                    insertarUsuario(usuario1);
-                    limpiarCajas();
-                    Toast.makeText(getApplicationContext(), "Usuario añadido con éxito", Toast.LENGTH_SHORT).show();
+                    boolean detector=false;
+                    ArrayList<Usuario> listaUsuarios = new ArrayList();
+                    listaUsuarios=obtenerLista();
 
+
+                    for (Usuario aux: listaUsuarios) {
+
+                        if (aux.getNombre().equals(usuario1.getNombre()) || aux.getEmail().equals(usuario1.getEmail())) {
+                           detector=true;//hemos detectado un usuario con esos datos
+                            break;
+
+                        }
+
+                    }
+
+                    if(detector==true)
+                    {
+                        Toast.makeText(getApplicationContext(), "Ya existe un usuario con ese nombre o email", Toast.LENGTH_SHORT).show();
+                        limpiarCajas();
+                    }
+                    else {
+                        insertarUsuario(usuario1);
+                        Toast.makeText(getApplicationContext(), "Usuario añadido con éxito", Toast.LENGTH_SHORT).show();
+                        limpiarCajas();
+                        Intent intent = new Intent(v.getContext(), MenuAdmin.class);
+                        startActivityForResult(intent, 0);
+                    }
                 }
+
 
             }
 
@@ -130,7 +143,7 @@ private Toolbar toolbar;
 
     }
 
-    private ArrayList<Model> getModel(boolean isSelect){
+    private ArrayList<Model> getModel(boolean isSelect){ //aqui es donde obtengo lo que tiene seleccionado el checkbox
         ArrayList<Model> list = new ArrayList<>();
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
         listaRaspberrys=obtenerListaRaspberry();
@@ -139,9 +152,9 @@ private Toolbar toolbar;
 
             Model model = new Model();
             model.setSelected(isSelect);
-            model.setAnimal(r.getModelo());
-            Toast toast = Toast.makeText(getApplicationContext(),r.getRaspberryId()+":"+r.getModelo(), Toast.LENGTH_LONG);
-            toast.show();
+            model.setAnimal(r.getRaspberryId()+":"+r.getModelo()+"esta clickado");
+            // Toast toast = Toast.makeText(getApplicationContext(),r.getRaspberryId()+":"+r.getModelo(), Toast.LENGTH_LONG);
+            // toast.show();
             list.add(model);
         }
         return list;
@@ -216,14 +229,12 @@ private Toolbar toolbar;
     private void xmlToJava() {
         botonAñadir= findViewById(R.id.botonAceptarXML2);
         spinner1 = findViewById(R.id.spPais);
-        spinnerR = findViewById(R.id.spinnerR);
+
         nombreInsertar= findViewById(R.id.nombreInsertar);
         contraseñaInsertar= findViewById(R.id.contraseñaInsertar);
         direccionInsertar= findViewById(R.id.direccionInsertar);
-        lv = (ListView) findViewById(R.id.lv);
-        btnselect = (Button) findViewById(R.id.select);
-        btndeselect = (Button) findViewById(R.id.deselect);
-        btnnext = (Button) findViewById(R.id.next);
+
+
 
     }
 
@@ -279,6 +290,28 @@ private Toolbar toolbar;
             e.printStackTrace();
         }
         return listaRaspberrys;
+
+    }
+    public ArrayList<Usuario> obtenerLista() {
+        ArrayList<Usuario> listaUsuarios = new ArrayList();
+        try {
+
+            String equipoServidor = "servidorwebjordan.ddns.net";
+            int puertoServidor = 30504;
+            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+
+            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
+            listaUsuarios= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            socketCliente.close();
+            return listaUsuarios;
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return listaUsuarios;
 
     }
 

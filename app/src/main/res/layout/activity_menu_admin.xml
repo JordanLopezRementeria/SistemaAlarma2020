@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="70dp"
         android:fontFamily="@font/titulin"
-        android:text="Administrar usuarios"
+        android:text=""
         android:layout_centerHorizontal="true"
         android:textSize="30dp"
         android:textColor="@color/roji">
@@ -22,7 +22,7 @@
         android:id="@+id/toolbarMenuAdmin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:background="@color/negro" />
 
 

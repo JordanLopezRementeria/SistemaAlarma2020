@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity  {
     private final String EXTRA_USUARIO = "";
     Button botonIniciar, botonRegistrar;
     EditText email1, contraseña1;
+    TTSManager ttsManager = null;
 
 
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
         xmlToJava();
+        textoToVoz();
         activarAnimacion();
        //Toast.makeText(getApplicationContext(), "Probando versiones", Toast.LENGTH_SHORT).show();
 
@@ -144,11 +146,9 @@ public class MainActivity extends AppCompatActivity  {
 
     public void pantallaAdmin(Usuario usuario1) {
 //        usuario1.setNombre(nombre1.getText().toString());
-        usuario1.setContraseña(contraseña1.getText().toString());
-        usuario1.setEmail(email1.getText().toString());
-
         Intent intent2 = new Intent(MainActivity.this, MenuAdmin.class); //ponemos en la actividad el objeto usuario
         intent2.putExtra(EXTRA_USUARIO, usuario1);
+        ttsManager.initQueue("Bienvenido "+usuario1.getNombre().toString());
         finish();
         startActivity(intent2);
     }
@@ -157,6 +157,7 @@ public class MainActivity extends AppCompatActivity  {
     public void pantallaUsuario(Usuario usuario1) {
         Intent intent = new Intent(MainActivity.this, MenuVip.class); //ponemos en la actividad el objeto usuario
         intent.putExtra(EXTRA_USUARIO, usuario1);
+        ttsManager.initQueue("Bienvenido "+usuario1.getNombre().toString());
         finish();
         startActivity(intent);
     }
@@ -164,6 +165,7 @@ public class MainActivity extends AppCompatActivity  {
     public void pantallaInvitado(Usuario usuario1) {
         Intent intent = new Intent(MainActivity.this, MenuInvitado.class); //ponemos en la actividad el objeto usuario
         intent.putExtra(EXTRA_USUARIO, usuario1);
+        ttsManager.initQueue("Bienvenido "+usuario1.getNombre().toString());
         finish();
         startActivity(intent);
     }
@@ -254,6 +256,10 @@ public class MainActivity extends AppCompatActivity  {
         }
 
 
+    }
+    public void textoToVoz() {
+        ttsManager = new TTSManager();
+        ttsManager.init(this);
     }
 
 

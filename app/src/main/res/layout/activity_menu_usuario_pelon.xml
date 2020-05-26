@@ -16,7 +16,7 @@
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/titulin"
-        android:text="Menú usuario"
+        android:text=""
         android:textColor="@color/roji"
         android:textSize="30dp"
         />

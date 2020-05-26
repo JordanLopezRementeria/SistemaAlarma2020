@@ -19,7 +19,7 @@
         android:fontFamily="@font/titulin"
         android:text="Desarrollado por Jordan López"
         android:layout_centerHorizontal="true"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:gravity="center_horizontal"
         android:textColor="@color/blanquito">
     </TextView>

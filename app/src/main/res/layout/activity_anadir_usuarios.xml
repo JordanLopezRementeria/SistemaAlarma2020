@@ -9,13 +9,9 @@
         android:id="@+id/toolbarAñadir"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:background="@color/negro" />
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-android:layout_below="@id/botonAceptarXML2"
-        android:id="@+id/lv"/>
+
 
     <TextView
         android:id="@+id/titulo1"
@@ -25,7 +21,7 @@ android:layout_below="@id/botonAceptarXML2"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/titulin"
         android:textColor="@color/roji"
-        android:text="AÑADIR UN USUARIO"
+        android:text=""
         android:textSize="30dp"></TextView>
 
     <EditText
@@ -64,18 +60,12 @@ android:layout_below="@id/botonAceptarXML2"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:id="@+id/spPais"
+
         android:layout_below="@id/direccionInsertar"
         android:spinnerMode="dialog"
         android:layout_width="match_parent"
         android:layout_height="38dp" />
-    <Spinner
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:id="@+id/spinnerR"
-        android:layout_below="@id/spPais"
-        android:spinnerMode="dialog"
-        android:layout_width="match_parent"
-        android:layout_height="38dp" />
+
 
     <Button
         android:id="@+id/botonAceptarXML2"
@@ -83,7 +73,7 @@ android:layout_below="@id/botonAceptarXML2"
         android:layout_height="75dp"
         android:layout_marginTop="50dp"
         android:text="AÑADIR"
-        android:layout_below="@id/spinnerR"
+        android:layout_below="@id/spPais"
         android:textSize="20dp"
         android:textColor="@color/roji"
         android:textStyle="bold"
@@ -92,24 +82,7 @@ android:layout_below="@id/botonAceptarXML2"
         android:foreground="@drawable/b1"
         />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/select"
-        android:layout_below="@id/lv"
-        android:text="Select all"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/deselect"
-        android:layout_below="@id/select"
-        android:text="Deselect all"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/deselect"
-        android:id="@+id/next"
-        android:text="Next activity"/>
+
 
 
 </RelativeLayout>
