@@ -47,8 +47,9 @@ public class ListarIncidencias extends AppCompatActivity {
         final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         xmlToJava();
         toolbar = findViewById(R.id.toolbarListarIncidencias);
+        toolbar.setTitle("Usuario VIP");
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);

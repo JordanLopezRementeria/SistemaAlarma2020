@@ -37,8 +37,9 @@ EditText texto2;
         StrictMode.setThreadPolicy(policy);
         xmlToJava();
         toolbar = findViewById(R.id.toolbarEliminar);
+        toolbar.setTitle("Administrador");
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
 
         eliminarUsu.setOnClickListener(new View.OnClickListener() {

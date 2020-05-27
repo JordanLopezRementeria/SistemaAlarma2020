@@ -3,6 +3,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@drawable/copia2"
     android:theme="@android:style/ThemeOverlay.Material.Dark">
     <TextView
@@ -22,6 +23,7 @@
         android:id="@+id/toolbarMenuAdmin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+
         android:layout_alignParentTop="true"
         android:background="@color/negro" />
 

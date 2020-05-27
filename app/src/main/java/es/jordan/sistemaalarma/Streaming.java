@@ -49,8 +49,9 @@ ImageView ver;
 
         xmlToJava();
         toolbar = findViewById(R.id.toolbar5);
+        toolbar.setTitle("Usuario VIP");
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
 
 

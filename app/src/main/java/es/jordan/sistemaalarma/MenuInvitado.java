@@ -28,8 +28,10 @@ public class MenuInvitado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_invitado);
         toolbar = findViewById(R.id.toolbarInvitado);
+        toolbar.setTitle("Invitado");
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+
         xmlTojava();
         reproducirVideo();
 

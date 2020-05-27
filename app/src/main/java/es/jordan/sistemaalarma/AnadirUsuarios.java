@@ -53,8 +53,9 @@ private Toolbar toolbar;
 
         //iniciando toolbar
         toolbar = findViewById(R.id.toolbarAñadir);
+        toolbar.setTitle("Administrador");
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
         //iniciando spinner
 
         spinner1.setPrompt("Selecciona un rol");

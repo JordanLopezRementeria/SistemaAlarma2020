@@ -42,8 +42,9 @@ public class ModificarUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_modificar_usuario);
         xmlToJava();
         toolbar = findViewById(R.id.tool);
+        toolbar.setTitle("Administrador");
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -75,13 +76,6 @@ public class ModificarUsuario extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
 
 
 

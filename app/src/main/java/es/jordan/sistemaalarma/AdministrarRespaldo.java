@@ -31,8 +31,10 @@ public class AdministrarRespaldo extends AppCompatActivity {
         setContentView(R.layout.activity_administrar_respaldo);
 
         toolbar = findViewById(R.id.toolbarRespaldo);
+        toolbar.setTitle("Administrador");
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+        getSupportActionBar().setDisplayShowTitleEnabled(true);//quitamos el titulo del toolbar
+
 
 
         xmlToJava();
