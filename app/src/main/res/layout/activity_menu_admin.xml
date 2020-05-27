@@ -6,7 +6,7 @@
     android:background="@drawable/copia2"
     android:theme="@android:style/ThemeOverlay.Material.Dark">
     <TextView
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:id="@+id/tituloMenuAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,9 +30,9 @@
         android:id="@+id/botonAñadir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/crearusuario"
-        android:layout_below="@id/tituloMenuAdmin"
+        android:layout_below="@id/toolbarMenuAdmin"
         android:layout_centerHorizontal="true"
 
         />

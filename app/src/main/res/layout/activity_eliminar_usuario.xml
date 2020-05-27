@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/titulo1"
         android:textColorHint="@color/blanquito"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Nombre" />
@@ -39,19 +39,16 @@
 
 
 
-    <Button
+    <ImageView
         android:id="@+id/botonEliminar"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="BORRAR"
+
         android:layout_below="@id/nombre2"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
-        android:textSize="20dp"
-        android:textColor="@color/roji"
-        android:textStyle="bold" />
+        android:src="@drawable/eliminarusuario"
+     />
 
 
 

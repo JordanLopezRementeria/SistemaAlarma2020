@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -23,7 +24,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class EliminarUsuario extends AppCompatActivity {
-Button eliminarUsu;
+ImageView eliminarUsu;
 private Toolbar toolbar;
 
 EditText texto2;

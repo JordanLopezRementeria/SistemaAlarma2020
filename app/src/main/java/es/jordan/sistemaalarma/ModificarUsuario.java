@@ -14,9 +14,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -33,7 +35,7 @@ public class ModificarUsuario extends AppCompatActivity {
     EditText editContraseña;
     EditText editEmail;
     Toolbar toolbar;
-
+    Spinner spinner1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,11 @@ public class ModificarUsuario extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        //iniciando spinner
+        spinner1.setPrompt("Selecciona un rol");
+        String []opciones={"Admin","Usuario","Invitado"};
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones);
+        spinner1.setAdapter(adapter3);
 
         final ArrayList<itemColmena> itemsCompra = obtenerItems();
 
@@ -144,6 +151,7 @@ public class ModificarUsuario extends AppCompatActivity {
         lv=findViewById(R.id.listView);
         editContraseña = findViewById(R.id.contraseña1);
         editEmail = findViewById(R.id.direccion1);
+        spinner1=findViewById(R.id.spinnerrol);
     }
 
     public ArrayList<Usuario> obtenerLista() {
@@ -180,21 +188,21 @@ public class ModificarUsuario extends AppCompatActivity {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/alarmi"));
+                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/admin"));
             }
             else if(usuario1.getRol().toUpperCase().equals("USUARIO"))
             {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/alarmi"));
+                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/usuario"));
             }
             else
             {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/alarmi"));
+                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/invitado"));
             }
 
 

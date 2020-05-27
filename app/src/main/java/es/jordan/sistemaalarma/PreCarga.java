@@ -30,6 +30,7 @@ public class PreCarga extends AppCompatActivity {
             @Override
             public void run() { //
                 Intent intent=new Intent(PreCarga.this,MainActivity.class);
+                finish();
                 startActivity(intent); //ejecutamos el intent que hemos creado despues de 4s
             }
         },4000);

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class AnadirUsuarios extends AppCompatActivity {
-Button botonAñadir;
+ImageView botonAñadir;
 Spinner spinner1;
 EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
 

@@ -15,7 +15,7 @@
     <ListView
            android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-         android:layout_below="@id/mensaje"
+         android:layout_below="@id/botonModificar"
         android:clickable="true"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
@@ -32,9 +32,9 @@
         android:id="@+id/nombre1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titulo1"
-        android:textColorHint="@color/blanquito"
-        android:layout_marginTop="50dp"
+        android:layout_below="@+id/toolbarModificarUsuario"
+
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Nombre" />
@@ -45,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/nombre1"
-        android:textColorHint="@color/blanquito"
+
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Contraseña"
@@ -56,22 +56,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/contraseña1"
-        android:textColorHint="@color/blanquito"
+
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:hint="Correo electrónico" />
+
+    <Spinner
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/spinnerrol"
+        android:layout_below="@id/direccion1"
+        android:spinnerMode="dialog"
+        android:layout_width="match_parent"
+        android:layout_height="38dp" />
+
+
+
     <TextView
         android:id="@+id/mensaje"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/direccion1"
+        android:layout_below="@+id/spinnerrol"
         android:textSize="20dp"
-        android:textColorHint="@color/blanquito"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/negro"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="Selecciona el usuario a modificar" />
 
-
+    <ImageView
+        android:id="@+id/botonModificar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/modificarusuario"
+        android:layout_below="@id/mensaje"
+        android:layout_centerHorizontal="true"
+        />
 
 
 </RelativeLayout>
