@@ -23,12 +23,14 @@ public class MenuInvitado extends AppCompatActivity {
     private ImageView textoCorreo;
     TextView titulo;
     Toolbar toolbar;
+    private final String EXTRA_USUARIO = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_invitado);
+        final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         toolbar = findViewById(R.id.toolbarInvitado);
-        toolbar.setTitle("Invitado");
+        toolbar.setTitle("Invitado - "+usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
@@ -58,6 +60,8 @@ public class MenuInvitado extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.item1:
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class); //flechita que vuelve al
+                final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+                intent.putExtra(EXTRA_USUARIO, usuarioPasado);
                 startActivityForResult(intent, 0);
                 return true;
 

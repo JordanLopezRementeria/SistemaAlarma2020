@@ -43,6 +43,7 @@ public class Registrarse extends AppCompatActivity  {
     EditText respuesta;
     TTSManager ttsManager = null;
     Toolbar toolbar;
+    String secretKey = "enigma";
     ImageView captchaImagen;
     String random="x";
     Boolean detectorCaptcha=false; //lo pondremos a true cuando lo pase con exito
@@ -100,9 +101,11 @@ public class Registrarse extends AppCompatActivity  {
                 }
                 else
                 {
+                    Hashear e=new Hashear();
                 Usuario usuario1 = new Usuario();
                 usuario1.setNombre(editNombre.getText().toString());
-                usuario1.setContraseña(editContraseña.getText().toString());
+                String contraseñaCodificada=e.encode(secretKey,editContraseña.getText().toString());
+                usuario1.setContraseña(contraseñaCodificada);
                 usuario1.setEmail(editEmail.getText().toString());
                 usuario1.setRol("invitado");
                 //usuario1.setRol("invitado");

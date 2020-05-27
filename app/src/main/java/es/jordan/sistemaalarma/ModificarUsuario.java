@@ -17,8 +17,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -32,17 +34,19 @@ public class ModificarUsuario extends AppCompatActivity {
 
     EditText editNombre;
     private ListView lv;
-    EditText editContraseña;
+    ImageView botonModificar;
     EditText editEmail;
     Toolbar toolbar;
     Spinner spinner1;
+    TextView mensaje;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar_usuario);
+        final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         xmlToJava();
         toolbar = findViewById(R.id.tool);
-        toolbar.setTitle("Administrador");
+        toolbar.setTitle("Administrador - "+usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
@@ -65,6 +69,14 @@ public class ModificarUsuario extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                editNombre.setVisibility(View.VISIBLE);
+                editEmail.setVisibility(View.VISIBLE);
+                spinner1.setVisibility(View.VISIBLE);
+                lv.setVisibility(View.GONE);
+                botonModificar.setVisibility(View.VISIBLE);
+                mensaje.setVisibility(View.GONE);
+
+
                 itemColmena itemSeleccionado= (itemColmena) adapter.getItem(position);
                 editNombre.setText(itemSeleccionado.nombre);
                 editEmail.setText(itemSeleccionado.tipo); // corresponde al mail
@@ -76,6 +88,40 @@ public class ModificarUsuario extends AppCompatActivity {
 
             }
         });
+
+
+        botonModificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ArrayList<Usuario> listaUsuarios = new ArrayList();
+                listaUsuarios=obtenerLista();
+
+                //recorremos la lista hasta encontrar el usuario y luego lo mandamos al server para q lo modifique
+            for(Usuario u:listaUsuarios)
+            {
+                if (u.getNombre().equals(editNombre.getText().toString()) || u.getEmail().equals(editEmail.getText().toString()))
+                {
+
+
+
+
+                }
+            }
+
+
+
+
+                Toast toast2 = Toast.makeText(getApplicationContext(),"Usuario modificado con éxito", Toast.LENGTH_LONG);
+                toast2.show();
+                Intent llamada = new Intent(ModificarUsuario.this, MenuAdmin.class);
+                final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+                llamada.putExtra(EXTRA_USUARIO, usuarioPasado);
+                startActivity(llamada);
+
+            }
+        });
+
 
 
 
@@ -94,6 +140,8 @@ public class ModificarUsuario extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.item1:
                 Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
+                final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+                intent.putExtra(EXTRA_USUARIO, usuarioPasado);
                 startActivityForResult(intent, 0);
                 return true;
 
@@ -143,9 +191,10 @@ public class ModificarUsuario extends AppCompatActivity {
 
         editNombre = findViewById(R.id.nombre1);
         lv=findViewById(R.id.listView);
-        editContraseña = findViewById(R.id.contraseña1);
+        botonModificar=findViewById(R.id.botonModificar);
         editEmail = findViewById(R.id.direccion1);
         spinner1=findViewById(R.id.spinnerrol);
+        mensaje=findViewById(R.id.mensaje);
     }
 
     public ArrayList<Usuario> obtenerLista() {

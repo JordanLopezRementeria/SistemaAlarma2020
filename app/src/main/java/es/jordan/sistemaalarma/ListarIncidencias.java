@@ -47,7 +47,7 @@ public class ListarIncidencias extends AppCompatActivity {
         final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         xmlToJava();
         toolbar = findViewById(R.id.toolbarListarIncidencias);
-        toolbar.setTitle("Usuario VIP");
+        toolbar.setTitle("Usuario VIP - "+usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
@@ -78,11 +78,18 @@ public class ListarIncidencias extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                String eleccion = spinner1.getSelectedItem().toString();
-               // Toast.makeText(getApplicationContext(), eleccion, Toast.LENGTH_SHORT).show();
-                obtenerIncidenciasDeLaRaspberryElegida(eleccion);
 
+                if(spinner1.getCount()==0) {
+                    // Toast.makeText(getApplicationContext(), eleccion, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Sin raspberrys asignadas", Toast.LENGTH_SHORT).show();
 
+                }
+                else
+                {
+                    String eleccion = spinner1.getSelectedItem().toString();
+                    obtenerIncidenciasDeLaRaspberryElegida(eleccion);
+
+                }
 
 
             }

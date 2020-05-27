@@ -11,14 +11,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -32,17 +29,17 @@ public class AnadirUsuarios extends AppCompatActivity {
 ImageView botonAñadir;
 Spinner spinner1;
 EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
-
-    private ArrayList<Model> modelArrayList;
-    private CustomAdapter customAdapter;
-
+private final String EXTRA_USUARIO = "";
+private ArrayList<Model> modelArrayList;
+private CustomAdapter customAdapter;
+String secretKey = "enigma";
 
 private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anadir_usuarios);
-
+        final Usuario  usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         xmlToJava();
@@ -53,7 +50,7 @@ private Toolbar toolbar;
 
         //iniciando toolbar
         toolbar = findViewById(R.id.toolbarAñadir);
-        toolbar.setTitle("Administrador");
+        toolbar.setTitle("Administrador - "+usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         //iniciando spinner
@@ -88,10 +85,11 @@ private Toolbar toolbar;
             @Override
             public void onClick(View v) {
 
-
+              Hashear e=new Hashear();
                 Usuario usuario1 = new Usuario();
                 usuario1.setNombre(nombreInsertar.getText().toString());
-                usuario1.setContraseña(contraseñaInsertar.getText().toString());
+                String contraseñaCodificada=e.encode(secretKey,contraseñaInsertar.getText().toString());
+                usuario1.setContraseña(contraseñaCodificada);
 
                 usuario1.setEmail(direccionInsertar.getText().toString());
                 usuario1.setRol(spinner1.getSelectedItem().toString()); //obtengo la opcion que esta seleccionada
@@ -126,6 +124,8 @@ private Toolbar toolbar;
                         Toast.makeText(getApplicationContext(), "Usuario añadido con éxito", Toast.LENGTH_SHORT).show();
                         limpiarCajas();
                         Intent intent = new Intent(v.getContext(), MenuAdmin.class);
+                        final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+                        intent.putExtra(EXTRA_USUARIO, usuarioPasado);
                         startActivityForResult(intent, 0);
                     }
                 }
@@ -174,6 +174,9 @@ private Toolbar toolbar;
         switch (item.getItemId()) {
             case R.id.item1:
                 Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
+                final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+                intent.putExtra(EXTRA_USUARIO, usuarioPasado);
+
                 startActivityForResult(intent, 0);
                 return true;
 

@@ -35,7 +35,7 @@ import java.util.List;
 public class Streaming extends AppCompatActivity {
 private WebView webView;
 private final String EXTRA_USUARIO = "";
-private TextView textStreaming;
+
 private Toolbar toolbar;
 Spinner spinner;
 ImageView ver;
@@ -49,7 +49,7 @@ ImageView ver;
 
         xmlToJava();
         toolbar = findViewById(R.id.toolbar5);
-        toolbar.setTitle("Usuario VIP");
+        toolbar.setTitle("Usuario VIP - "+usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
@@ -96,26 +96,27 @@ ImageView ver;
         ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(spinner.getCount()==0) {
+                    // Toast.makeText(getApplicationContext(), eleccion, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Sin raspberrys asignadas", Toast.LENGTH_SHORT).show();
 
-                String ipCamaraElegida="";
-                String eleccion = spinner.getSelectedItem().toString();
-                String[] datos=eleccion.split(":");
+                }
+                else {
+                    String ipCamaraElegida = "";
+                    String eleccion = spinner.getSelectedItem().toString();
+                    String[] datos = eleccion.split(":");
 
-                ipCamaraElegida=datos[2]+":"+datos[3]+":"+datos[4]; //en el array en la segunda posicion tenemos hasta los : de http
-                //y en el 3 lo q queda en la 4 el puerto los puntos los añado por el split
-
-
-
-
-
-
-                 Toast toast = Toast.makeText(getApplicationContext(),ipCamaraElegida, Toast.LENGTH_LONG);
-                toast.show();
-
-                webView.loadUrl(ipCamaraElegida);
-                webView.setVisibility(View.VISIBLE);
+                    ipCamaraElegida = datos[2] + ":" + datos[3] + ":" + datos[4]; //en el array en la segunda posicion tenemos hasta los : de http
+                    //y en el 3 lo q queda en la 4 el puerto los puntos los añado por el split
 
 
+                    Toast toast = Toast.makeText(getApplicationContext(), ipCamaraElegida, Toast.LENGTH_LONG);
+                    toast.show();
+
+                    webView.loadUrl(ipCamaraElegida);
+                    webView.setVisibility(View.VISIBLE);
+
+                }
             }
         });
     }
@@ -239,7 +240,7 @@ ImageView ver;
 
     private void xmlToJava() {
         webView = findViewById(R.id.webview);
-        textStreaming= findViewById(R.id.editStreaming);
+
         ver=findViewById(R.id.botonvisualizar);
         spinner=findViewById(R.id.spinnerverstreaming);
     }

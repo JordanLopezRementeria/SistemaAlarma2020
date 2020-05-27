@@ -33,31 +33,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbarModificarUsuario"
-
         android:layout_marginTop="60dp"
         android:layout_marginLeft="30dp"
+        android:visibility="gone"
+        android:layout_marginBottom="20dp"
         android:layout_marginRight="30dp"
         android:hint="Nombre" />
 
 
-    <EditText
-        android:id="@+id/contraseña1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nombre1"
 
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:hint="Contraseña"
-        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/direccion1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/contraseña1"
-
+        android:layout_below="@+id/nombre1"
         android:layout_marginLeft="30dp"
+        android:visibility="gone"
         android:layout_marginRight="30dp"
         android:hint="Correo electrónico" />
 
@@ -67,6 +59,7 @@
         android:id="@+id/spinnerrol"
         android:layout_below="@id/direccion1"
         android:spinnerMode="dialog"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="38dp" />
 
@@ -78,19 +71,21 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/spinnerrol"
         android:textSize="20dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/negro"
+        android:layout_marginTop="60dp"
+        android:textColor="@color/blanquito"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="Selecciona el usuario a modificar" />
+        android:textStyle="bold"
+        android:text="Seleccione el usuario a modificar" />
 
     <ImageView
         android:id="@+id/botonModificar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/modificarusuario"
         android:layout_below="@id/mensaje"
+        android:visibility="gone"
         android:layout_centerHorizontal="true"
         />
 

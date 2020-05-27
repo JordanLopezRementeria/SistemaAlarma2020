@@ -35,7 +35,7 @@ public class MenuVip extends AppCompatActivity {
         setContentView(R.layout.activity_menu_vip);
         final Usuario  usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         toolbar = findViewById(R.id.toolbarMenuVip);
-        toolbar.setTitle("Usuario VIP");
+        toolbar.setTitle("Usuario VIP - "+usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         xmlToJava();

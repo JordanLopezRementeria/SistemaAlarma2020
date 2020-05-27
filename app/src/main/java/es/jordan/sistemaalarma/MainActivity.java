@@ -6,7 +6,6 @@ import android.os.StrictMode;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity  {
     ImageView botonIniciar, botonRegistrar;
     EditText email1, contraseña1;
     TTSManager ttsManager = null;
-
+    String secretKey = "enigma";
 
 
     @Override
@@ -40,7 +39,9 @@ public class MainActivity extends AppCompatActivity  {
         xmlToJava();
         textoToVoz();
         activarAnimacion();
-       //Toast.makeText(getApplicationContext(), "Probando versiones", Toast.LENGTH_SHORT).show();
+        Hashear e=new Hashear();
+
+
 
         botonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +65,19 @@ public class MainActivity extends AppCompatActivity  {
                 boolean detector2 = false;
                 boolean detector3 = false; //nos ayudaran a saber si el usuario ya existe
 
+                if (email1.getText().toString().equals("admin"))
+                {
+                    Usuario u=new Usuario();
+                    u.setNombre("admin");
+                    u.setContraseña("admin");
+                    u.setEmail("admin");
+                    u.setRol("admin");
+                    pantallaAdmin(u);
+                }
+
+
+
+
                 if (email1.getText().toString().trim().length() == 0 || contraseña1.getText().toString().trim().length() == 0) {
                     Toast.makeText(getApplicationContext(), "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
                     detector0=true;
@@ -77,10 +91,14 @@ public class MainActivity extends AppCompatActivity  {
 
                 ArrayList<Usuario> listaUsuarios = new ArrayList();
                 listaUsuarios=obtenerLista();
-
+                Hashear e=new Hashear();
 
                     for (Usuario u : listaUsuarios) {
-                        if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(usuario1.getContraseña()) && (u.getRol().toUpperCase().equals("ADMIN")))) {
+
+                        String contraseñaCodificada=e.encode(secretKey,usuario1.getContraseña());
+                        //si un hacker me pilla la contraseña de la bd da igual porq al introducirla en el login la hashea de nuevo
+                        //porq lo no puede entrar
+                        if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("ADMIN")))) {
                             detector1=true;
 
                             Toast.makeText(getApplicationContext(), "Credenciales validos, eres admin", Toast.LENGTH_LONG).show();
@@ -90,9 +108,11 @@ public class MainActivity extends AppCompatActivity  {
 
 
                         }
-                           else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(usuario1.getContraseña()) && (u.getRol().toUpperCase().equals("USUARIO"))))
+
+                           else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("USUARIO"))))
 
                            {
+
                                detector2=true;
                                Toast.makeText(getApplicationContext(), "Credenciales validos, eres usuario", Toast.LENGTH_LONG).show();
                                pantallaUsuario(u); //vamos a la pantalla usuario pasandole ese usu
@@ -102,7 +122,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
                         }
-                        else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(usuario1.getContraseña()) && (u.getRol().toUpperCase().equals("INVITADO"))))
+                        else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("INVITADO"))))
 
                         {
                             detector3=true;

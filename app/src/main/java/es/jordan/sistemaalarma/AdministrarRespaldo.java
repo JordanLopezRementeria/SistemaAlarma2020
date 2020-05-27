@@ -24,14 +24,15 @@ import java.net.Socket;
 
 public class AdministrarRespaldo extends AppCompatActivity {
     ImageView copia,recuperar;
+    private final String EXTRA_USUARIO = "";
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrar_respaldo);
-
+        final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         toolbar = findViewById(R.id.toolbarRespaldo);
-        toolbar.setTitle("Administrador");
+        toolbar.setTitle("Administrador - "+usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);//quitamos el titulo del toolbar
 
@@ -88,13 +89,20 @@ public class AdministrarRespaldo extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
         switch (item.getItemId()) {
+
+
             case R.id.item1:
                 Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
+                final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+                intent.putExtra(EXTRA_USUARIO, usuarioPasado);
                 startActivityForResult(intent, 0);
                 return true;
 
             case R.id.item2:
                 Intent intent2 = new Intent(getApplicationContext(), MenuAdmin.class); //volvemos de las 2 formas
+                final Usuario usuarioPasado2 = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+                intent2.putExtra(EXTRA_USUARIO, usuarioPasado2);
+                intent2.putExtra(EXTRA_USUARIO, usuarioPasado2);
                 startActivityForResult(intent2, 0);
 
                 return true;
