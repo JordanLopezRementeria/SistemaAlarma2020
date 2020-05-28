@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -63,6 +64,48 @@ EditText texto2;
 
                 //lo que queremos hacer al clickar
 
+            }
+        });
+
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                itemColmena itemSeleccionado= (itemColmena) adapter.getItem(position);
+                texto2.setText(itemSeleccionado.nombre); //ponemos en la caja de texto el nombre del seleccionado
+                AlertDialog.Builder alert = new AlertDialog.Builder(EliminarUsuario.this);
+                alert.setTitle("Advertencia");
+                alert.setCancelable(true);
+                alert.setIcon(R.drawable.eliminar1_foreground);
+
+                alert.setMessage("¿De verdad deseas borrar el usuario "+texto2.getText().toString());
+
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                });
+                alert.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Usuario usuario1 = new Usuario();
+                        usuario1.setNombre(texto2.getText().toString());//es la excepcion porq no necesitamos confirmar si hay usuario o no
+                        // y solo habra un usuario con el mismo nombre
+
+                        eliminarUsu(usuario1);
+                        Toast.makeText(getApplicationContext(), "Usuario eliminado con exito", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
+                        final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+                        intent.putExtra(EXTRA_USUARIO, usuarioPasado);
+                        startActivityForResult(intent, 0);
+
+                    }
+                });
+                alert.create().show();
+            return true;//si ponemos a true solo este evento se producira, si ponemos a false el onclick normal tb
             }
         });
 

@@ -22,6 +22,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginLeft="10dp"
         android:focusable="true"
+        android:longClickable="true"
         android:visibility="visible"
         android:id="@+id/lveliminar" />
 
@@ -43,7 +44,8 @@
         android:id="@+id/botonEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
+
         android:layout_below="@id/lveliminar"
         android:layout_centerHorizontal="true"
         android:src="@drawable/eliminarusuario"

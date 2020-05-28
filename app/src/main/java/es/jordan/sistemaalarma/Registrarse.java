@@ -64,8 +64,9 @@ public class Registrarse extends AppCompatActivity  {
         textoToVoz();
 
         toolbar = findViewById(R.id.toolbarRegistrarse);
+        toolbar.setTitle("Registrar nuevo usuario");
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);//quitamos el titulo del toolbar
+        getSupportActionBar().setDisplayShowTitleEnabled(true);//quitamos el titulo del toolbar
 
 
 

@@ -137,8 +137,23 @@ public class ModificarUsuario extends AppCompatActivity {
 
             }
         });
+        editNombre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+           editNombre.setText("");
 
+            }
+        });
+
+        editEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                editEmail.setText("");
+
+            }
+        });
 
 
 
