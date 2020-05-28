@@ -25,13 +25,15 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
 
 public class ModificarUsuario extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
-
+    String ultimoNombreSeleccionado="";
+    String ultimoEmailSeleccionado="";
     EditText editNombre;
     private ListView lv;
     ImageView botonModificar;
@@ -78,6 +80,10 @@ public class ModificarUsuario extends AppCompatActivity {
 
 
                 itemColmena itemSeleccionado= (itemColmena) adapter.getItem(position);
+                ultimoNombreSeleccionado=(itemSeleccionado.nombre); //metemos en variables globales el usuario elegido
+                ultimoEmailSeleccionado=(itemSeleccionado.tipo); //el tipo es el email
+
+
                 editNombre.setText(itemSeleccionado.nombre);
                 editEmail.setText(itemSeleccionado.tipo); // corresponde al mail
 
@@ -100,8 +106,18 @@ public class ModificarUsuario extends AppCompatActivity {
                 //recorremos la lista hasta encontrar el usuario y luego lo mandamos al server para q lo modifique
             for(Usuario u:listaUsuarios)
             {
-                if (u.getNombre().equals(editNombre.getText().toString()) || u.getEmail().equals(editEmail.getText().toString()))
+                if (u.getNombre().toString().equals(ultimoNombreSeleccionado) && u.getEmail().equals(ultimoEmailSeleccionado))
                 {
+                    //Toast toast2 = Toast.makeText(getApplicationContext(),"He encontrado al usuario "+ultimoNombreSeleccionado, Toast.LENGTH_LONG);
+                    //toast2.show();
+                    Usuario usuarioAModificar=new Usuario(); //creamos un usuario poniendo lo que pone en las cajas
+                    usuarioAModificar.setUsuarioId(u.getUsuarioId());
+                    usuarioAModificar.setNombre(editNombre.getText().toString());
+                    usuarioAModificar.setEmail(editEmail.getText().toString());
+                    usuarioAModificar.setRol(spinner1.getSelectedItem().toString());
+
+                   modificarUsuario(usuarioAModificar);  //mando el usuario a modificar al metodo que lo envia al server
+                   break;
 
 
 
@@ -259,6 +275,36 @@ public class ModificarUsuario extends AppCompatActivity {
 
 
         return listaDelListView;
+    }
+
+    public void modificarUsuario(Usuario usuario1) {
+        try {
+
+            String equipoServidor = "servidorwebjordan.ddns.net";
+            int puertoServidor = 30582;
+            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+            gestionarComunicacion(socketCliente, usuario1);
+
+            socketCliente.close();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
+
+        try {
+
+            ObjectOutputStream objetoEntregar = new ObjectOutputStream(socketCliente.getOutputStream());
+            objetoEntregar.writeObject(usuario1);//el cliente manda el objeto al server para que lo modifique
+
+            objetoEntregar.close();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+
+
     }
 
 
