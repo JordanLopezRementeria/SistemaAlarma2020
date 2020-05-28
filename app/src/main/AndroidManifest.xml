@@ -29,15 +29,21 @@
         android:allowBackup="true"
         android:icon="@drawable/alarmi"
         android:label="Alarma Jordan"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:largeHeap="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AdministrarRespaldo"></activity>
+        <activity android:name=".UsuarioConRaspberry">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AdministrarRespaldo" />
         <activity
             android:name=".ListarIncidencias"
-            android:parentActivityName=".MenuAdmin"></activity>
+            android:parentActivityName=".MenuAdmin" />
         <activity
             android:name=".AnadirUsuarios"
             android:parentActivityName=".MenuAdmin">
@@ -52,6 +58,7 @@
             android:parentActivityName=".MenuAdmin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -68,7 +68,12 @@ public class Raspberry implements Serializable{
 
     @Override
     public String toString() {
+        return raspberryId+":"+modelo+":"+direccion;
+    }
+
+    public String toString2() {
         return "Raspberry{" + "raspberryId=" + raspberryId + ", modelo=" + modelo + ", memoria=" + memoria + ", direccion=" + direccion + '}';
+
     }
 
 
