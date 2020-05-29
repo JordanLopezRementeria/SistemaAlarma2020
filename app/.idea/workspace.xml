@@ -12,11 +12,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Raspberry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Raspberry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ModificarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ModificarUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/UsuarioConRaspberry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/UsuarioConRaspberry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/cancelar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/cancelar1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_anadir_usuarios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_anadir_usuarios.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_eliminar_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_eliminar_usuario.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_modificar_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_modificar_usuario.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_registrarse.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_registrarse.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_usuario_con_raspberry.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_usuario_con_raspberry.xml" afterDir="false" />
     </list>
@@ -26,7 +26,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="762fda180504" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -664,7 +663,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590714277274</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="nuevos iconitos">
+      <created>1590721311413</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1590721311413</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -682,7 +688,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="limpieza de archivos+inicio sockets+sos" />
     <MESSAGE value="14/05" />
     <MESSAGE value="listando.." />
     <MESSAGE value="PreRoles" />
@@ -707,6 +712,7 @@
     <MESSAGE value="filtros listar" />
     <MESSAGE value="portada nueva!" />
     <MESSAGE value="nuevos iconitos" />
-    <option name="LAST_COMMIT_MESSAGE" value="nuevos iconitos" />
+    <MESSAGE value="retoques casi finales" />
+    <option name="LAST_COMMIT_MESSAGE" value="retoques casi finales" />
   </component>
 </project>

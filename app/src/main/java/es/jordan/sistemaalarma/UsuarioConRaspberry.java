@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckedTextView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -40,11 +41,15 @@ import static java.lang.Integer.parseInt;
 
 public class UsuarioConRaspberry extends AppCompatActivity implements Serializable {
     private ListView listView;
-    ImageView button;
+    ImageView button,botonCan1;
     Toolbar toolbar;
+    ListView lv;
     TextView textazo,textazo2;
     private final String EXTRA_USUARIO = "";
-    Spinner spinner1;
+    String email="";
+    String nombre="";
+    int usuarioId;
+    TextView titulo1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,63 +63,54 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
         StrictMode.setThreadPolicy(policy);
         xmlToJava();
 
-        this.listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        inicializarLista();
+        final ArrayList<itemColmena> itemsCompra = obtenerItems();
 
+        final ItemColmenaAdapter adapter = new ItemColmenaAdapter(this, itemsCompra);
+        lv.setClickable(true); //para poder pinchar en los elementos de la lista
+        lv.setAdapter(adapter);
 
-        ArrayList<Usuario> listaUsuarios= new ArrayList();
-        listaUsuarios= obtenerListaUsuarios();
-        ArrayList<String> cargarEnSpinner = new ArrayList();
-
-        {
-            for (Usuario u : listaUsuarios) {
-                cargarEnSpinner.add(u.getUsuarioId().toString()+","+u.getNombre()+","+u.getEmail());
-            }
-
-
-            spinner1.setPrompt("¿A qué usuario quieres asignar raspberrys?");
-            ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, cargarEnSpinner);
-            spinner1.setAdapter(adapter2);
-
-
-        }
-
-
-
-
-
-
-
-        this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+        final ItemColmenaAdapter adaptador=new ItemColmenaAdapter();
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() { //onclick de cada elemeto de la lista
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                itemColmena itemSeleccionado= (itemColmena) adapter.getItem(position);
+                nombre=itemSeleccionado.nombre;
+                usuarioId= (int) itemSeleccionado.id;
+                email=itemSeleccionado.tipo;
+                textazo.setVisibility(View.GONE);
+                lv.setVisibility(View.GONE);
+                listView.setVisibility(View.VISIBLE);
+                textazo2.setVisibility(View.VISIBLE);
+                botonCan1.setVisibility(View.VISIBLE);
 
 
-
+                //lo que queremos hacer al clickar
 
             }
         });
 
+
+
+
+
+
+
+
+
+
+
+
+        this.listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        inicializarLista();
+
+
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String eleccion=spinner1.getSelectedItem().toString();
-                String[]datos=eleccion.split(","); //meto los datos del item seleccionado en un array
-                //lo voy separando por : y cojo solo el id
 
-                String id="";
-                for(String item : datos) //solo recorremos el for una vez porque tan solo queremos hasta los dos primeros :
-                {
-                    id=item;//este sera el id del usuario seleccionado
-                    break;
-                }
-                int idEntero=parseInt(id);
-
-               // Toast toast4 = Toast.makeText(getApplicationContext(),"id seleccionado de usu: "+idEntero, Toast.LENGTH_LONG);
-                // toast4.show();
-
-
+                int idEntero=usuarioId;
 
                 SparseBooleanArray sp = listView.getCheckedItemPositions(); //booleano para saber los checkados
                 eliminarUsurasSeleccionado(idEntero); //1ºeliminamos las raspberrys q tuviera asociadas antes
@@ -132,14 +128,32 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
                         insertarRaspberryEnUsuario(idEntero,r1.getRaspberryId());
 
                     }
+
+
                 }
 
-
+                Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
+                final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+                intent.putExtra(EXTRA_USUARIO, usuarioPasado);
+                startActivityForResult(intent, 0);
 
 
 
                     }
                 });
+
+        botonCan1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//LO CONTRARIO a cuando clickamos al principio
+                textazo.setVisibility(View.VISIBLE);
+                lv.setVisibility(View.VISIBLE);
+                listView.setVisibility(View.GONE);
+                textazo2.setVisibility(View.GONE);
+                botonCan1.setVisibility(View.GONE);
+
+            }
+        });
 
 
         }
@@ -215,9 +229,11 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
 
         listView = (ListView)findViewById(R.id.listView);
         button = (ImageView) findViewById(R.id.button);
-        spinner1=(Spinner)findViewById(R.id.spinliada);
+        botonCan1=(ImageView)findViewById(R.id.botonCan1);
         textazo=(TextView)findViewById(R.id.titulo11);
         textazo2=(TextView)findViewById(R.id.titulo12);
+
+        lv=findViewById(R.id.lvasociar);
     }
 
     public ArrayList<Raspberry> obtenerListaRaspberry() {
@@ -317,6 +333,70 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
             System.out.println(ex.getMessage());
         }
 
+    }
+
+    public ArrayList<Usuario> obtenerLista() {
+        ArrayList<Usuario> listaUsuarios = new ArrayList();
+        try {
+
+            String equipoServidor = "servidorwebjordan.ddns.net";
+            int puertoServidor = 30504;
+            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+
+            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
+            listaUsuarios= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            socketCliente.close();
+            return listaUsuarios;
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return listaUsuarios;
+
+    }
+
+    private ArrayList<itemColmena> obtenerItems() {
+        ArrayList<itemColmena> listaDelListView = new ArrayList<itemColmena>();//lista con los atributos del litview
+        ArrayList<Usuario> listaUsuarios = new ArrayList();
+        listaUsuarios=obtenerLista(); //recorremos la lista de usuarios y metemos la informacion que queremos
+        for(Usuario usuario1:listaUsuarios)
+        {
+
+            if(usuario1.getRol().toUpperCase().equals("ADMIN")) {
+                int id = usuario1.getUsuarioId();
+                String nombre = usuario1.getNombre().toString();
+                String correo = usuario1.getEmail().toString();
+                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/admin"));
+            }
+            else if(usuario1.getRol().toUpperCase().equals("USUARIO"))
+            {
+                int id = usuario1.getUsuarioId();
+                String nombre = usuario1.getNombre().toString();
+                String correo = usuario1.getEmail().toString();
+                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/usuario"));
+            }
+            else
+            {
+                int id = usuario1.getUsuarioId();
+                String nombre = usuario1.getNombre().toString();
+                String correo = usuario1.getEmail().toString();
+                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/invitado"));
+            }
+
+
+
+
+
+
+        }
+
+
+
+
+        return listaDelListView;
     }
 
 

@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -36,17 +36,19 @@ public class ModificarUsuario extends AppCompatActivity {
     String ultimoEmailSeleccionado="";
     EditText editNombre;
     private ListView lv;
-    ImageView botonModificar;
+    ImageView botonModificar,botonCan;
     EditText editEmail;
     Toolbar toolbar;
     Spinner spinner1;
-    TextView mensaje;
+    TextView mensaje,mensaje2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar_usuario);
         final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         xmlToJava();
+
+
         toolbar = findViewById(R.id.tool);
         toolbar.setTitle("Administrador - "+usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
@@ -76,8 +78,9 @@ public class ModificarUsuario extends AppCompatActivity {
                 spinner1.setVisibility(View.VISIBLE);
                 lv.setVisibility(View.GONE);
                 botonModificar.setVisibility(View.VISIBLE);
+                botonCan.setVisibility(View.VISIBLE);
                 mensaje.setVisibility(View.GONE);
-
+                mensaje2.setVisibility(View.VISIBLE);
 
                 itemColmena itemSeleccionado= (itemColmena) adapter.getItem(position);
                 ultimoNombreSeleccionado=(itemSeleccionado.nombre); //metemos en variables globales el usuario elegido
@@ -155,7 +158,21 @@ public class ModificarUsuario extends AppCompatActivity {
             }
         });
 
+        botonCan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//LO CONTRARIO a cuando clickamos al principio
+                editNombre.setVisibility(View.GONE);
+                editEmail.setVisibility(View.GONE);
+                spinner1.setVisibility(View.GONE);
+                lv.setVisibility(View.VISIBLE);
+                botonModificar.setVisibility(View.GONE);
+                botonCan.setVisibility(View.GONE);
+                mensaje.setVisibility(View.VISIBLE);
+                mensaje2.setVisibility(View.GONE);
 
+            }
+        });
 
     }
 
@@ -221,11 +238,13 @@ public class ModificarUsuario extends AppCompatActivity {
     public void xmlToJava() {
 
         editNombre = findViewById(R.id.nombre1);
-        lv=findViewById(R.id.listView);
+        lv=findViewById(R.id.listView7);
         botonModificar=findViewById(R.id.botonModificar);
+        botonCan=findViewById(R.id.botonCan);
         editEmail = findViewById(R.id.direccion1);
         spinner1=findViewById(R.id.spinnerrol);
         mensaje=findViewById(R.id.mensaje);
+        mensaje2=findViewById(R.id.mensaje2);
     }
 
     public ArrayList<Usuario> obtenerLista() {
