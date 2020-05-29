@@ -14,6 +14,18 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:background="@color/negro" />
+    <TextView
+        android:id="@+id/titulo11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_below="@id/toolbarListarUsuarios"
+        android:textColor="@color/blanquito"
+        android:text=" Elige usuario :"
+        android:textSize="20dp"></TextView>
+
+
     <Spinner
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -24,13 +36,22 @@
         android:layout_width="match_parent"
         android:layout_height="38dp" />
 
-
+    <TextView
+        android:id="@+id/titulo12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/toolbarListarUsuarios"
+        android:textColor="@color/blanquito"
+        android:text=" Asociale raspberry/es:"
+        android:textSize="20dp"></TextView>
 
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
  />
 
     <Button

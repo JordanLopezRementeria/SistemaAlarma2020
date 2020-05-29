@@ -23,6 +23,7 @@
         android:layout_marginLeft="10dp"
         android:focusable="true"
         android:longClickable="true"
+        android:listSelector="@android:color/holo_green_dark"
         android:visibility="visible"
         android:id="@+id/lveliminar" />
 

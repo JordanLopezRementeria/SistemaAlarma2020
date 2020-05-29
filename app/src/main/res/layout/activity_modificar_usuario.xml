@@ -13,10 +13,11 @@
         android:background="@color/negro" />
 
     <ListView
-           android:layout_height="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-         android:layout_below="@id/botonModificar"
+        android:layout_below="@id/botonModificar"
         android:clickable="true"
+        android:listSelector="@android:color/holo_green_dark"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:focusable="true"

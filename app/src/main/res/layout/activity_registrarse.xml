@@ -46,37 +46,19 @@
         android:hint="Correo electrónico" />
 
 
-    <Button
+    <ImageView
         android:id="@+id/botonCancelarXML"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-
-        android:text="CANCELAR"
+        android:src="@drawable/cancelar1"
         android:layout_below="@id/botonAceptarXML"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
-        android:textSize="20dp"
 
-        android:textColor="@color/roji"
-        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/botonAceptarXML"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="50dp"
+    />
 
-        android:text="ACEPTAR"
-        android:layout_below="@id/captchaImagen"
-        android:textSize="20dp"
-        android:textColor="@color/roji"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/b1"
-        android:foreground="@drawable/b1"
-        />
+
     <ImageView
         android:id="@+id/captchaImagen"
         android:layout_width="90dp"
@@ -95,5 +77,18 @@
         android:layout_below="@+id/direccion1"
          android:layout_toRightOf="@id/captchaImagen"
         android:hint="Pulsa y escribe el audio" />
+
+
+    <ImageView
+        android:id="@+id/botonAceptarXML"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/captchaImagen"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/aceptar1"
+        android:layout_marginRight="20dp"
+        />
 
 </RelativeLayout>

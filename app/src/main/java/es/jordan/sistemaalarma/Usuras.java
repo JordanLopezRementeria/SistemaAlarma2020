@@ -2,7 +2,9 @@
 package es.jordan.sistemaalarma;
 
 
-public class Usuras {
+import java.io.Serializable;
+
+public class Usuras implements Serializable {
 
     private int usurasId;
     private Usuario usuarioId;

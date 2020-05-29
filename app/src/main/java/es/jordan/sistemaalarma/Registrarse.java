@@ -35,8 +35,8 @@ import java.util.Random;
 
 public class Registrarse extends AppCompatActivity  {
     private final String EXTRA_USUARIO = "";
-    Button botonCancelar;
-    Button botonRegistrarse;
+    ImageView botonCancelar;
+    ImageView botonRegistrarse;
     EditText editNombre;
     EditText editContraseña;
     EditText editEmail;
@@ -212,7 +212,6 @@ public class Registrarse extends AppCompatActivity  {
         editNombre = findViewById(R.id.nombre1);
         editContraseña = findViewById(R.id.contraseña1);
         editEmail = findViewById(R.id.direccion1);
-
         respuesta=findViewById(R.id.respuesta);
         captchaImagen=findViewById(R.id.captchaImagen);
         }
