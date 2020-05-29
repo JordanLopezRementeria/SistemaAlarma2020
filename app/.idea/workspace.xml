@@ -11,14 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Esclavo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/aceptar1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Raspberry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Raspberry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/UsuarioConRaspberry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/UsuarioConRaspberry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Usuras.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_eliminar_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_eliminar_usuario.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_modificar_usuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_modificar_usuario.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/cancelar1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/cancelar1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_registrarse.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_registrarse.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_usuario_con_raspberry.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_usuario_con_raspberry.xml" afterDir="false" />
     </list>
@@ -659,7 +657,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590692385962</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="nuevos iconitos">
+      <created>1590714277274</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1590714277274</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,7 +682,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="limpieza de archivos+inicio sockets" />
     <MESSAGE value="limpieza de archivos+inicio sockets+sos" />
     <MESSAGE value="14/05" />
     <MESSAGE value="listando.." />
@@ -702,17 +706,7 @@
     <MESSAGE value="modificar corregido" />
     <MESSAGE value="filtros listar" />
     <MESSAGE value="portada nueva!" />
-    <option name="LAST_COMMIT_MESSAGE" value="portada nueva!" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java</url>
-          <line>189</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="nuevos iconitos" />
+    <option name="LAST_COMMIT_MESSAGE" value="nuevos iconitos" />
   </component>
 </project>

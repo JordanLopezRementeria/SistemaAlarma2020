@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckedTextView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -39,7 +40,7 @@ import static java.lang.Integer.parseInt;
 
 public class UsuarioConRaspberry extends AppCompatActivity implements Serializable {
     private ListView listView;
-    private Button button;
+    ImageView button;
     Toolbar toolbar;
     TextView textazo,textazo2;
     private final String EXTRA_USUARIO = "";
@@ -67,7 +68,7 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
 
         {
             for (Usuario u : listaUsuarios) {
-                cargarEnSpinner.add(u.getUsuarioId().toString()+":"+u.getNombre()+":"+u.getEmail());
+                cargarEnSpinner.add(u.getUsuarioId().toString()+","+u.getNombre()+","+u.getEmail());
             }
 
 
@@ -99,7 +100,7 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
             @Override
             public void onClick(View v) {
                 String eleccion=spinner1.getSelectedItem().toString();
-                String[]datos=eleccion.split(":"); //meto los datos del item seleccionado en un array
+                String[]datos=eleccion.split(","); //meto los datos del item seleccionado en un array
                 //lo voy separando por : y cojo solo el id
 
                 String id="";
@@ -213,7 +214,7 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
     private void xmlToJava() {
 
         listView = (ListView)findViewById(R.id.listView);
-        button = (Button)findViewById(R.id.button);
+        button = (ImageView) findViewById(R.id.button);
         spinner1=(Spinner)findViewById(R.id.spinliada);
         textazo=(TextView)findViewById(R.id.titulo11);
         textazo2=(TextView)findViewById(R.id.titulo12);

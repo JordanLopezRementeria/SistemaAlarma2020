@@ -290,7 +290,10 @@ public class Registrarse extends AppCompatActivity  {
 
     public void reproducirSonidoRandom()
     {
-        String[] palabrasRandom = {"paludo","palabra","adivina","pera","rojo","sobresaliente","oculto","cabra","tigre","barco","rey","reina","llavero","improvisar","juego","coche","alucinante","alumno","profesor","pescar","anciano"};
+        String[] palabrasRandom = {"paludo","palabra","adivina","pera",
+                "rojo","sobresaliente","oculto","cabra","tigre","barco","rey","reina",
+                "llavero","improvisar","juego","coche","alucinante","alumno","profesor",
+                "pescar","anciano","libro","cuaderno","remo","internet","trompeta","elefante","flauta","manzana","fresa","verde"};
         int numeroGenerado = new Random().nextInt(palabrasRandom.length); //genero numero aleatorio con maximo la longitud del array
                                                             //cada numero corresponde con 1 posicion del array y esa palabra le asocio ese id del array
         random = (palabrasRandom[numeroGenerado]);

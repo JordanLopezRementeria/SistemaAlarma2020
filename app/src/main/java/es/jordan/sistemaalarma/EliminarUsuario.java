@@ -33,6 +33,9 @@ ImageView eliminarUsu;
 private Toolbar toolbar;
 private final String EXTRA_USUARIO = "";
 ListView lv;
+String email="";
+String nombre="";
+int usuarioId;
 EditText texto2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +59,11 @@ EditText texto2;
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 itemColmena itemSeleccionado= (itemColmena) adapter.getItem(position);
-                texto2.setText(itemSeleccionado.nombre); //ponemos en la caja de texto el nombre del seleccionado
-
-
+                texto2.setText(itemSeleccionado.nombre);
+                //ponemos en la caja de texto el nombre del seleccionado
+                nombre=itemSeleccionado.nombre;
+               usuarioId= (int) itemSeleccionado.id;
+               email=itemSeleccionado.tipo;
 
 
 
@@ -92,10 +97,12 @@ EditText texto2;
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Usuario usuario1 = new Usuario();
-                        usuario1.setNombre(texto2.getText().toString());//es la excepcion porq no necesitamos confirmar si hay usuario o no
-                        // y solo habra un usuario con el mismo nombre
+                        usuario1.setUsuarioId(usuarioId);
+                        usuario1.setNombre(nombre);
+                        usuario1.setEmail(email);
 
                         eliminarUsu(usuario1);
+
                         Toast.makeText(getApplicationContext(), "Usuario eliminado con exito", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
                         final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
@@ -105,7 +112,7 @@ EditText texto2;
                     }
                 });
                 alert.create().show();
-            return true;//si ponemos a true solo este evento se producira, si ponemos a false el onclick normal tb
+            return false;//si ponemos a true solo este evento se producira, si ponemos a false el onclick normal tb
             }
         });
 
@@ -146,8 +153,9 @@ EditText texto2;
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Usuario usuario1 = new Usuario();
-                        usuario1.setNombre(texto2.getText().toString());//es la excepcion porq no necesitamos confirmar si hay usuario o no
-                        // y solo habra un usuario con el mismo nombre
+                        usuario1.setUsuarioId(usuarioId);
+                        usuario1.setNombre(nombre);
+                        usuario1.setEmail(email);
 
                         eliminarUsu(usuario1);
                         Toast.makeText(getApplicationContext(), "Usuario eliminado con exito", Toast.LENGTH_SHORT).show();
@@ -187,6 +195,21 @@ EditText texto2;
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+    public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
+
+        try {
+
+            ObjectOutputStream objetoEntregar = new ObjectOutputStream(socketCliente.getOutputStream());
+            System.out.println("El objeto que mandara el cliente al servidor es: " + usuario1);
+            objetoEntregar.writeObject(usuario1);//el cliente manda el objeto al server
+            objetoEntregar.close();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu)
@@ -249,21 +272,7 @@ EditText texto2;
         }
     }
 
-    public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
 
-        try {
-
-            ObjectOutputStream objetoEntregar = new ObjectOutputStream(socketCliente.getOutputStream());
-            System.out.println("El objeto que mandara el cliente al servidor es: " + usuario1);
-            objetoEntregar.writeObject(usuario1);//el cliente manda el objeto al server
-            objetoEntregar.close();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-
-        }
-
-
-    }
 
     public void xmlToJava() {
         eliminarUsu= findViewById(R.id.botonEliminar);

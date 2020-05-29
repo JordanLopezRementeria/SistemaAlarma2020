@@ -21,8 +21,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="60dp"
         android:layout_below="@id/toolbarListarUsuarios"
-        android:textColor="@color/blanquito"
-        android:text=" Elige usuario :"
+        android:textColor="@color/negro"
+        android:text=" Elige el usuario :"
+        android:textStyle="bold"
         android:textSize="20dp"></TextView>
 
 
@@ -33,6 +34,7 @@
         android:id="@+id/spinliada"
         android:layout_marginTop="60dp"
         android:spinnerMode="dialog"
+
         android:layout_width="match_parent"
         android:layout_height="38dp" />
 
@@ -43,20 +45,28 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_below="@id/toolbarListarUsuarios"
-        android:textColor="@color/blanquito"
+        android:textColor="@color/negro"
+        android:textStyle="bold"
+
         android:text=" Asociale raspberry/es:"
         android:textSize="20dp"></TextView>
 
 
     <ListView
+        android:layout_marginTop="20dp"
         android:id="@+id/listView"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
+        android:buttonTint="@android:color/holo_green_dark"
+
  />
 
-    <Button
+    <ImageView
         android:id="@+id/button"
         android:text="aceptar"
+        android:layout_marginTop="20dp"
+         android:layout_gravity="center_horizontal"
+        android:src="@drawable/aceptar1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
  />
