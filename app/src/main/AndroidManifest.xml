@@ -27,7 +27,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/alarmi"
+        android:icon="@drawable/logo"
         android:label="Alarma Jordan"
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"

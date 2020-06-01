@@ -294,21 +294,21 @@ EditText texto2;
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/admin"));
+                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/adming3"));
             }
             else if(usuario1.getRol().toUpperCase().equals("USUARIO"))
             {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/usuario"));
+                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/usuariog3"));
             }
             else
             {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/invitado"));
+                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/invitadog3"));
             }
 
 

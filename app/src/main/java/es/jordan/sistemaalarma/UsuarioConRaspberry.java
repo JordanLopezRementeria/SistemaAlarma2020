@@ -81,6 +81,7 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
                 lv.setVisibility(View.GONE);
                 listView.setVisibility(View.VISIBLE);
                 textazo2.setVisibility(View.VISIBLE);
+                button.setVisibility(View.VISIBLE);
                 botonCan1.setVisibility(View.VISIBLE);
 
 
