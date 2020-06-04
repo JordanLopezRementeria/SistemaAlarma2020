@@ -319,8 +319,8 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
             OutputStream socketSalida = socketCliente.getOutputStream();
             DataOutputStream escribir = new DataOutputStream(socketSalida);
 
-            Toast toast4 = Toast.makeText(getApplicationContext(),"el usuario es "+idUsuario, Toast.LENGTH_LONG);
-            toast4.show();
+           // Toast toast4 = Toast.makeText(getApplicationContext(),"el usuario es "+idUsuario, Toast.LENGTH_LONG);
+          //  toast4.show();
 
             escribir.writeInt(idUsuario);
 

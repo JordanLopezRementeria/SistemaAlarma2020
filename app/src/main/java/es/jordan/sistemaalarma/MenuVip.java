@@ -75,7 +75,7 @@ public class MenuVip extends AppCompatActivity {
                 //la diferencia que radica entre un action_dial y un action_call es que en el call
                 //esq dial puedes editar el numero y el call llama directamente
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:693246245"));
+                intent.setData(Uri.parse("tel:112"));
                 startActivity(intent);
             }
         });
@@ -98,7 +98,7 @@ public class MenuVip extends AppCompatActivity {
         handler.postDelayed( runnable = new Runnable() {
             public void run() {
                 //do something
-                Toast.makeText(getApplicationContext(), "probando cada cierto rato", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(), "probando cada cierto rato", Toast.LENGTH_LONG).show();
 
                 handler.postDelayed(runnable, intervaloDeTiempo );
             }

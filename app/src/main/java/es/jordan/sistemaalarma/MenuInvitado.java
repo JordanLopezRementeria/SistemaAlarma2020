@@ -131,7 +131,7 @@ public class MenuInvitado extends AppCompatActivity {
     }
 
     private void reproducirVideo() {
-        String path = "android.resource://" + getPackageName() + "/" + R.raw.corte_video; //buscamos la ruta del video dentro de nuestro package
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.video; //buscamos la ruta del video dentro de nuestro package
         Uri uri=Uri.parse(path);
         video.setVideoURI(uri);
         MediaController mediacontroler=new MediaController(this); //encargado de play y stop

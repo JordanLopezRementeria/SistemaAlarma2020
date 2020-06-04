@@ -11,23 +11,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/admin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/adming3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/invitadog3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/raspusuario.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/usuariog3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ExcepcionJordan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/raw/video.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ModificarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ModificarUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuInvitado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuInvitado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Streaming.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Streaming.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/UsuarioConRaspberry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/UsuarioConRaspberry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/admin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/invitado.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/invitado.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/usuario.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/usuario.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_admin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_usuario_con_raspberry.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_usuario_con_raspberry.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/list_item_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/list_item_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_invitado.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_invitado.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_menu_vip.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_menu_vip.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_streaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_streaming.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +28,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="762fda180504" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -70,7 +62,7 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/res/raw" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -82,6 +74,7 @@
       <recent name="es.jordan.sistemaalarma" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jordan\Desktop\ProyectoDoc\ApiarioJordan2402\ApiarioJordan2402\app\src\main\res\raw" />
       <recent name="C:\Users\Jordan\Desktop\ProyectoDoc\ApiarioJordan2402\ApiarioJordan2402\app\src\main\res\drawable" />
       <recent name="C:\Users\Jordan\Desktop\ProyectoDoc\ApiarioJordan2402\ApiarioJordan2402\app" />
       <recent name="C:\Users\Jordan\Desktop\ProyectoDoc\ApiarioJordan2402\ApiarioJordan2402\app\src\main\res\menu" />
@@ -687,7 +680,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590725677108</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="ya">
+      <created>1591012623754</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1591012623754</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -705,7 +705,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="14/05" />
     <MESSAGE value="listando.." />
     <MESSAGE value="PreRoles" />
     <MESSAGE value="Objetos bd" />
@@ -730,6 +729,7 @@
     <MESSAGE value="portada nueva!" />
     <MESSAGE value="nuevos iconitos" />
     <MESSAGE value="retoques casi finales" />
-    <option name="LAST_COMMIT_MESSAGE" value="retoques casi finales" />
+    <MESSAGE value="ya" />
+    <option name="LAST_COMMIT_MESSAGE" value="ya" />
   </component>
 </project>

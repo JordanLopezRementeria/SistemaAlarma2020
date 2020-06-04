@@ -72,6 +72,7 @@ ImageView ver;
 
         spinner = findViewById(R.id.spinnerverstreaming);
         spinner.setPrompt("Elige webcam a visualizar");
+
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, opciones4);
         spinner.setAdapter(adapter2);
 
