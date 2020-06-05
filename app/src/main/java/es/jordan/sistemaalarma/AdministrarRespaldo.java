@@ -23,8 +23,11 @@ import java.net.Socket;
 
 import pojos.Usuario;
 
+
 public class AdministrarRespaldo extends AppCompatActivity {
-    ImageView copia, recuperar;
+
+    ImageView copia,
+    recuperar;
     private final String EXTRA_USUARIO = "";
     Toolbar toolbar;
 
@@ -40,10 +43,11 @@ public class AdministrarRespaldo extends AppCompatActivity {
 
 
         xmlToJava();
+        //habilitar conexiones para los sockets
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-
+        //on click en la imagen hacer copia de seguridad
         copia.setOnClickListener(new View.OnClickListener() { //on click de desconectar
             @Override
             public void onClick(View v) {
@@ -55,6 +59,7 @@ public class AdministrarRespaldo extends AppCompatActivity {
 
             }
         });
+        //on click en la imagen importar copia de seguridad
         recuperar.setOnClickListener(new View.OnClickListener() { //on click de desconectar
             @Override
             public void onClick(View v) {
@@ -69,7 +74,7 @@ public class AdministrarRespaldo extends AppCompatActivity {
 
 
     }
-
+    //iniciando el menu del toolbar
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menuenbackup, menu);
@@ -77,26 +82,28 @@ public class AdministrarRespaldo extends AppCompatActivity {
     }
 
     @Override
+
+    //on click de cada elemento del toolbar
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
         switch (item.getItemId()) {
 
-
+            //cuando clicamos en la flechita del toolbar
             case R.id.item1:
                 Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
                 final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
                 intent.putExtra(EXTRA_USUARIO, usuarioPasado);
                 startActivityForResult(intent, 0);
                 return true;
-
+                //cuando clicamos en
             case R.id.item2:
                 Intent intent2 = new Intent(getApplicationContext(), MenuAdmin.class); //volvemos de las 2 formas
                 final Usuario usuarioPasado2 = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
                 intent2.putExtra(EXTRA_USUARIO, usuarioPasado2);
-                intent2.putExtra(EXTRA_USUARIO, usuarioPasado2);
                 startActivityForResult(intent2, 0);
 
                 return true;
+
 
             case R.id.item3:
                 AlertDialog.Builder alert = new AlertDialog.Builder(AdministrarRespaldo.this);
@@ -140,6 +147,9 @@ public class AdministrarRespaldo extends AppCompatActivity {
         recuperar = findViewById(R.id.botonRecuperar);
     }
 
+    /**
+     * Avisar server de que quiero copia de seguridad.
+     */
     public void avisarServer() {
 
         try {
@@ -160,6 +170,9 @@ public class AdministrarRespaldo extends AppCompatActivity {
         }
     }
 
+    /**
+     * Avisar al que quiero importar la copia
+     */
     public void recuperarServer() {
         try {
 

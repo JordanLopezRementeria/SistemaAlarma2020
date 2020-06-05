@@ -211,10 +211,6 @@ public class Streaming extends AppCompatActivity {
     }
 
 
-    private void elegirRaspberry() {
-
-
-    }
 
     private void xmlToJava() {
         webView = findViewById(R.id.webview);

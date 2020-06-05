@@ -22,9 +22,7 @@ public class MenuVip extends AppCompatActivity {
     ImageView BotonVerCamara, BotonVerFotos, BotonSos, botonListarIncidencias;
     private final String EXTRA_USUARIO = "";
     Toolbar toolbar;
-    Handler handler = new Handler();
-    Runnable runnable;
-    int intervaloDeTiempo = 15 * 1000;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,30 +84,7 @@ public class MenuVip extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onResume() { //cuando la actividad es visible
-        //el handler es similar a un hilo en android
 
-        handler.postDelayed(runnable = new Runnable() {
-            public void run() {
-                //do something
-                // Toast.makeText(getApplicationContext(), "probando cada cierto rato", Toast.LENGTH_LONG).show();
-
-                handler.postDelayed(runnable, intervaloDeTiempo);
-            }
-        }, intervaloDeTiempo);
-
-        super.onResume();
-    }
-
-// If onPause() is not included the threads will double up when you
-// reload the activity
-
-    @Override
-    protected void onPause() { //cuando se quita
-        handler.removeCallbacks(runnable); //parar handler cuando no esta visible la activity
-        super.onPause();
-    }
 
 
     public boolean onCreateOptionsMenu(Menu menu) {

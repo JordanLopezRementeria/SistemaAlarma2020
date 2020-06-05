@@ -3,7 +3,7 @@ package es.jordan.sistemaalarma;
 import java.io.Serializable;
 
 public class Esclavo implements Serializable {
-
+//es el pojo usuras pero sin id
     private int raspberryId;
     private int usuarioId;
 

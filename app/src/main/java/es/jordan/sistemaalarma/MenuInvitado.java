@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,6 +27,9 @@ public class MenuInvitado extends AppCompatActivity {
     TextView titulo;
     Toolbar toolbar;
     private final String EXTRA_USUARIO = "";
+    Handler handler = new Handler();
+    Runnable runnable;
+    int intervaloDeTiempo = 15 * 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,32 @@ public class MenuInvitado extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onResume() { //cuando la actividad es visible
+        //el handler es similar a un hilo en android
+
+        handler.postDelayed(runnable = new Runnable() {
+            public void run() {
+                //do something
+                // Toast.makeText(getApplicationContext(), "probando cada cierto rato", Toast.LENGTH_LONG).show();
+
+                handler.postDelayed(runnable, intervaloDeTiempo);
+            }
+        }, intervaloDeTiempo);
+
+        super.onResume();
+    }
+
+// If onPause() is not included the threads will double up when you
+// reload the activity
+
+    @Override
+    protected void onPause() { //cuando se quita
+        handler.removeCallbacks(runnable); //parar handler cuando no esta visible la activity
+        super.onPause();
+    }
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

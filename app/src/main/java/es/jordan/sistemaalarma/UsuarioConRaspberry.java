@@ -32,6 +32,7 @@ import java.util.ArrayList;
 
 import pojos.Raspberry;
 import pojos.Usuario;
+import pojos.Usuras;
 
 
 public class UsuarioConRaspberry extends AppCompatActivity implements Serializable {
@@ -251,7 +252,7 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
             String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30800;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
-
+            Usuras u=new Usuras();
             Esclavo esclavo = new Esclavo();
             esclavo.setUsuarioId(idUsuario);
             esclavo.setRaspberryId(idRaspberry);

@@ -24,10 +24,17 @@ import pojos.Usuario;
 import seguridad.Hashear;
 import voz.TTSManager;
 
+/**
+ * * @author Jordan López Rementería
+ * * @version 1.7
+ */
 public class MainActivity extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
-    ImageView botonIniciar, botonRegistrar;
-    EditText email1, contraseña1;
+
+    ImageView botonIniciar,
+            botonRegistrar;
+    EditText email1,
+    contraseña1;
     TTSManager ttsManager = null;
     String secretKey = "enigma";
 
@@ -48,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
         Hashear e = new Hashear();
 
 
-/**
- * On click del boton registrar
- */
+    /**
+    * On click del boton registrar
+    */
         botonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //on click registrar
@@ -61,9 +68,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-/**
- * On click del boton iniciar
- */
+    /**
+    * On click del boton iniciar
+    */
         botonIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //on click iniciar
@@ -103,8 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 for (Usuario u : listaUsuarios) {
 
                     String contraseñaCodificada = e.encode(secretKey, usuario1.getContraseña());
-                    //si un hacker me pilla la contraseña de la bd da igual porq al introducirla en el login la hashea de nuevo
-                    //porq lo no puede entrar
+
                     if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("ADMIN")))) {
                         detector1 = true;
 
@@ -147,6 +153,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Limpiar cajas de texto
+     */
     public void limpiar() { //settea las cajas de texto vacias
         // nombre1.setText("");
         email1.setText("");
@@ -154,6 +163,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Pantalla admin.
+     *
+     * @param usuario1 un usuario
+     */
     public void pantallaAdmin(Usuario usuario1) {
 //        usuario1.setNombre(nombre1.getText().toString());
         Intent intent2 = new Intent(MainActivity.this, MenuAdmin.class); //ponemos en la actividad el objeto usuario
@@ -164,6 +178,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Pantalla usuario.
+     *
+     * @param usuario1 un usuario
+     */
     public void pantallaUsuario(Usuario usuario1) {
         Intent intent = new Intent(MainActivity.this, MenuVip.class); //ponemos en la actividad el objeto usuario
         intent.putExtra(EXTRA_USUARIO, usuario1);
@@ -172,6 +191,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Pantalla invitado.
+     *
+     * @param usuario1 un usuario
+     */
     public void pantallaInvitado(Usuario usuario1) {
         Intent intent = new Intent(MainActivity.this, MenuInvitado.class); //ponemos en la actividad el objeto usuario
         intent.putExtra(EXTRA_USUARIO, usuario1);
@@ -180,6 +204,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Xml to java.
+     */
     public void xmlToJava() {
 
         botonIniciar = findViewById(R.id.botonIniciarXML);
@@ -192,12 +219,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Activar animacion.
+     */
     public void activarAnimacion() {
         ImageView miImagen = findViewById(R.id.imagenXML);
         Animation miAnim = AnimationUtils.loadAnimation(this, R.anim.anim2);
         miImagen.startAnimation(miAnim);
     }
 
+    /**
+     * Leer usuario.
+     *
+     * @param usuario1 un usuario
+     */
     public void leerUsuario(Usuario usuario1) {
         try {
             String equipoServidor = "192.168.1.42";
@@ -211,6 +246,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Obtener lista de usuarios
+     *
+     * @return la lista
+     */
     public ArrayList<Usuario> obtenerLista() {
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         try {
@@ -234,7 +274,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //gestion de la comunicacion de obtener lista
+    /**
+     * Gestionar comunicacion.
+     *
+     * @param socketCliente el socket cliente
+     * @param usuario1      el usuario
+     */
+//gestion de la comunicacion de obtener lista
     public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
 
         try {
@@ -263,6 +309,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Texto to voz.
+     */
     public void textoToVoz() {
         ttsManager = new TTSManager();
         ttsManager.init(this);
