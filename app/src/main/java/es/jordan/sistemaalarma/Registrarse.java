@@ -32,7 +32,7 @@ import voz.TTSManager;
 
 
 /**
- * el/la type Registrarse.
+ * pantalla Registrarse.
  */
 public class Registrarse extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";

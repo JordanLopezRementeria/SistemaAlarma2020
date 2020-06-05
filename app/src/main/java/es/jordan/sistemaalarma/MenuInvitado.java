@@ -22,7 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 import pojos.Usuario;
 
 /**
- * el/la type Menu invitado.
+ * pantalla Menu invitado.
  */
 public class MenuInvitado extends AppCompatActivity {
     private VideoView video;

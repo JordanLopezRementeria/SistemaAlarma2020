@@ -18,7 +18,7 @@ import pojos.Usuario;
 
 
 /**
- * el/la type Menu vip.
+ * pantalla Menu vip.
  */
 public class MenuVip extends AppCompatActivity {
     private ImageView BotonVerCamara, BotonVerFotos, BotonSos, botonListarIncidencias;

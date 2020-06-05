@@ -29,7 +29,7 @@ import pojos.Usuario;
 import seguridad.Hashear;
 
 /**
- * The type Anadir usuarios.
+ * Anadir usuarios.
  */
 public class AnadirUsuarios extends AppCompatActivity {
 

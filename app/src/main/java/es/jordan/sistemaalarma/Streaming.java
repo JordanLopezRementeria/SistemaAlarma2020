@@ -34,7 +34,7 @@ import pojos.Raspberry;
 import pojos.Usuario;
 
 /**
- * el/la type Streaming.
+ * pantalla Streaming.
  */
 public class Streaming extends AppCompatActivity {
     private WebView webView;

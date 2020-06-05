@@ -31,7 +31,7 @@ import pojos.Usuario;
 
 
 /**
- * el/la type Modificar usuario.
+ * pantalla Modificar usuario.
  */
 public class ModificarUsuario extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";

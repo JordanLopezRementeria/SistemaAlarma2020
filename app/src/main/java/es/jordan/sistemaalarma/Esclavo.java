@@ -3,7 +3,7 @@ package es.jordan.sistemaalarma;
 import java.io.Serializable;
 
 /**
- * The type Esclavo.
+ *  Esclavo.
  */
 public class Esclavo implements Serializable {
 

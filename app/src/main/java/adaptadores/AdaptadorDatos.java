@@ -17,7 +17,9 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
 
     ArrayList<DatosRecicler> miLista;
     View.OnClickListener escuchador;
-
+    /**
+     *el recicler consiste en 3 elementos un texto, un texto secundario y una foto
+     */
     public AdaptadorDatos(ArrayList<DatosRecicler> miLista) {
         this.miLista = miLista;
     }
@@ -52,7 +54,10 @@ public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHold
     public void setOnClickListener(View.OnClickListener escucha) {
         this.escuchador = escucha;
     }
-
+    /**
+     * los elementos que mencionamos al principio de la clase se guardan en el viewholder cuya mision es
+     *  guardar en caché para no cargar de nuevo el recycler, de esta manera optimizando recursos
+     */
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
 
         TextView elNombre;

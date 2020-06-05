@@ -9,7 +9,7 @@ import android.widget.VideoView;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
- * The type Pre carga.
+ * pantalla Pre carga.
  */
 public class PreCarga extends AppCompatActivity {
     private VideoView video;

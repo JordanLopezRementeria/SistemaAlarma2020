@@ -36,7 +36,7 @@ import pojos.Usuras;
 
 
 /**
- * el/la type Usuario con raspberry.
+ * pantalla Usuario con raspberry.
  */
 public class UsuarioConRaspberry extends AppCompatActivity implements Serializable {
     private ListView listView;

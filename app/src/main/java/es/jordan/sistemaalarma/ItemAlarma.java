@@ -1,7 +1,7 @@
 package es.jordan.sistemaalarma;
 
 /**
- * el/la type Item alarma.
+ * Item alarma.
  */
 public class ItemAlarma {
 

@@ -29,7 +29,7 @@ import pojos.Raspberry;
 import pojos.Usuario;
 
 /**
- * el/la type Eliminar usuario.
+ *  Eliminar usuario.
  */
 public class EliminarUsuario extends AppCompatActivity {
 
