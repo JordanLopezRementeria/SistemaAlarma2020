@@ -27,7 +27,7 @@ import pojos.Usuario;
 public class AdministrarRespaldo extends AppCompatActivity {
 
     ImageView copia,
-    recuperar;
+             recuperar;
     private final String EXTRA_USUARIO = "";
     Toolbar toolbar;
 
@@ -88,23 +88,19 @@ public class AdministrarRespaldo extends AppCompatActivity {
         //para que cada icono asignarle tareas diferentes
         switch (item.getItemId()) {
 
-            //cuando clicamos en la flechita del toolbar
+               //cuando clicamos en la flechita del toolbar
             case R.id.item1:
+                //cuando clicamos en
+            case R.id.item2:
                 Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
                 final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
                 intent.putExtra(EXTRA_USUARIO, usuarioPasado);
                 startActivityForResult(intent, 0);
                 return true;
-                //cuando clicamos en
-            case R.id.item2:
-                Intent intent2 = new Intent(getApplicationContext(), MenuAdmin.class); //volvemos de las 2 formas
-                final Usuario usuarioPasado2 = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
-                intent2.putExtra(EXTRA_USUARIO, usuarioPasado2);
-                startActivityForResult(intent2, 0);
 
-                return true;
+            //volvemos de las 2 formas
 
-
+                //cuando clicamos en el icono de salir del toolbar
             case R.id.item3:
                 AlertDialog.Builder alert = new AlertDialog.Builder(AdministrarRespaldo.this);
                 alert.setTitle("Advertencia");
@@ -141,8 +137,10 @@ public class AdministrarRespaldo extends AppCompatActivity {
 
         }
     }
-
-    private void xmlToJava() {
+    /**
+     * xml a java
+     */
+    public void xmlToJava() {
         copia = findViewById(R.id.botonCopia);
         recuperar = findViewById(R.id.botonRecuperar);
     }

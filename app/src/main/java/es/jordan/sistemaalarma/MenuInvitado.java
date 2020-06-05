@@ -61,9 +61,8 @@ public class MenuInvitado extends AppCompatActivity {
 
         handler.postDelayed(runnable = new Runnable() {
             public void run() {
-                //do something
-                // Toast.makeText(getApplicationContext(), "probando cada cierto rato", Toast.LENGTH_LONG).show();
 
+                Toast.makeText(getApplicationContext(), "Si te ha gustado el video, solicita mas información", Toast.LENGTH_LONG).show();
                 handler.postDelayed(runnable, intervaloDeTiempo);
             }
         }, intervaloDeTiempo);
@@ -143,10 +142,12 @@ public class MenuInvitado extends AppCompatActivity {
 
     private void enlaceMail() {
         //con esto mandamos emails por gmail a la direccion que queramos con el asunto y cuerpo
-        Intent email = new Intent(Intent.ACTION_SENDTO);
-        email.setData(Uri.parse("mailto:alarmajordan@gmail.com"));
+        Intent email = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                "mailto","alarmajordan@outlook.com", null));
         email.putExtra(Intent.EXTRA_SUBJECT, "Estoy interesado en el sistema de alarma");
-        email.putExtra(Intent.EXTRA_TEXT, "Hola me gustaria adquirir mas detalles sobre el sistema de alarma.");
+        String[] addresses={"alarmajordan@outlook.com"};
+        email.putExtra(Intent.EXTRA_EMAIL, addresses);
+        email.putExtra(Intent.EXTRA_TEXT, "Hola, me gustaria adquirir mas detalles sobre la adquisición del sistema de alarma.");
         startActivity(email);
 
 

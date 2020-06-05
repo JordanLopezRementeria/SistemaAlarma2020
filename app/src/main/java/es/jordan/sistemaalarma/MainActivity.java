@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import pojos.Usuario;
@@ -74,77 +75,77 @@ public class MainActivity extends AppCompatActivity {
         botonIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //on click iniciar
-                //ComponenteAD componente = new ComponenteAD(getApplicationContext());
-                //  componente.openForWrite();
-                // componente.openForRead();
-                boolean detector0 = false;
-                boolean detector1 = false;
-                boolean detector2 = false;
-                boolean detector3 = false; //nos ayudaran a saber si el usuario ya existe
 
-                if (email1.getText().toString().equals("admin")) {
-                    Usuario u = new Usuario();
-                    u.setNombre("admin");
-                    u.setContraseña("admin");
-                    u.setEmail("admin");
-                    u.setRol("admin");
-                    pantallaAdmin(u);
-                }
 
 
                 if (email1.getText().toString().trim().length() == 0 || contraseña1.getText().toString().trim().length() == 0) {
                     Toast.makeText(getApplicationContext(), "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
-                    detector0 = true;
+
                 }
-                Usuario usuario1 = new Usuario();
-                // usuario1.setNombre(nombre1.getText().toString());
+                Hashear seguridad = new Hashear();
+                //creamos un usuario con los datos introducidos en el login y los comprobamos contra la bd
+                Usuario usuario1= new Usuario();
+
+                //1º paso mandar el email y la password hasheada al server para saber si hay algun usuario con estos datos
+                //2º el server recibe el objeto y manda al componente de acceso a datos realizar la consulta
+                //3º si existe el compoennte devolver el objeto con todos los datos y si no existe devolvera un null
+                //4º el server manda ese objeto pro sockets al cliente y segun el rol que tenga manda a una pantalla u otra
+
+                //aqui meteremos todos los datos del usuario confirmado
+
                 usuario1.setEmail(email1.getText().toString());
-                usuario1.setContraseña(contraseña1.getText().toString());
-                //una vez vemos que los datos se han insertado, necesitamos saber si coinciden con la BD de ser asi
-                //ira a la pantall correspondiente.
-
-                ArrayList<Usuario> listaUsuarios = new ArrayList();
-                listaUsuarios = obtenerLista();
-                Hashear e = new Hashear();
-
-                for (Usuario u : listaUsuarios) {
-
-                    String contraseñaCodificada = e.encode(secretKey, usuario1.getContraseña());
-
-                    if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("ADMIN")))) {
-                        detector1 = true;
-
-                        Toast.makeText(getApplicationContext(), "Credenciales validos, eres administrador", Toast.LENGTH_LONG).show();
-                        pantallaAdmin(u);
-                        finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
-                        limpiar();
+                usuario1.setContraseña(seguridad.encode(secretKey,contraseña1.getText().toString()));
 
 
-                    } else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("USUARIO")))) {
-
-                        detector2 = true;
-                        Toast.makeText(getApplicationContext(), "Credenciales validos, eres usuario", Toast.LENGTH_LONG).show();
-                        pantallaUsuario(u); //vamos a la pantalla usuario pasandole ese usu
-                        finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
-                        limpiar(); //limpiamos datos del login
+                Usuario usuarioCompleto=new Usuario();
+                usuarioCompleto=leerUsuario(usuario1);
+                //ahora tenemos que mandar este usuario por sockets al servidor para que lo compruebe el con el CAD
+                //y volcara sobre completo todos sus datos
 
 
-                    } else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("INVITADO")))) {
-                        detector3 = true;
-                        Toast.makeText(getApplicationContext(), "Credenciales validos, eres invitado", Toast.LENGTH_LONG).show();
-                        pantallaInvitado(u);
-                        finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
-                        limpiar();
 
 
-                    }
 
 
-                }
-                if (detector0 == false && detector1 == false && detector2 == false && detector3 == false) {
-                    Toast.makeText(getApplicationContext(), "Credenciales o usuario invalido", Toast.LENGTH_LONG).show();
 
-                }
+
+                  if(usuarioCompleto.getNombre().equals("*")) //el * es lo que le ha mandado el server
+                      //cuando los credenciales contrastados cn la bd no coinciden
+                  {
+                      Toast.makeText(getApplicationContext(), "Credenciales no válidos", Toast.LENGTH_LONG).show();
+
+                  }
+                  else {
+                      if (usuarioCompleto.getRol().toUpperCase().equals("ADMIN")) {
+
+
+                          Toast.makeText(getApplicationContext(), "Credenciales validos, eres administrador", Toast.LENGTH_LONG).show();
+                          pantallaAdmin(usuarioCompleto);
+                          finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
+                          limpiar();
+
+
+                      } else if (usuarioCompleto.getRol().toUpperCase().equals("USUARIO")) {
+
+
+                          Toast.makeText(getApplicationContext(), "Credenciales validos, eres usuario", Toast.LENGTH_LONG).show();
+                          pantallaUsuario(usuarioCompleto); //vamos a la pantalla usuario pasandole ese usu
+                          finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
+                          limpiar(); //limpiamos datos del login
+
+
+                      } else if (usuarioCompleto.getRol().toUpperCase().equals("INVITADO")) {
+
+                          Toast.makeText(getApplicationContext(), "Credenciales validos, eres invitado", Toast.LENGTH_LONG).show();
+                          pantallaInvitado(usuarioCompleto);
+                          finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
+                          limpiar();
+
+
+                      }
+
+
+                  }
 
 
             }
@@ -233,78 +234,44 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param usuario1 un usuario
      */
-    public void leerUsuario(Usuario usuario1) {
-        try {
-            String equipoServidor = "192.168.1.42";
-            int puertoServidor = 30501;
-            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
-            gestionarComunicacion(socketCliente, usuario1);
-            socketCliente.close();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
 
-    }
 
-    /**
-     * Obtener lista de usuarios
-     *
-     * @return la lista
-     */
-    public ArrayList<Usuario> obtenerLista() {
-        ArrayList<Usuario> listaUsuarios = new ArrayList();
+    public Usuario leerUsuario(Usuario usuario1) {
+        Usuario usuarioDeVuelta=new Usuario();
         try {
 
             String equipoServidor = "servidorwebjordan.ddns.net";
-            int puertoServidor = 30504;
+            int puertoServidor = 30566;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+                ObjectOutputStream objetoEntregar = new ObjectOutputStream(socketCliente.getOutputStream());
+                System.out.println("El objeto que mandara el cliente al servidor es: " + usuario1);
+                objetoEntregar.writeObject(usuario1);//el cliente manda el objeto al server
+                objetoEntregar.flush();
 
-            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaUsuarios = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
-            socketCliente.close();
-            return listaUsuarios;
 
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+                //ahora recibimos el objeto de vuelta si es nulo no coincide y si no si
+                ObjectInputStream objetoRecibido = new ObjectInputStream(socketCliente.getInputStream());
+                usuarioDeVuelta = (Usuario) objetoRecibido.readObject(); //objeto leido y metido en usuarioDeVuelta
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return listaUsuarios;
 
-    }
+                objetoRecibido.close();
+                socketCliente.close();
+                objetoEntregar.close();
+                return usuarioDeVuelta;
 
-    /**
-     * Gestionar comunicacion.
-     *
-     * @param socketCliente el socket cliente
-     * @param usuario1      el usuario
-     */
-//gestion de la comunicacion de obtener lista
-    public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
 
-        try {
 
-            ObjectOutputStream objetoEntregar = new ObjectOutputStream(socketCliente.getOutputStream());
-            System.out.println("El objeto que mandara el cliente al servidor es: " + usuario1);
-            objetoEntregar.writeObject(usuario1);//el cliente manda el objeto al server
-            objetoEntregar.close();
 
-            InputStream inputStream = socketCliente.getInputStream();
-            DataInputStream leerMensaje = new DataInputStream(inputStream);
-            if (leerMensaje.toString().equals("existe")) {
 
-                Toast toast = Toast.makeText(getApplicationContext(), "usuario existe pasa a siguiente menu", Toast.LENGTH_LONG);
-                toast.show();
-            } else {
-                Toast toast = Toast.makeText(getApplicationContext(), "usuario no existe", Toast.LENGTH_LONG);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
 
+      return usuarioDeVuelta;
 
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-
-        }
 
 
     }

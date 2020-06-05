@@ -31,10 +31,16 @@ import pojos.Raspberry;
 import pojos.Usuario;
 import seguridad.Hashear;
 
+/**
+ * The type Anadir usuarios.
+ */
 public class AnadirUsuarios extends AppCompatActivity {
+
     ImageView botonAñadir;
     Spinner spinner1;
-    EditText nombreInsertar, contraseñaInsertar, direccionInsertar;
+    EditText nombreInsertar,
+    contraseñaInsertar,
+    direccionInsertar;
     private final String EXTRA_USUARIO = "";
     private ArrayList<Model> modelArrayList;
     private CustomAdapter customAdapter;
@@ -65,17 +71,11 @@ public class AnadirUsuarios extends AppCompatActivity {
         spinner1.setAdapter(adapter);
 
 
-        ArrayList<Raspberry> listaRaspberrys = new ArrayList();
-        listaRaspberrys = obtenerListaRaspberry();
-        ArrayList<String> opciones3 = new ArrayList(); //en un array de string meto
-        //las raspberrys disponibles de la BD y lo muestro en un spinner si fuera un array
-        //de objetos no funcionaria el counstrucotr del spinner
-        for (Raspberry r : listaRaspberrys) {
-            opciones3.add(r.getRaspberryId() + ":" + r.getModelo());
-        }
+        //
+        // String text = spinner1.getSelectedItem().toString(); //con esto obtengo el texto actual
 
 
-        String text = spinner1.getSelectedItem().toString(); //con esto obtengo el texto actual
+        //on click del boton añadir
         botonAñadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,22 +130,7 @@ public class AnadirUsuarios extends AppCompatActivity {
 
     }
 
-    private ArrayList<Model> getModel(boolean isSelect) { //aqui es donde obtengo lo que tiene seleccionado el checkbox
-        ArrayList<Model> list = new ArrayList<>();
-        ArrayList<Raspberry> listaRaspberrys = new ArrayList();
-        listaRaspberrys = obtenerListaRaspberry();
 
-        for (Raspberry r : listaRaspberrys) {
-
-            Model model = new Model();
-            model.setSelected(isSelect);
-            model.setAnimal(r.getRaspberryId() + ":" + r.getModelo() + "esta clickado");
-            // Toast toast = Toast.makeText(getApplicationContext(),r.getRaspberryId()+":"+r.getModelo(), Toast.LENGTH_LONG);
-            // toast.show();
-            list.add(model);
-        }
-        return list;
-    }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -227,6 +212,11 @@ public class AnadirUsuarios extends AppCompatActivity {
 
     }
 
+    /**
+     * Insertar usuario.
+     *
+     * @param usuario1 un usuario
+     */
     public void insertarUsuario(Usuario usuario1) {
         try {
 
@@ -241,6 +231,12 @@ public class AnadirUsuarios extends AppCompatActivity {
         }
     }
 
+    /**
+     * Gestionar comunicacion.
+     *
+     * @param socketCliente el socket cliente
+     * @param usuario1      un usuario
+     */
     public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
 
         try {
@@ -259,29 +255,13 @@ public class AnadirUsuarios extends AppCompatActivity {
     }
 
 
-    public ArrayList<Raspberry> obtenerListaRaspberry() {
-        ArrayList<Raspberry> listaRaspberrys = new ArrayList();
-        try {
 
-            String equipoServidor = "servidorwebjordan.ddns.net";
-            int puertoServidor = 30510;
-            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
-            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaRaspberrys = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
-            socketCliente.close();
-            return listaRaspberrys;
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return listaRaspberrys;
-
-    }
-
+    /**
+     * Obtener lista de usuario.
+     *
+     * @return la lista de usuarios
+     */
     public ArrayList<Usuario> obtenerLista() {
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         try {
