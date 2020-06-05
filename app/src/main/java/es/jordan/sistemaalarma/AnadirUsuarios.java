@@ -25,6 +25,12 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import adaptadores.CustomAdapter;
+import adaptadores.Model;
+import pojos.Raspberry;
+import pojos.Usuario;
+import seguridad.Hashear;
+
 public class AnadirUsuarios extends AppCompatActivity {
 ImageView botonAñadir;
 Spinner spinner1;

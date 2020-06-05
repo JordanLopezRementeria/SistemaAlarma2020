@@ -1,26 +1,26 @@
 package es.jordan.sistemaalarma;
 
-public class itemColmena {
+public class itemAlarma {
     protected long id;
     protected String rutaImagen;
     protected String nombre;
     protected String tipo;
 
 
-    public itemColmena() {
+    public itemAlarma() {
         this.nombre = "";
         this.tipo = "";
         this.rutaImagen = "";
     }
 
-    public itemColmena(long id, String nombre, String tipo) {
+    public itemAlarma(long id, String nombre, String tipo) {
         this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;
         this.rutaImagen = "";
     }
 
-    public itemColmena(long id, String nombre, String tipo, String rutaImagen) {
+    public itemAlarma(long id, String nombre, String tipo, String rutaImagen) {
         this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;

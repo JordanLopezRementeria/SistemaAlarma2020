@@ -5,16 +5,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import android.os.StrictMode;
-import android.os.StrictMode.ThreadPolicy;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import android.widget.EditText;
 
@@ -31,6 +28,10 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Random;
+
+import pojos.Usuario;
+import seguridad.Hashear;
+import voz.TTSManager;
 
 
 public class Registrarse extends AppCompatActivity  {

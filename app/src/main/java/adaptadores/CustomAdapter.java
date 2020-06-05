@@ -1,4 +1,4 @@
-package es.jordan.sistemaalarma;
+package adaptadores;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,9 +6,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import es.jordan.sistemaalarma.R;
 
 /**
  * Created by hardik on 9/1/17.

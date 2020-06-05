@@ -20,6 +20,10 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import pojos.Usuario;
+import seguridad.Hashear;
+import voz.TTSManager;
+
 public class MainActivity extends AppCompatActivity  {
     private final String EXTRA_USUARIO = "";
     ImageView botonIniciar, botonRegistrar;
@@ -32,20 +36,22 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //a lo largo del proyecto siempre que necesitemos usar sockets deberemos escribir estas 2 lineas
+        //para permitir la conexión
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
 
-        xmlToJava();
-        textoToVoz();
-        activarAnimacion();
+        xmlToJava(); //metodo que enchufa el xml a java
+        textoToVoz(); //metodo que convierte texto en voz
+        activarAnimacion(); //metodo que activa una animacion
         Hashear e=new Hashear();
 
 
 
         botonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //on click registrar
                 Intent intent = new Intent(v.getContext(), Registrarse.class);
                 startActivityForResult(intent, 0);
 
@@ -56,7 +62,7 @@ public class MainActivity extends AppCompatActivity  {
 
         botonIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //on click iniciar
                 //ComponenteAD componente = new ComponenteAD(getApplicationContext());
               //  componente.openForWrite();
                // componente.openForRead();
@@ -157,7 +163,7 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-    public void limpiar() {
+    public void limpiar() { //settea las cajas de texto vacias
        // nombre1.setText("");
         email1.setText("");
         contraseña1.setText("");
@@ -246,7 +252,7 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-
+//gestion de la comunicacion de obtener lista
     public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
 
         try {

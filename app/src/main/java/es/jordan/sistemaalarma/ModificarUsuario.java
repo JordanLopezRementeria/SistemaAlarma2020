@@ -29,6 +29,8 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import pojos.Usuario;
+
 
 public class ModificarUsuario extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
@@ -63,13 +65,13 @@ public class ModificarUsuario extends AppCompatActivity {
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones);
         spinner1.setAdapter(adapter3);
 
-        final ArrayList<itemColmena> itemsCompra = obtenerItems();
+        final ArrayList<itemAlarma> itemsCompra = obtenerItems();
 
-        final ItemColmenaAdapter adapter = new ItemColmenaAdapter(this, itemsCompra);
+        final ItemAlarmaAdapter adapter = new ItemAlarmaAdapter(this, itemsCompra);
         lv.setClickable(true); //para poder pinchar en los elementos de la lista
         lv.setAdapter(adapter);
 
-        final ItemColmenaAdapter adaptador=new ItemColmenaAdapter();
+        final ItemAlarmaAdapter adaptador=new ItemAlarmaAdapter();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
@@ -82,7 +84,7 @@ public class ModificarUsuario extends AppCompatActivity {
                 mensaje.setVisibility(View.GONE);
                 mensaje2.setVisibility(View.VISIBLE);
 
-                itemColmena itemSeleccionado= (itemColmena) adapter.getItem(position);
+                itemAlarma itemSeleccionado= (itemAlarma) adapter.getItem(position);
                 ultimoNombreSeleccionado=(itemSeleccionado.nombre); //metemos en variables globales el usuario elegido
                 ultimoEmailSeleccionado=(itemSeleccionado.tipo); //el tipo es el email
 
@@ -270,8 +272,8 @@ public class ModificarUsuario extends AppCompatActivity {
 
     }
 
-    private ArrayList<itemColmena> obtenerItems() {
-        ArrayList<itemColmena> listaDelListView = new ArrayList<itemColmena>();//lista con los atributos del litview
+    private ArrayList<itemAlarma> obtenerItems() {
+        ArrayList<itemAlarma> listaDelListView = new ArrayList<itemAlarma>();//lista con los atributos del litview
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         listaUsuarios=obtenerLista(); //recorremos la lista de usuarios y metemos la informacion que queremos
         for(Usuario usuario1:listaUsuarios)
@@ -281,21 +283,21 @@ public class ModificarUsuario extends AppCompatActivity {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/adming3"));
+                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/adming3"));
             }
             else if(usuario1.getRol().toUpperCase().equals("USUARIO"))
             {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/usuariog3"));
+                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/usuariog3"));
             }
             else
             {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/invitadog3"));
+                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/invitadog3"));
             }
 
 

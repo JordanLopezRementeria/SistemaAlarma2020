@@ -1,4 +1,4 @@
-package es.jordan.sistemaalarma;
+package seguridad;
 
 import java.security.MessageDigest;
 import java.util.Arrays;

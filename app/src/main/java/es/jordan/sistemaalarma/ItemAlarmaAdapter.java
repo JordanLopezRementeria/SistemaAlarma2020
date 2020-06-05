@@ -11,17 +11,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ItemColmenaAdapter extends BaseAdapter {
+public class ItemAlarmaAdapter extends BaseAdapter {
      Activity activity;
-     ArrayList<itemColmena> items;
+     ArrayList<itemAlarma> items;
 
 
-    public ItemColmenaAdapter(Activity activity, ArrayList<itemColmena> items) {
+    public ItemAlarmaAdapter(Activity activity, ArrayList<itemAlarma> items) {
         this.activity = activity;
         this.items = items;
     }
 
-    public ItemColmenaAdapter() {
+    public ItemAlarmaAdapter() {
     }
 
     @Override
@@ -51,7 +51,7 @@ public class ItemColmenaAdapter extends BaseAdapter {
             vi = inflater.inflate(R.layout.list_item_layout, null);
         }
 
-        itemColmena item = items.get(position);
+        itemAlarma item = items.get(position);
 
         ImageView image = vi.findViewById(R.id.imagen);
         int imageResource = activity.getResources().getIdentifier(item.getRutaImagen(), null, activity.getPackageName());

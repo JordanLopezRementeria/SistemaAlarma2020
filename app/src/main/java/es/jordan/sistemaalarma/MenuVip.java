@@ -1,12 +1,10 @@
 package es.jordan.sistemaalarma;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 
 import android.os.Bundle;
@@ -15,11 +13,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
+
 import androidx.appcompat.widget.Toolbar;
 
+import pojos.Usuario;
 
 
 public class MenuVip extends AppCompatActivity {

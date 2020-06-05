@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import pojos.Usuario;
+
 public class MenuInvitado extends AppCompatActivity {
     private VideoView video;
     private ImageView textoCorreo;
@@ -112,7 +114,7 @@ public class MenuInvitado extends AppCompatActivity {
     private void enlaceMail() {
         //con esto mandamos emails por gmail a la direccion que queramos con el asunto y cuerpo
         Intent email= new Intent(Intent.ACTION_SENDTO);
-        email.setData(Uri.parse("mailto:lopez.rementeria@gmail.com"));
+        email.setData(Uri.parse("mailto:alarmajordan@gmail.com"));
         email.putExtra(Intent.EXTRA_SUBJECT, "Estoy interesado en el sistema de alarma");
         email.putExtra(Intent.EXTRA_TEXT, "Hola me gustaria adquirir mas detalles sobre el sistema de alarma.");
         startActivity(email);

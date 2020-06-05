@@ -11,7 +11,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -30,6 +29,12 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+
+import adaptadores.AdaptadorDatos;
+import adaptadores.DatosRecicler;
+import pojos.Incidencia;
+import pojos.Raspberry;
+import pojos.Usuario;
 
 public class ListarIncidencias extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
@@ -161,7 +166,7 @@ public class ListarIncidencias extends AppCompatActivity {
 
 
                     //aqui sacamos datos de 2 tablas, el modelo y la hora(raspberryId) es un objeto de Raspberry
-                    miLista.add(new DatosRecicler(aux.getRaspberryId().getModelo(), aux.getHora(), R.drawable.alarma2));
+                    miLista.add(new DatosRecicler(aux.getRaspberryId().getModelo(), aux.getHora(), R.drawable.alerta2));
                     elAdaptador = new AdaptadorDatos(miLista);
                     elAdaptador.notifyDataSetChanged();
                     miRecycler.setAdapter(elAdaptador);
@@ -288,73 +293,10 @@ public class ListarIncidencias extends AppCompatActivity {
         return listaRaspberrys;
     }
 
-    public ArrayList<Incidencia> obtenerLista() {
-        ArrayList<Incidencia> listaIncidencias = new ArrayList();
-        try {
 
-            String equipoServidor = "servidorwebjordan.ddns.net";
-            int puertoServidor = 30509;
-            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
-            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaIncidencias= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
-            socketCliente.close();
-            return listaIncidencias;
 
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return listaIncidencias;
-
-    }
-
-    public ArrayList<Combo> obtenerLista2() {
-        ArrayList<Combo> listaCombo = new ArrayList();
-        try {
-
-            String equipoServidor = "servidorwebjordan.ddns.net";
-            int puertoServidor = 30509;
-            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
-
-            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaCombo= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
-            socketCliente.close();
-            return listaCombo;
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return listaCombo;
-
-    }
-    public ArrayList<Raspberry> obtenerListaRaspberry() {
-        ArrayList<Raspberry> listaRaspberrys = new ArrayList();
-        try {
-
-            String equipoServidor = "servidorwebjordan.ddns.net";
-            int puertoServidor = 30510;
-            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
-
-            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaRaspberrys= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
-            socketCliente.close();
-            return listaRaspberrys;
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return listaRaspberrys;
-
-    }
 
 
 

@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,12 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckedTextView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,9 +28,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.net.Socket;
 import java.util.ArrayList;
+
+import pojos.Raspberry;
+import pojos.Usuario;
 
 import static java.lang.Integer.parseInt;
 
@@ -63,17 +61,17 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
         StrictMode.setThreadPolicy(policy);
         xmlToJava();
 
-        final ArrayList<itemColmena> itemsCompra = obtenerItems();
+        final ArrayList<itemAlarma> itemsCompra = obtenerItems();
 
-        final ItemColmenaAdapter adapter = new ItemColmenaAdapter(this, itemsCompra);
+        final ItemAlarmaAdapter adapter = new ItemAlarmaAdapter(this, itemsCompra);
         lv.setClickable(true); //para poder pinchar en los elementos de la lista
         lv.setAdapter(adapter);
 
-        final ItemColmenaAdapter adaptador=new ItemColmenaAdapter();
+        final ItemAlarmaAdapter adaptador=new ItemAlarmaAdapter();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() { //onclick de cada elemeto de la lista
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                itemColmena itemSeleccionado= (itemColmena) adapter.getItem(position);
+                itemAlarma itemSeleccionado= (itemAlarma) adapter.getItem(position);
                 nombre=itemSeleccionado.nombre;
                 usuarioId= (int) itemSeleccionado.id;
                 email=itemSeleccionado.tipo;
@@ -261,30 +259,9 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
     }
 
 
-    public ArrayList<Usuario> obtenerListaUsuarios() { //lista de todos los usuarios
-        ArrayList<Usuario> listaUsuarios = new ArrayList();
-        try {
 
-            String equipoServidor = "servidorwebjordan.ddns.net";
-            int puertoServidor = 30504;
-            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
-            ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaUsuarios= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
-            socketCliente.close();
-            return listaUsuarios;
-
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return listaUsuarios;
-
-    }
-
-    public void insertarRaspberryEnUsuario(int idUsuario,int idRaspberry) {
+    public void insertarRaspberryEnUsuario(int idUsuario,int idRaspberry) { //con el for recorreremos la lista de checkbox e iremos insertando
         try {
 
             String equipoServidor = "servidorwebjordan.ddns.net";
@@ -359,8 +336,8 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
 
     }
 
-    private ArrayList<itemColmena> obtenerItems() {
-        ArrayList<itemColmena> listaDelListView = new ArrayList<itemColmena>();//lista con los atributos del litview
+    private ArrayList<itemAlarma> obtenerItems() {
+        ArrayList<itemAlarma> listaDelListView = new ArrayList<itemAlarma>();//lista con los atributos del litview
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         listaUsuarios=obtenerLista(); //recorremos la lista de usuarios y metemos la informacion que queremos
         for(Usuario usuario1:listaUsuarios)
@@ -370,21 +347,21 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/admin"));
+                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/admin"));
             }
             else if(usuario1.getRol().toUpperCase().equals("USUARIO"))
             {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/usuario"));
+                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/usuario"));
             }
             else
             {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemColmena(id, nombre, correo, "drawable/invitado"));
+                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/invitado"));
             }
 
 

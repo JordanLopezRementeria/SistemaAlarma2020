@@ -1,5 +1,5 @@
 
-package es.jordan.sistemaalarma;
+package pojos;
 
 
 import java.io.Serializable;

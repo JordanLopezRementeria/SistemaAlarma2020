@@ -1,4 +1,4 @@
-package es.jordan.sistemaalarma;
+package adaptadores;
 
 public class DatosRecicler {
     private String nombre;
