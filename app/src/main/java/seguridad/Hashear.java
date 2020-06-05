@@ -1,22 +1,27 @@
 package seguridad;
 
+import org.apache.commons.codec.binary.Base64;
+
 import java.security.MessageDigest;
 import java.util.Arrays;
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-import java.security.MessageDigest;
-import java.util.Arrays;
+
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.apache.commons.codec.binary.Base64;
 
 public class Hashear {
 
+ 
     String secretKey = "enigma";
 
+    /**
+     * Encode string.
+     *
+     * @param secretkey el/la secretkey
+     * @param cadena    el/la cadena
+     * @return el/la string
+     */
     public String encode(String secretkey, String cadena) {
         String encriptacion = "";
         try {
@@ -40,19 +45,26 @@ public class Hashear {
 
     }
 
+    /**
+     * Decode string.
+     *
+     * @param secretkey        el/la secretkey
+     * @param cadenaEncriptada el/la cadena encriptada
+     * @return el/la string
+     */
     public String decode(String secretkey, String cadenaEncriptada) {
 
         String desencriptacion = "";
         try {
             byte[] message = Base64.decodeBase64(cadenaEncriptada.getBytes("utf8"));
             MessageDigest md5 = MessageDigest.getInstance("MD5");
-            byte[] digestOfPassword=md5.digest(secretKey.getBytes("utf8"));
-            byte[] keyBytes=Arrays.copyOf(digestOfPassword, 24);
-            SecretKey key=new SecretKeySpec(keyBytes,"DESede");
-            Cipher decipher=Cipher.getInstance("DESede");
-            decipher.init(Cipher.DECRYPT_MODE,key);
-            byte[] plainText=decipher.doFinal(message);
-            desencriptacion=new String(plainText,"UTF-8");
+            byte[] digestOfPassword = md5.digest(secretKey.getBytes("utf8"));
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+            Cipher decipher = Cipher.getInstance("DESede");
+            decipher.init(Cipher.DECRYPT_MODE, key);
+            byte[] plainText = decipher.doFinal(message);
+            desencriptacion = new String(plainText, "UTF-8");
 
 
         } catch (Exception ex) {

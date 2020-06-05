@@ -21,15 +21,18 @@ import androidx.appcompat.widget.Toolbar;
 
 import pojos.Usuario;
 
+/**
+ * el/la type Menu invitado.
+ */
 public class MenuInvitado extends AppCompatActivity {
     private VideoView video;
     private ImageView textoCorreo;
-    TextView titulo;
-    Toolbar toolbar;
+    private TextView titulo;
+    private Toolbar toolbar;
     private final String EXTRA_USUARIO = "";
-    Handler handler = new Handler();
-    Runnable runnable;
-    int intervaloDeTiempo = 15 * 1000;
+    private Handler handler = new Handler();
+    private Runnable runnable;
+    private int intervaloDeTiempo = 15 * 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +73,8 @@ public class MenuInvitado extends AppCompatActivity {
         super.onResume();
     }
 
-// If onPause() is not included the threads will double up when you
-// reload the activity
+// If onPause() is not included el/la threads will double up when you
+// reload el/la activity
 
     @Override
     protected void onPause() { //cuando se quita
@@ -132,36 +135,33 @@ public class MenuInvitado extends AppCompatActivity {
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // If we got here, el/la user's action was not recognized.
+                // Invoke el/la superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
     }
 
 
-    private void enlaceMail() {
+    /**
+     * Enlace mail.
+     */
+    public void enlaceMail() {
         //con esto mandamos emails por gmail a la direccion que queramos con el asunto y cuerpo
         Intent email = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                "mailto","alarmajordan@outlook.com", null));
+                "mailto", "alarmajordan@outlook.com", null));
         email.putExtra(Intent.EXTRA_SUBJECT, "Estoy interesado en el sistema de alarma");
-        String[] addresses={"alarmajordan@outlook.com"};
+        String[] addresses = {"alarmajordan@outlook.com"};
         email.putExtra(Intent.EXTRA_EMAIL, addresses);
         email.putExtra(Intent.EXTRA_TEXT, "Hola, me gustaria adquirir mas detalles sobre la adquisición del sistema de alarma.");
         startActivity(email);
 
-
-        //final Intent intent = new Intent(Intent.ACTION_VIEW)
-        //  .setType("plain/text")
-        // .setData(Uri.parse("lopez.rementeria@gmail.com"))
-        //.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail")
-        // .putExtra(Intent.EXTRA_EMAIL, new String[]{"lopez.rementeria@gmail.com"})
-        //.putExtra(Intent.EXTRA_SUBJECT, "Estoy interesado en el sistema de alarma")
-        //.putExtra(Intent.EXTRA_TEXT, "Hola me gustaria adquirir mas detalles sobre el sistema de alarma.");
-        // startActivity(intent);
     }
 
-    private void reproducirVideo() {
+    /**
+     * Reproducir video.
+     */
+    public void reproducirVideo() {
         String path = "android.resource://" + getPackageName() + "/" + R.raw.video; //buscamos la ruta del video dentro de nuestro package
         Uri uri = Uri.parse(path);
         video.setVideoURI(uri);
@@ -171,7 +171,10 @@ public class MenuInvitado extends AppCompatActivity {
         video.start();
     }
 
-    private void xmlTojava() {
+    /**
+     * Xml tojava.
+     */
+    public void xmlTojava() {
         video = findViewById(R.id.videoView3);
         textoCorreo = findViewById(R.id.imageninfo);
         titulo = findViewById(R.id.titulo1);

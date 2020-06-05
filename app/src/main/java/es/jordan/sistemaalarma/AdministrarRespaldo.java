@@ -26,10 +26,10 @@ import pojos.Usuario;
 
 public class AdministrarRespaldo extends AppCompatActivity {
 
-    ImageView copia,
-             recuperar;
+    private ImageView copia,
+            recuperar;
     private final String EXTRA_USUARIO = "";
-    Toolbar toolbar;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,9 @@ public class AdministrarRespaldo extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        //on click en la imagen hacer copia de seguridad
+        /**
+         * on click en la imagen hacer copia de seguridad
+         */
         copia.setOnClickListener(new View.OnClickListener() { //on click de desconectar
             @Override
             public void onClick(View v) {
@@ -59,7 +61,9 @@ public class AdministrarRespaldo extends AppCompatActivity {
 
             }
         });
-        //on click en la imagen importar copia de seguridad
+        /**
+         * on click en la imagen importar copia de seguridad
+         */
         recuperar.setOnClickListener(new View.OnClickListener() { //on click de desconectar
             @Override
             public void onClick(View v) {
@@ -74,6 +78,7 @@ public class AdministrarRespaldo extends AppCompatActivity {
 
 
     }
+
     //iniciando el menu del toolbar
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -83,12 +88,14 @@ public class AdministrarRespaldo extends AppCompatActivity {
 
     @Override
 
-    //on click de cada elemento del toolbar
+    /**
+     * on click de cada elemento del toolbar
+     */
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
         switch (item.getItemId()) {
 
-               //cuando clicamos en la flechita del toolbar
+            //cuando clicamos en la flechita del toolbar
             case R.id.item1:
                 //cuando clicamos en
             case R.id.item2:
@@ -100,7 +107,7 @@ public class AdministrarRespaldo extends AppCompatActivity {
 
             //volvemos de las 2 formas
 
-                //cuando clicamos en el icono de salir del toolbar
+            //cuando clicamos en el icono de salir del toolbar
             case R.id.item3:
                 AlertDialog.Builder alert = new AlertDialog.Builder(AdministrarRespaldo.this);
                 alert.setTitle("Advertencia");
@@ -137,6 +144,7 @@ public class AdministrarRespaldo extends AppCompatActivity {
 
         }
     }
+
     /**
      * xml a java
      */

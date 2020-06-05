@@ -15,25 +15,32 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+
 import pojos.Raspberry;
 import pojos.Usuario;
 
+/**
+ * el/la type Eliminar usuario.
+ */
 public class EliminarUsuario extends AppCompatActivity {
-    ImageView eliminarUsu;
+
+    private ImageView eliminarUsu;
     private Toolbar toolbar;
     private final String EXTRA_USUARIO = "";
-    ListView lv;
-    String email = "";
-    String nombre = "";
-    int usuarioId;
-    EditText texto2;
+    private ListView lv;
+    private String email = "";
+    private String nombre = "";
+    private int usuarioId;
+    private EditText texto2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +60,9 @@ public class EliminarUsuario extends AppCompatActivity {
         lv.setAdapter(adapter);
 
         final ItemAlarmaAdapter adaptador = new ItemAlarmaAdapter();
+        /**
+         * on click normal de cualquier elemento de la lista
+         */
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() { //onclick de cada elemeto de la lista
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
@@ -68,7 +78,9 @@ public class EliminarUsuario extends AppCompatActivity {
 
             }
         });
-
+        /**
+        *  on click en un elemento de la lista pero manteniendo pulsado largo
+         */
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
@@ -174,7 +186,12 @@ public class EliminarUsuario extends AppCompatActivity {
 
     }
 
-    private void eliminarUsu(Usuario usuario1) {
+    /**
+     * Eliminar usu.
+     *
+     * @param usuario1 el/la usuario 1
+     */
+    public void eliminarUsu(Usuario usuario1) {
         try {
 
             String equipoServidor = "servidorwebjordan.ddns.net";
@@ -188,6 +205,12 @@ public class EliminarUsuario extends AppCompatActivity {
         }
     }
 
+    /**
+     * Gestionar comunicacion sockets.
+     *
+     * @param socketCliente el/la socket cliente
+     * @param usuario1      el/la usuario 1
+     */
     public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
 
         try {
@@ -256,14 +279,17 @@ public class EliminarUsuario extends AppCompatActivity {
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // If we got here, el/la user's action was not recognized.
+                // Invoke el/la superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
     }
 
 
+    /**
+     * Xml to java.
+     */
     public void xmlToJava() {
         eliminarUsu = findViewById(R.id.botonEliminar);
         texto2 = findViewById(R.id.nombre2);
@@ -272,7 +298,12 @@ public class EliminarUsuario extends AppCompatActivity {
 
     }
 
-    private ArrayList<ItemAlarma> obtenerItems() {
+    /**
+     * Obtener items array list.
+     *
+     * @return el/la array list
+     */
+    public ArrayList<ItemAlarma> obtenerItems() {
         ArrayList<ItemAlarma> listaDelListView = new ArrayList<ItemAlarma>();//lista con los atributos del litview
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         listaUsuarios = obtenerLista(); //recorremos la lista de usuarios y metemos la informacion que queremos
@@ -303,6 +334,11 @@ public class EliminarUsuario extends AppCompatActivity {
     }
 
 
+    /**
+     * Obtener lista array list.
+     *
+     * @return el/la array list
+     */
     public ArrayList<Usuario> obtenerLista() {
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         try {
@@ -326,6 +362,12 @@ public class EliminarUsuario extends AppCompatActivity {
 
     }
 
+    /**
+     * Mandar usuario yrecibir lista de sus raspberrys array list.
+     *
+     * @param usuarioPasado el/la usuario pasado
+     * @return el/la array list
+     */
     public ArrayList<Raspberry> mandarUsuarioYrecibirListaDeSusRaspberrys(Usuario usuarioPasado) {
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
         try {

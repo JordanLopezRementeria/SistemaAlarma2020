@@ -8,9 +8,12 @@ import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * The type Pre carga.
+ */
 public class PreCarga extends AppCompatActivity {
     private VideoView video;
-    TextView texto;
+    private TextView texto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +23,9 @@ public class PreCarga extends AppCompatActivity {
         // activarAnimacion();
         //esta es la portada del aplicativo
 
-
+        /**
+         * similar a un hilo normal se ejecuta en segundo plano
+         */
         new Handler().postDelayed(new Runnable() { //actua similar a un hilo
             @Override
             public void run() { //
@@ -32,7 +37,10 @@ public class PreCarga extends AppCompatActivity {
 
     }
 
-    private void xmlToJava() {
+    /**
+     * Xml to java.
+     */
+    public void xmlToJava() {
         texto = findViewById(R.id.textoprecarga);
     }
 

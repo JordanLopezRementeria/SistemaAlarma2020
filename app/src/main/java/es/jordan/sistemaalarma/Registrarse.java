@@ -31,21 +31,21 @@ import seguridad.Hashear;
 import voz.TTSManager;
 
 
+/**
+ * el/la type Registrarse.
+ */
 public class Registrarse extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
-    ImageView botonCancelar;
-    ImageView botonRegistrarse;
-    EditText editNombre;
-    EditText editContraseña;
-    EditText editEmail;
-    EditText respuesta;
-    TTSManager ttsManager = null;
-    Toolbar toolbar;
-    String secretKey = "enigma";
-    ImageView captchaImagen;
-    String random = "x";
-    Boolean detectorCaptcha = false; //lo pondremos a true cuando lo pase con exito
-    GoogleApiClient googleApiClient;//necesitamos entrar en recaptcha de google y configurar
+    private ImageView botonCancelar;
+    private ImageView botonRegistrarse;
+    private EditText editNombre, editContraseña, editEmail, respuesta;
+    private TTSManager ttsManager = null;
+    private Toolbar toolbar;
+    private String secretKey = "enigma";
+    private ImageView captchaImagen;
+    private String random = "x";
+    private Boolean detectorCaptcha = false; //lo pondremos a true cuando lo pase con exito
+    private GoogleApiClient googleApiClient;//necesitamos entrar en recaptcha de google y configurar
 
 
     @Override
@@ -187,13 +187,16 @@ public class Registrarse extends AppCompatActivity {
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // If we got here, el/la user's action was not recognized.
+                // Invoke el/la superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
     }
 
+    /**
+     * Xml to java.
+     */
     public void xmlToJava() {
         botonRegistrarse = findViewById(R.id.botonAceptarXML);
         botonCancelar = findViewById(R.id.botonCancelarXML);
@@ -205,11 +208,19 @@ public class Registrarse extends AppCompatActivity {
     }
 
 
+    /**
+     * Texto to voz.
+     */
     public void textoToVoz() {
         ttsManager = new TTSManager();
         ttsManager.init(this);
     }
 
+    /**
+     * Insertar usuario.
+     *
+     * @param usuario1 el/la usuario 1
+     */
     public void insertarUsuario(Usuario usuario1) {
         try {
 
@@ -224,6 +235,12 @@ public class Registrarse extends AppCompatActivity {
         }
     }
 
+    /**
+     * Gestionar comunicacion.
+     *
+     * @param socketCliente el/la socket cliente
+     * @param usuario1      el/la usuario 1
+     */
     public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
 
         try {
@@ -243,6 +260,11 @@ public class Registrarse extends AppCompatActivity {
     }
 
 
+    /**
+     * Obtener lista array list.
+     *
+     * @return el array list
+     */
     public ArrayList<Usuario> obtenerLista() {
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         try {
@@ -266,7 +288,10 @@ public class Registrarse extends AppCompatActivity {
 
     }
 
-    private void limpiarCajas() {
+    /**
+     * textos vacios
+     */
+    public void limpiarCajas() {
         editNombre.setText("");
         editContraseña.setText("");
         editEmail.setText("");
@@ -274,6 +299,9 @@ public class Registrarse extends AppCompatActivity {
 
     }
 
+    /**
+     * Reproducir sonido random.
+     */
     public void reproducirSonidoRandom() {
         String[] palabrasRandom = {"paludo", "palabra", "adivina", "pera",
                 "rojo", "sobresaliente", "oculto", "cabra", "tigre", "barco", "rey", "reina",
@@ -286,6 +314,9 @@ public class Registrarse extends AppCompatActivity {
     }
 
 
+    /**
+     * Comprobacion captcha.
+     */
     public void comprobacionCaptcha() {
 
         if (respuesta.getText().toString().toUpperCase().equals(random.toUpperCase())) //paso todo a mayus

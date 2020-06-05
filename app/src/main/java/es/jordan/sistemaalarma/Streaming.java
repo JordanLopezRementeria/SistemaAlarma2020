@@ -33,13 +33,15 @@ import java.util.List;
 import pojos.Raspberry;
 import pojos.Usuario;
 
+/**
+ * el/la type Streaming.
+ */
 public class Streaming extends AppCompatActivity {
     private WebView webView;
     private final String EXTRA_USUARIO = "";
-
     private Toolbar toolbar;
-    Spinner spinner;
-    ImageView ver;
+    private Spinner spinner;
+    private ImageView ver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,15 +83,16 @@ public class Streaming extends AppCompatActivity {
 
         // webView.loadUrl("http://alarmacaserajordan.ddns.net:8081/");
 
-
+        /**
+         * on click del boton ver
+         */
         ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (spinner.getCount() == 0) {
-                    // Toast.makeText(getApplicationContext(), eleccion, Toast.LENGTH_SHORT).show();
+                if (spinner.getCount() == 0) { //si el spinner esta vacio
                     Toast.makeText(getApplicationContext(), "Sin raspberrys asignadas", Toast.LENGTH_SHORT).show();
 
-                } else {
+                } else { //cogemos la ip que esta entre la posicion 2 y 4
                     String ipCamaraElegida = "";
                     String eleccion = spinner.getSelectedItem().toString();
                     String[] datos = eleccion.split(":");
@@ -97,9 +100,6 @@ public class Streaming extends AppCompatActivity {
                     ipCamaraElegida = datos[2] + ":" + datos[3] + ":" + datos[4]; //en el array en la segunda posicion tenemos hasta los : de http
                     //y en el 3 lo q queda en la 4 el puerto los puntos los añado por el split
 
-
-                    Toast toast = Toast.makeText(getApplicationContext(), ipCamaraElegida, Toast.LENGTH_LONG);
-                    toast.show();
 
                     webView.loadUrl(ipCamaraElegida);
                     webView.setVisibility(View.VISIBLE);
@@ -109,7 +109,10 @@ public class Streaming extends AppCompatActivity {
         });
     }
 
-    private void comprobarPermisos() {
+    /**
+     * Comprobar permisos.
+     */
+    public void comprobarPermisos() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
@@ -135,7 +138,10 @@ public class Streaming extends AppCompatActivity {
         });
     }
 
-    private void configuracionWebView() {
+    /**
+     * Configuracion web view.
+     */
+    public void configuracionWebView() {
         webView.setWebViewClient(new WebViewClient());
         webView.clearCache(true);
         webView.getSettings().setLoadsImagesAutomatically(true);
@@ -146,7 +152,9 @@ public class Streaming extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Inicializar el menu toolbar
+     */
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mimenu2, menu);
@@ -154,6 +162,9 @@ public class Streaming extends AppCompatActivity {
     }
 
     @Override
+    /**
+     * OnClick del menu toolbar
+     */
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
         switch (item.getItemId()) {
@@ -203,22 +214,30 @@ public class Streaming extends AppCompatActivity {
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // If we got here, el/la user's action was not recognized.
+                // Invoke el/la superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
     }
 
 
-
-    private void xmlToJava() {
+    /**
+     * Xml to java.
+     */
+    public void xmlToJava() {
         webView = findViewById(R.id.webview);
 
         ver = findViewById(R.id.botonvisualizar);
         spinner = findViewById(R.id.spinnerverstreaming);
     }
 
+    /**
+     * Mandar usuario y recibir lista de sus raspberrys array list.
+     *
+     * @param usuarioPasado el/la usuario pasado
+     * @return el/la array list
+     */
     public ArrayList<Raspberry> mandarUsuarioYrecibirListaDeSusRaspberrys(Usuario usuarioPasado) {
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
         try {

@@ -21,6 +21,9 @@ public class TTSManager {
         }
     }
 
+    /**
+     * Comprobamos si el lenguaje es español
+     */
     private TextToSpeech.OnInitListener onInitListener = new TextToSpeech.OnInitListener() {
         @Override
         public void onInit(int status) {

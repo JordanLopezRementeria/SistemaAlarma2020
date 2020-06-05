@@ -2,20 +2,18 @@ package pojos;
 
 import java.io.Serializable;
 
-
+//pojo que representa el cliente
 public class Usuario implements Serializable {
 
-    Integer usuarioId;
-    String nombre;
-    String contraseña;
-    String email;
-    String rol;
-
+    private Integer usuarioId;
+    private String nombre;
+    private String contraseña;
+    private String email;
+    private String rol;
 
     public Usuario() {
 
     }
-
 
     public Usuario(Integer usuarioId, String nombre, String contraseña, String email, String rol) {
         this.usuarioId = usuarioId;
@@ -24,7 +22,6 @@ public class Usuario implements Serializable {
         this.email = email;
         this.rol = rol;
     }
-
 
     public Integer getUsuarioId() {
         return usuarioId;
@@ -50,7 +47,6 @@ public class Usuario implements Serializable {
         this.rol = rol;
     }
 
-
     public String getContraseña() {
         return contraseña;
     }
@@ -71,6 +67,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "Usuario{" + "usuarioId=" + usuarioId + ", nombre=" + nombre + ", contrase\u00f1a=" + contraseña + ", email=" + email + ", rol=" + rol + '}';
     }
-
 
 }

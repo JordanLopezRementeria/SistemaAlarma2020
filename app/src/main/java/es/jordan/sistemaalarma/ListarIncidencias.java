@@ -36,14 +36,17 @@ import pojos.Incidencia;
 import pojos.Raspberry;
 import pojos.Usuario;
 
+/**
+ * el/la type Listar incidencias.
+ */
 public class ListarIncidencias extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
-    Toolbar toolbar;
-    ImageView ver;
-    ArrayList<DatosRecicler> miLista;
-    RecyclerView miRecycler;
-    TextView titulillo;
-    Spinner spinner1;
+    private Toolbar toolbar;
+    private ImageView ver;
+    private ArrayList<DatosRecicler> miLista;
+    private RecyclerView miRecycler;
+    private TextView titulillo;
+    private Spinner spinner1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,6 +81,9 @@ public class ListarIncidencias extends AppCompatActivity {
 
 
         }
+        /**
+         *on click en la imagen ver incidencias
+         */
         ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +120,12 @@ public class ListarIncidencias extends AppCompatActivity {
 
     }
 
-    private void obtenerIncidenciasDeLaRaspberryElegida(String eleccion) {
+    /**
+     * Obtener incidencias de la raspberry elegida.
+     *
+     * @param eleccion el/la eleccion
+     */
+    public void obtenerIncidenciasDeLaRaspberryElegida(String eleccion) {
 
         ArrayList<Incidencia> listaIncidencias = new ArrayList();
         String[] datos = eleccion.split(":");
@@ -186,6 +197,9 @@ public class ListarIncidencias extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * on click del menu toolbar
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
@@ -232,13 +246,16 @@ public class ListarIncidencias extends AppCompatActivity {
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // If we got here, el/la user's action was not recognized.
+                // Invoke el/la superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
     }
 
+    /**
+     * xml a java conversión
+     */
     private void xmlToJava() {
 
         miLista = new ArrayList<DatosRecicler>();
@@ -248,6 +265,12 @@ public class ListarIncidencias extends AppCompatActivity {
         spinner1 = findViewById(R.id.spinnerlistarraspberrys);
     }
 
+    /**
+     * Mandar usuario yrecibir lista de sus raspberrys array list.
+     *
+     * @param usuarioPasado el/la usuario pasado
+     * @return el /la array list
+     */
     public ArrayList<Raspberry> mandarUsuarioYrecibirListaDeSusRaspberrys(Usuario usuarioPasado) {
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
         try {

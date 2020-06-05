@@ -25,9 +25,6 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import adaptadores.CustomAdapter;
-import adaptadores.Model;
-import pojos.Raspberry;
 import pojos.Usuario;
 import seguridad.Hashear;
 
@@ -36,15 +33,13 @@ import seguridad.Hashear;
  */
 public class AnadirUsuarios extends AppCompatActivity {
 
-    ImageView botonAñadir;
-    Spinner spinner1;
-    EditText nombreInsertar,
-    contraseñaInsertar,
-    direccionInsertar;
+    private ImageView botonAñadir;
+    private Spinner spinner1;
+    private EditText nombreInsertar,
+            contraseñaInsertar,
+            direccionInsertar;
     private final String EXTRA_USUARIO = "";
-    private ArrayList<Model> modelArrayList;
-    private CustomAdapter customAdapter;
-    String secretKey = "enigma";
+    private String secretKey = "enigma";
 
     private Toolbar toolbar;
 
@@ -100,7 +95,7 @@ public class AnadirUsuarios extends AppCompatActivity {
 
                     for (Usuario aux : listaUsuarios) {
 
-                        if (aux.getNombre().equals(usuario1.getNombre()) || aux.getEmail().equals(usuario1.getEmail())) {
+                        if (aux.getNombre().toUpperCase().equals(usuario1.getNombre().toUpperCase()) || aux.getEmail().toUpperCase().equals(usuario1.getEmail().toUpperCase())) {
                             detector = true;//hemos detectado un usuario con esos datos
                             break;
 
@@ -131,7 +126,7 @@ public class AnadirUsuarios extends AppCompatActivity {
     }
 
 
-
+    //creacion del menu del toolbar
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mimenu2, menu);
@@ -253,8 +248,6 @@ public class AnadirUsuarios extends AppCompatActivity {
 
 
     }
-
-
 
 
     /**

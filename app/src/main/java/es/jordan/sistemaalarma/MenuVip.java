@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,10 +17,13 @@ import androidx.appcompat.widget.Toolbar;
 import pojos.Usuario;
 
 
+/**
+ * el/la type Menu vip.
+ */
 public class MenuVip extends AppCompatActivity {
-    ImageView BotonVerCamara, BotonVerFotos, BotonSos, botonListarIncidencias;
+    private ImageView BotonVerCamara, BotonVerFotos, BotonSos, botonListarIncidencias;
     private final String EXTRA_USUARIO = "";
-    Toolbar toolbar;
+    private Toolbar toolbar;
 
 
     @Override
@@ -85,8 +87,6 @@ public class MenuVip extends AppCompatActivity {
     }
 
 
-
-
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mimenusolosalida, menu);
@@ -137,15 +137,18 @@ public class MenuVip extends AppCompatActivity {
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // If we got here, el/la user's action was not recognized.
+                // Invoke el/la superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
     }
 
 
-    private void xmlToJava() {
+    /**
+     * Xml to java.
+     */
+    public void xmlToJava() {
 
         BotonVerCamara = findViewById(R.id.botonVerCamara);
         BotonVerFotos = findViewById(R.id.botonVerFotos);

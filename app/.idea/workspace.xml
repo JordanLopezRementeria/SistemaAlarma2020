@@ -14,14 +14,34 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="">
+    <list default="true" id="d6ab6c4f-6780-4303-8cf5-1726e86d1842" name="Default Changelist" comment="login corregido">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/adaptadores/AdaptadorDatos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/adaptadores/AdaptadorDatos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/adaptadores/CustomAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/adaptadores/DatosRecicler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/adaptadores/DatosRecicler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/adaptadores/Model.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdministrarRespaldo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdministrarRespaldo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AnadirUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AnadirUsuarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/EliminarUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Esclavo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Esclavo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ItemAlarma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ItemAlarma.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ItemAlarmaAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ItemAlarmaAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ListarIncidencias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ListarIncidencias.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuInvitado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuInvitado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/MenuVip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ModificarUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/ModificarUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/PreCarga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/PreCarga.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Registrarse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Streaming.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/Streaming.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/UsuarioConRaspberry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/UsuarioConRaspberry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojos/Incidencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojos/Incidencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojos/Raspberry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojos/Raspberry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojos/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojos/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pojos/Usuras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pojos/Usuras.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/seguridad/Hashear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/seguridad/Hashear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/voz/TTSManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/voz/TTSManager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,8 +93,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="adaptadores" />
       <recent name="es.jordan.sistemaalarma" />
+      <recent name="adaptadores" />
       <recent name="pojos" />
       <recent name="seguridad" />
     </key>
@@ -723,7 +743,21 @@
       <option name="project" value="LOCAL" />
       <updated>1591324570428</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="login corregido">
+      <created>1591366562496</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1591366562497</updated>
+    </task>
+    <task id="LOCAL-00043" summary="todo bien">
+      <created>1591368545290</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1591368545290</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -741,8 +775,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="PreRoles" />
-    <MESSAGE value="Objetos bd" />
     <MESSAGE value="arreglado el flujo stream" />
     <MESSAGE value="pre mejorar cositas" />
     <MESSAGE value="logica login arreglada buen paso entre pantallas" />
@@ -766,6 +798,19 @@
     <MESSAGE value="retoques casi finales" />
     <MESSAGE value="ya" />
     <MESSAGE value="limpiando" />
-    <option name="LAST_COMMIT_MESSAGE" value="limpiando" />
+    <MESSAGE value="login corregido" />
+    <MESSAGE value="todo bien" />
+    <option name="LAST_COMMIT_MESSAGE" value="todo bien" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/es/jordan/sistemaalarma/AdministrarRespaldo.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

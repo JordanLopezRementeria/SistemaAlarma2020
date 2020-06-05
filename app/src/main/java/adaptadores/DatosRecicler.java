@@ -1,9 +1,9 @@
 package adaptadores;
 
 public class DatosRecicler {
-    private String nombre;
-    private String informacion;
-    private int foto;
+    String nombre;
+    String informacion;
+    int foto;
 
     public DatosRecicler(String nombre, String informacion, int foto) {
         this.nombre = nombre;

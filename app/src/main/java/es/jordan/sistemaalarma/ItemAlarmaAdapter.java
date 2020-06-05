@@ -11,16 +11,29 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * el/la type Item alarma adapter.
+ */
 public class ItemAlarmaAdapter extends BaseAdapter {
+
     Activity activity;
     ArrayList<ItemAlarma> items;
 
 
+    /**
+     * Instantiates a new Item alarma adapter.
+     *
+     * @param activity el/la activity
+     * @param items    el/la items
+     */
     public ItemAlarmaAdapter(Activity activity, ArrayList<ItemAlarma> items) {
         this.activity = activity;
         this.items = items;
     }
 
+    /**
+     * Instantiates a new Item alarma adapter.
+     */
     public ItemAlarmaAdapter() {
     }
 

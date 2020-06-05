@@ -16,7 +16,7 @@ import es.jordan.sistemaalarma.R;
 public class AdaptadorDatos extends RecyclerView.Adapter<AdaptadorDatos.ViewHolderDatos> implements View.OnClickListener {
 
     ArrayList<DatosRecicler> miLista;
-    private View.OnClickListener escuchador;
+    View.OnClickListener escuchador;
 
     public AdaptadorDatos(ArrayList<DatosRecicler> miLista) {
         this.miLista = miLista;

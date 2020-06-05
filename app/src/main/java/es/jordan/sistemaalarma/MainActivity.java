@@ -12,14 +12,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
 
 import pojos.Usuario;
 import seguridad.Hashear;
@@ -32,12 +28,12 @@ import voz.TTSManager;
 public class MainActivity extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
 
-    ImageView botonIniciar,
+    private ImageView botonIniciar,
             botonRegistrar;
-    EditText email1,
-    contraseña1;
-    TTSManager ttsManager = null;
-    String secretKey = "enigma";
+    private EditText email1,
+            contraseña1;
+    private TTSManager ttsManager = null;
+    private String secretKey = "enigma";
 
 
     @Override
@@ -56,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
         Hashear e = new Hashear();
 
 
-    /**
-    * On click del boton registrar
-    */
+        /**
+         * On click del boton registrar
+         */
         botonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //on click registrar
@@ -69,13 +65,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    /**
-    * On click del boton iniciar
-    */
+        /**
+         * On click del boton iniciar
+         */
         botonIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //on click iniciar
-
 
 
                 if (email1.getText().toString().trim().length() == 0 || contraseña1.getText().toString().trim().length() == 0) {
@@ -84,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Hashear seguridad = new Hashear();
                 //creamos un usuario con los datos introducidos en el login y los comprobamos contra la bd
-                Usuario usuario1= new Usuario();
+                Usuario usuario1 = new Usuario();
 
                 //1º paso mandar el email y la password hasheada al server para saber si hay algun usuario con estos datos
                 //2º el server recibe el objeto y manda al componente de acceso a datos realizar la consulta
@@ -94,58 +89,51 @@ public class MainActivity extends AppCompatActivity {
                 //aqui meteremos todos los datos del usuario confirmado
 
                 usuario1.setEmail(email1.getText().toString());
-                usuario1.setContraseña(seguridad.encode(secretKey,contraseña1.getText().toString()));
+                usuario1.setContraseña(seguridad.encode(secretKey, contraseña1.getText().toString()));
 
 
-                Usuario usuarioCompleto=new Usuario();
-                usuarioCompleto=leerUsuario(usuario1);
+                Usuario usuarioCompleto = new Usuario();
+                usuarioCompleto = leerUsuario(usuario1);
                 //ahora tenemos que mandar este usuario por sockets al servidor para que lo compruebe el con el CAD
                 //y volcara sobre completo todos sus datos
 
 
+                if (usuarioCompleto.getNombre().equals("*")) //el * es lo que le ha mandado el server
+                //cuando los credenciales contrastados cn la bd no coinciden
+                {
+                    Toast.makeText(getApplicationContext(), "Credenciales no válidos", Toast.LENGTH_LONG).show();
+
+                } else {
+                    if (usuarioCompleto.getRol().toUpperCase().equals("ADMIN")) {
 
 
+                        Toast.makeText(getApplicationContext(), "Credenciales validos, eres administrador", Toast.LENGTH_LONG).show();
+                        pantallaAdmin(usuarioCompleto);
+                        finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
+                        limpiar();
 
 
+                    } else if (usuarioCompleto.getRol().toUpperCase().equals("USUARIO")) {
 
 
-                  if(usuarioCompleto.getNombre().equals("*")) //el * es lo que le ha mandado el server
-                      //cuando los credenciales contrastados cn la bd no coinciden
-                  {
-                      Toast.makeText(getApplicationContext(), "Credenciales no válidos", Toast.LENGTH_LONG).show();
-
-                  }
-                  else {
-                      if (usuarioCompleto.getRol().toUpperCase().equals("ADMIN")) {
+                        Toast.makeText(getApplicationContext(), "Credenciales validos, eres usuario", Toast.LENGTH_LONG).show();
+                        pantallaUsuario(usuarioCompleto); //vamos a la pantalla usuario pasandole ese usu
+                        finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
+                        limpiar(); //limpiamos datos del login
 
 
-                          Toast.makeText(getApplicationContext(), "Credenciales validos, eres administrador", Toast.LENGTH_LONG).show();
-                          pantallaAdmin(usuarioCompleto);
-                          finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
-                          limpiar();
+                    } else if (usuarioCompleto.getRol().toUpperCase().equals("INVITADO")) {
+
+                        Toast.makeText(getApplicationContext(), "Credenciales validos, eres invitado", Toast.LENGTH_LONG).show();
+                        pantallaInvitado(usuarioCompleto);
+                        finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
+                        limpiar();
 
 
-                      } else if (usuarioCompleto.getRol().toUpperCase().equals("USUARIO")) {
+                    }
 
 
-                          Toast.makeText(getApplicationContext(), "Credenciales validos, eres usuario", Toast.LENGTH_LONG).show();
-                          pantallaUsuario(usuarioCompleto); //vamos a la pantalla usuario pasandole ese usu
-                          finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
-                          limpiar(); //limpiamos datos del login
-
-
-                      } else if (usuarioCompleto.getRol().toUpperCase().equals("INVITADO")) {
-
-                          Toast.makeText(getApplicationContext(), "Credenciales validos, eres invitado", Toast.LENGTH_LONG).show();
-                          pantallaInvitado(usuarioCompleto);
-                          finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
-                          limpiar();
-
-
-                      }
-
-
-                  }
+                }
 
 
             }
@@ -237,41 +225,37 @@ public class MainActivity extends AppCompatActivity {
 
 
     public Usuario leerUsuario(Usuario usuario1) {
-        Usuario usuarioDeVuelta=new Usuario();
+        Usuario usuarioDeVuelta = new Usuario();
         try {
 
             String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30566;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
-                ObjectOutputStream objetoEntregar = new ObjectOutputStream(socketCliente.getOutputStream());
-                System.out.println("El objeto que mandara el cliente al servidor es: " + usuario1);
-                objetoEntregar.writeObject(usuario1);//el cliente manda el objeto al server
-                objetoEntregar.flush();
+            ObjectOutputStream objetoEntregar = new ObjectOutputStream(socketCliente.getOutputStream());
+            System.out.println("El objeto que mandara el cliente al servidor es: " + usuario1);
+            objetoEntregar.writeObject(usuario1);//el cliente manda el objeto al server
+            objetoEntregar.flush();
 
 
-                //ahora recibimos el objeto de vuelta si es nulo no coincide y si no si
-                ObjectInputStream objetoRecibido = new ObjectInputStream(socketCliente.getInputStream());
-                usuarioDeVuelta = (Usuario) objetoRecibido.readObject(); //objeto leido y metido en usuarioDeVuelta
+            //ahora recibimos el objeto de vuelta si es nulo no coincide y si no si
+            ObjectInputStream objetoRecibido = new ObjectInputStream(socketCliente.getInputStream());
+            usuarioDeVuelta = (Usuario) objetoRecibido.readObject(); //objeto leido y metido en usuarioDeVuelta
 
 
-                objetoRecibido.close();
-                socketCliente.close();
-                objetoEntregar.close();
-                return usuarioDeVuelta;
+            objetoRecibido.close();
+            socketCliente.close();
+            objetoEntregar.close();
+            return usuarioDeVuelta;
 
 
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
 
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
-
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-
-      return usuarioDeVuelta;
-
+        return usuarioDeVuelta;
 
 
     }

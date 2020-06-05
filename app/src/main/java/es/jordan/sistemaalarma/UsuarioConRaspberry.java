@@ -35,17 +35,20 @@ import pojos.Usuario;
 import pojos.Usuras;
 
 
+/**
+ * el/la type Usuario con raspberry.
+ */
 public class UsuarioConRaspberry extends AppCompatActivity implements Serializable {
     private ListView listView;
-    ImageView button, botonCan1;
-    Toolbar toolbar;
-    ListView lv;
-    TextView textazo, textazo2;
+    private ImageView button, botonCan1;
+    private Toolbar toolbar;
+    private ListView lv;
+    private TextView textazo, textazo2;
     private final String EXTRA_USUARIO = "";
-    String email = "";
-    String nombre = "";
-    int usuarioId;
-    TextView titulo1;
+    private String email = "";
+    private String nombre = "";
+    private int usuarioId;
+    private TextView titulo1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,7 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
         final ItemAlarmaAdapter adapter = new ItemAlarmaAdapter(this, itemsCompra);
         lv.setClickable(true); //para poder pinchar en los elementos de la lista
         lv.setAdapter(adapter);
+
 
         final ItemAlarmaAdapter adaptador = new ItemAlarmaAdapter();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() { //onclick de cada elemeto de la lista
@@ -91,7 +95,9 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
         this.listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         inicializarLista();
 
-
+        /**
+         * boton aceptar
+         */
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,7 +132,9 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
 
             }
         });
-
+        /**
+         * Boton cancelar volvemos a la anterior vista
+         */
         botonCan1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,6 +151,9 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
 
     }
 
+    /**
+     * creación del menu del toolbar
+     */
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mimenu2, menu);
@@ -150,6 +161,9 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
     }
 
     @Override
+    /**
+     * OnClick de los elementos del Toolbar
+     */
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
         switch (item.getItemId()) {
@@ -195,14 +209,17 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // If we got here, el/la user's action was not recognized.
+                // Invoke el/la superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
     }
 
-    private void inicializarLista() {
+    /**
+     * Inicializar lista.
+     */
+    public void inicializarLista() {
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
         listaRaspberrys = obtenerListaRaspberry();//aqui tenemos las listas
 
@@ -211,7 +228,10 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
         this.listView.setAdapter(arrayAdapter);
     }
 
-    private void xmlToJava() {
+    /**
+     * Xml to java.
+     */
+    public void xmlToJava() {
 
         listView = (ListView) findViewById(R.id.listView);
         button = (ImageView) findViewById(R.id.button);
@@ -222,6 +242,11 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
         lv = findViewById(R.id.lvasociar);
     }
 
+    /**
+     * Obtener lista raspberry array list.
+     *
+     * @return el/la array list
+     */
     public ArrayList<Raspberry> obtenerListaRaspberry() {
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
         try {
@@ -246,13 +271,19 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
     }
 
 
+    /**
+     * Insertar raspberry en usuario.
+     *
+     * @param idUsuario   el/la id usuario
+     * @param idRaspberry el/la id raspberry
+     */
     public void insertarRaspberryEnUsuario(int idUsuario, int idRaspberry) { //con el for recorreremos la lista de checkbox e iremos insertando
         try {
 
             String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30800;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
-            Usuras u=new Usuras();
+            Usuras u = new Usuras();
             Esclavo esclavo = new Esclavo();
             esclavo.setUsuarioId(idUsuario);
             esclavo.setRaspberryId(idRaspberry);
@@ -270,6 +301,11 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
     }
 
 
+    /**
+     * Eliminar usuras seleccionado.
+     *
+     * @param idUsuario el/la id usuario
+     */
     public void eliminarUsurasSeleccionado(int idUsuario) {
         try {
 
@@ -294,6 +330,11 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
 
     }
 
+    /**
+     * Obtener lista array list.
+     *
+     * @return el/la array list
+     */
     public ArrayList<Usuario> obtenerLista() {
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         try {
@@ -317,7 +358,12 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
 
     }
 
-    private ArrayList<ItemAlarma> obtenerItems() {
+    /**
+     * Obtener items array list.
+     *
+     * @return el/la array list
+     */
+    public ArrayList<ItemAlarma> obtenerItems() {
         ArrayList<ItemAlarma> listaDelListView = new ArrayList<ItemAlarma>();//lista con los atributos del litview
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         listaUsuarios = obtenerLista(); //recorremos la lista de usuarios y metemos la informacion que queremos

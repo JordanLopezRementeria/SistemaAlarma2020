@@ -30,17 +30,20 @@ import java.util.ArrayList;
 import pojos.Usuario;
 
 
+/**
+ * el/la type Modificar usuario.
+ */
 public class ModificarUsuario extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
-    String ultimoNombreSeleccionado = "";
-    String ultimoEmailSeleccionado = "";
-    EditText editNombre;
+    private String ultimoNombreSeleccionado = "";
+    private String ultimoEmailSeleccionado = "";
+    private EditText editNombre;
     private ListView lv;
-    ImageView botonModificar, botonCan;
-    EditText editEmail;
-    Toolbar toolbar;
-    Spinner spinner1;
-    TextView mensaje, mensaje2;
+    private ImageView botonModificar, botonCan;
+    private EditText editEmail;
+    private Toolbar toolbar;
+    private Spinner spinner1;
+    private TextView mensaje, mensaje2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,13 +224,16 @@ public class ModificarUsuario extends AppCompatActivity {
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
+                // If we got here, el/la user's action was not recognized.
+                // Invoke el/la superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
     }
 
+    /**
+     * Xml to java.
+     */
     public void xmlToJava() {
 
         editNombre = findViewById(R.id.nombre1);
@@ -240,6 +246,11 @@ public class ModificarUsuario extends AppCompatActivity {
         mensaje2 = findViewById(R.id.mensaje2);
     }
 
+    /**
+     * Obtener lista array list.
+     *
+     * @return el/la array list
+     */
     public ArrayList<Usuario> obtenerLista() {
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         try {
@@ -263,7 +274,12 @@ public class ModificarUsuario extends AppCompatActivity {
 
     }
 
-    private ArrayList<ItemAlarma> obtenerItems() {
+    /**
+     * Obtener items array list.
+     *
+     * @return el/la array list
+     */
+    public ArrayList<ItemAlarma> obtenerItems() {
         ArrayList<ItemAlarma> listaDelListView = new ArrayList<ItemAlarma>();//lista con los atributos del litview
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         listaUsuarios = obtenerLista(); //recorremos la lista de usuarios y metemos la informacion que queremos
@@ -293,6 +309,11 @@ public class ModificarUsuario extends AppCompatActivity {
         return listaDelListView;
     }
 
+    /**
+     * Modificar usuario.
+     *
+     * @param usuario1 el/la usuario 1
+     */
     public void modificarUsuario(Usuario usuario1) {
         try {
 
@@ -307,6 +328,12 @@ public class ModificarUsuario extends AppCompatActivity {
         }
     }
 
+    /**
+     * Gestionar comunicacion.
+     *
+     * @param socketCliente el/la socket cliente
+     * @param usuario1      el/la usuario 1
+     */
     public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
 
         try {
