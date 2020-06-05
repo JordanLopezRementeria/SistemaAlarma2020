@@ -1,7 +1,5 @@
 package es.jordan.sistemaalarma;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,12 +9,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ItemAlarmaAdapter extends BaseAdapter {
-     Activity activity;
-     ArrayList<itemAlarma> items;
+    Activity activity;
+    ArrayList<ItemAlarma> items;
 
 
-    public ItemAlarmaAdapter(Activity activity, ArrayList<itemAlarma> items) {
+    public ItemAlarmaAdapter(Activity activity, ArrayList<ItemAlarma> items) {
         this.activity = activity;
         this.items = items;
     }
@@ -44,14 +44,14 @@ public class ItemAlarmaAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View vi=convertView;
+        View vi = convertView;
 
-        if(convertView == null) {
+        if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             vi = inflater.inflate(R.layout.list_item_layout, null);
         }
 
-        itemAlarma item = items.get(position);
+        ItemAlarma item = items.get(position);
 
         ImageView image = vi.findViewById(R.id.imagen);
         int imageResource = activity.getResources().getIdentifier(item.getRutaImagen(), null, activity.getPackageName());

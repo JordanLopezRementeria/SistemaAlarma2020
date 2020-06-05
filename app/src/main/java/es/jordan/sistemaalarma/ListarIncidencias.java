@@ -52,7 +52,7 @@ public class ListarIncidencias extends AppCompatActivity {
         final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         xmlToJava();
         toolbar = findViewById(R.id.toolbarListarIncidencias);
-        toolbar.setTitle("Usuario VIP - "+usuarioPasado.getNombre());
+        toolbar.setTitle("Usuario VIP - " + usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
@@ -83,14 +83,11 @@ public class ListarIncidencias extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
-                if(spinner1.getCount()==0) {
+                if (spinner1.getCount() == 0) {
                     // Toast.makeText(getApplicationContext(), eleccion, Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(), "Sin raspberrys asignadas", Toast.LENGTH_SHORT).show();
 
-                }
-                else
-                {
+                } else {
                     String eleccion = spinner1.getSelectedItem().toString();
                     obtenerIncidenciasDeLaRaspberryElegida(eleccion);
 
@@ -101,14 +98,13 @@ public class ListarIncidencias extends AppCompatActivity {
         });
 
 
-
         miRecycler.setLayoutManager(new LinearLayoutManager(this));
 
-        AdaptadorDatos elAdaptador=new AdaptadorDatos(miLista);
+        AdaptadorDatos elAdaptador = new AdaptadorDatos(miLista);
         elAdaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CharSequence texto="Pulsado"+miLista.get(miRecycler.getChildAdapterPosition(v)).getNombre();
+                CharSequence texto = "Pulsado" + miLista.get(miRecycler.getChildAdapterPosition(v)).getNombre();
                 Toast toast = Toast.makeText(getApplicationContext(), texto, Toast.LENGTH_LONG);
                 toast.show();
             }
@@ -116,50 +112,42 @@ public class ListarIncidencias extends AppCompatActivity {
         miRecycler.setAdapter(elAdaptador);
 
 
-
-
-
-
-
-
     }
 
     private void obtenerIncidenciasDeLaRaspberryElegida(String eleccion) {
 
-        ArrayList<Incidencia>listaIncidencias=new ArrayList();
-        String[] datos=eleccion.split(":");
+        ArrayList<Incidencia> listaIncidencias = new ArrayList();
+        String[] datos = eleccion.split(":");
 
-        String id="";
-        for(String item : datos) //solo recorremos el for una vez porque tan solo queremos hasta los dos primeros :
+        String id = "";
+        for (String item : datos) //solo recorremos el for una vez porque tan solo queremos hasta los dos primeros :
         {
-           id=item;
-           break;
+            id = item;
+            break;
         }
-      //  Toast toast2 = Toast.makeText(getApplicationContext(),id, Toast.LENGTH_LONG);
+        //  Toast toast2 = Toast.makeText(getApplicationContext(),id, Toast.LENGTH_LONG);
         // toast2.show();
         //1º paso una vez que tenemos el id de la raspberry que ya habiamos sacado de la base de datos
         // se lo mandamos al server para que me diga que incidencias tiene
-        try{
-        String equipoServidor = "servidorwebjordan.ddns.net";
-        int puertoServidor = 30570;
-        Socket socketCliente = new Socket(equipoServidor, puertoServidor);
-        //2º paso mandar el usuario que esta conectado como objeto
+        try {
+            String equipoServidor = "servidorwebjordan.ddns.net";
+            int puertoServidor = 30570;
+            Socket socketCliente = new Socket(equipoServidor, puertoServidor);
+            //2º paso mandar el usuario que esta conectado como objeto
             OutputStream socketSalida = socketCliente.getOutputStream();
             DataOutputStream escribir = new DataOutputStream(socketSalida);
             escribir.writeUTF(id);
-         //3º paso recibir la lista de las incidencias de ese id de raspberry
+            //3º paso recibir la lista de las incidencias de ese id de raspberry
             ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaIncidencias= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibo
+            listaIncidencias = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibo
             //4º paso una vez tengo la lista solo seleccionare unos datos para mostrar en el recycler asi que la
             //recorro voy poniendo los datos en la lista del recycler y luego lo vuelvo visible
             miLista = new ArrayList<DatosRecicler>();
-            if(listaIncidencias.toString().equals(null) || listaIncidencias.toString()==null || listaIncidencias.toString().equals("[]"))
-            {
+            if (listaIncidencias.toString().equals(null) || listaIncidencias.toString() == null || listaIncidencias.toString().equals("[]")) {
                 miRecycler.setVisibility(View.INVISIBLE);
-                 Toast toast2 = Toast.makeText(getApplicationContext(),"Sin incidencias en la raspberry seleccionada", Toast.LENGTH_LONG);
-                   toast2.show();
-            }
-            else {
+                Toast toast2 = Toast.makeText(getApplicationContext(), "Sin incidencias en la raspberry seleccionada", Toast.LENGTH_LONG);
+                toast2.show();
+            } else {
                 miRecycler.setVisibility(View.VISIBLE);
                 AdaptadorDatos elAdaptador = new AdaptadorDatos(miLista);
                 for (Incidencia aux : listaIncidencias) {
@@ -183,9 +171,7 @@ public class ListarIncidencias extends AppCompatActivity {
             listaRecibida.close();
 
 
-
-
-    } catch (UnknownHostException e) {
+        } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -193,12 +179,13 @@ public class ListarIncidencias extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-        public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.mimenu2,menu);
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mimenu2, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
@@ -211,8 +198,8 @@ public class ListarIncidencias extends AppCompatActivity {
                 return true;
 
             case R.id.item2:
-               // Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
-            //    toast2.show();
+                // Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
+                //    toast2.show();
                 return true;
 
             case R.id.item3:
@@ -254,14 +241,14 @@ public class ListarIncidencias extends AppCompatActivity {
 
     private void xmlToJava() {
 
-        miLista=new ArrayList<DatosRecicler>();
-        miRecycler= findViewById(R.id.recicler2);
-        titulillo= findViewById(R.id.titulistar2);
-        ver=findViewById(R.id.botonVer);
+        miLista = new ArrayList<DatosRecicler>();
+        miRecycler = findViewById(R.id.recicler2);
+        titulillo = findViewById(R.id.titulistar2);
+        ver = findViewById(R.id.botonVer);
         spinner1 = findViewById(R.id.spinnerlistarraspberrys);
     }
 
-    public ArrayList<Raspberry>mandarUsuarioYrecibirListaDeSusRaspberrys(Usuario usuarioPasado){
+    public ArrayList<Raspberry> mandarUsuarioYrecibirListaDeSusRaspberrys(Usuario usuarioPasado) {
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
         try {
 
@@ -276,29 +263,21 @@ public class ListarIncidencias extends AppCompatActivity {
             objetoEntregar.flush();
             //3º paso recibir la lista de raspberrys que tiene ese usuario
             ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaRaspberrys= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            listaRaspberrys = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
 
 
             listaRecibida.close();
             objetoEntregar.close();
             return listaRaspberrys;
-        }  catch (IOException ex) {
-        System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
 
 
-
-    } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         return listaRaspberrys;
     }
-
-
-
-
-
-
-
 
 
 }

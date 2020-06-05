@@ -1,6 +1,5 @@
 package es.jordan.sistemaalarma;
 
-import androidx.appcompat.widget.Toolbar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.Toolbar;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -34,47 +33,46 @@ import java.util.ArrayList;
 import pojos.Raspberry;
 import pojos.Usuario;
 
-import static java.lang.Integer.parseInt;
-
 
 public class UsuarioConRaspberry extends AppCompatActivity implements Serializable {
     private ListView listView;
-    ImageView button,botonCan1;
+    ImageView button, botonCan1;
     Toolbar toolbar;
     ListView lv;
-    TextView textazo,textazo2;
+    TextView textazo, textazo2;
     private final String EXTRA_USUARIO = "";
-    String email="";
-    String nombre="";
+    String email = "";
+    String nombre = "";
     int usuarioId;
     TextView titulo1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario_con_raspberry);
         final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         toolbar = findViewById(R.id.toolbi);
-        toolbar.setTitle("Administrador - "+usuarioPasado.getNombre());
+        toolbar.setTitle("Administrador - " + usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         xmlToJava();
 
-        final ArrayList<itemAlarma> itemsCompra = obtenerItems();
+        final ArrayList<ItemAlarma> itemsCompra = obtenerItems();
 
         final ItemAlarmaAdapter adapter = new ItemAlarmaAdapter(this, itemsCompra);
         lv.setClickable(true); //para poder pinchar en los elementos de la lista
         lv.setAdapter(adapter);
 
-        final ItemAlarmaAdapter adaptador=new ItemAlarmaAdapter();
+        final ItemAlarmaAdapter adaptador = new ItemAlarmaAdapter();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() { //onclick de cada elemeto de la lista
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                itemAlarma itemSeleccionado= (itemAlarma) adapter.getItem(position);
-                nombre=itemSeleccionado.nombre;
-                usuarioId= (int) itemSeleccionado.id;
-                email=itemSeleccionado.tipo;
+                ItemAlarma itemSeleccionado = (ItemAlarma) adapter.getItem(position);
+                nombre = itemSeleccionado.nombre;
+                usuarioId = (int) itemSeleccionado.id;
+                email = itemSeleccionado.tipo;
                 textazo.setVisibility(View.GONE);
                 lv.setVisibility(View.GONE);
                 listView.setVisibility(View.VISIBLE);
@@ -89,27 +87,15 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
         });
 
 
-
-
-
-
-
-
-
-
-
-
         this.listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         inicializarLista();
-
-
 
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                int idEntero=usuarioId;
+                int idEntero = usuarioId;
 
                 SparseBooleanArray sp = listView.getCheckedItemPositions(); //booleano para saber los checkados
                 eliminarUsurasSeleccionado(idEntero); //1ºeliminamos las raspberrys q tuviera asociadas antes
@@ -122,9 +108,9 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
                         Raspberry r1 = (Raspberry) listView.getItemAtPosition(i);
                         String s = ((CheckedTextView) listView.getChildAt(i)).getText().toString();
 
-                       //3º en r1 tenemos la raspberry con r.get id obtenemos las rasp marcadas y llamamos
+                        //3º en r1 tenemos la raspberry con r.get id obtenemos las rasp marcadas y llamamos
                         //al metodo de insercion
-                        insertarRaspberryEnUsuario(idEntero,r1.getRaspberryId());
+                        insertarRaspberryEnUsuario(idEntero, r1.getRaspberryId());
 
                     }
 
@@ -137,9 +123,8 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
                 startActivityForResult(intent, 0);
 
 
-
-                    }
-                });
+            }
+        });
 
         botonCan1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,13 +140,14 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
         });
 
 
-        }
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.mimenu2,menu);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mimenu2, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
@@ -174,7 +160,7 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
                 return true;
 
             case R.id.item2:
-                Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
+                Toast toast2 = Toast.makeText(getApplicationContext(), "pincha 2", Toast.LENGTH_LONG);
                 toast2.show();
                 return true;
 
@@ -217,22 +203,22 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
 
     private void inicializarLista() {
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
-        listaRaspberrys=obtenerListaRaspberry();//aqui tenemos las listas
+        listaRaspberrys = obtenerListaRaspberry();//aqui tenemos las listas
 
         ArrayAdapter<Raspberry> arrayAdapter
-                = new ArrayAdapter<Raspberry>(this, android.R.layout.simple_list_item_multiple_choice ,  listaRaspberrys);
+                = new ArrayAdapter<Raspberry>(this, android.R.layout.simple_list_item_multiple_choice, listaRaspberrys);
         this.listView.setAdapter(arrayAdapter);
     }
 
     private void xmlToJava() {
 
-        listView = (ListView)findViewById(R.id.listView);
+        listView = (ListView) findViewById(R.id.listView);
         button = (ImageView) findViewById(R.id.button);
-        botonCan1=(ImageView)findViewById(R.id.botonCan1);
-        textazo=(TextView)findViewById(R.id.titulo11);
-        textazo2=(TextView)findViewById(R.id.titulo12);
+        botonCan1 = (ImageView) findViewById(R.id.botonCan1);
+        textazo = (TextView) findViewById(R.id.titulo11);
+        textazo2 = (TextView) findViewById(R.id.titulo12);
 
-        lv=findViewById(R.id.lvasociar);
+        lv = findViewById(R.id.lvasociar);
     }
 
     public ArrayList<Raspberry> obtenerListaRaspberry() {
@@ -244,7 +230,7 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
             ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaRaspberrys= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            listaRaspberrys = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
             socketCliente.close();
             return listaRaspberrys;
 
@@ -259,29 +245,26 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
     }
 
 
-
-
-    public void insertarRaspberryEnUsuario(int idUsuario,int idRaspberry) { //con el for recorreremos la lista de checkbox e iremos insertando
+    public void insertarRaspberryEnUsuario(int idUsuario, int idRaspberry) { //con el for recorreremos la lista de checkbox e iremos insertando
         try {
 
             String equipoServidor = "servidorwebjordan.ddns.net";
             int puertoServidor = 30800;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
-           Esclavo esclavo=new Esclavo();
-           esclavo.setUsuarioId(idUsuario);
-           esclavo.setRaspberryId(idRaspberry);
+            Esclavo esclavo = new Esclavo();
+            esclavo.setUsuarioId(idUsuario);
+            esclavo.setRaspberryId(idRaspberry);
 
             ObjectOutputStream objetoEntregar = new ObjectOutputStream(socketCliente.getOutputStream());
             objetoEntregar.writeObject(esclavo);//mandamos el id ras e id usuario que queremos insertar en la bd
 
 
-
             socketCliente.close();
 
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
 
     }
 
@@ -296,13 +279,10 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
             OutputStream socketSalida = socketCliente.getOutputStream();
             DataOutputStream escribir = new DataOutputStream(socketSalida);
 
-           // Toast toast4 = Toast.makeText(getApplicationContext(),"el usuario es "+idUsuario, Toast.LENGTH_LONG);
-          //  toast4.show();
+            // Toast toast4 = Toast.makeText(getApplicationContext(),"el usuario es "+idUsuario, Toast.LENGTH_LONG);
+            //  toast4.show();
 
             escribir.writeInt(idUsuario);
-
-
-
 
 
             socketCliente.close();
@@ -322,7 +302,7 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
             ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaUsuarios= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            listaUsuarios = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
             socketCliente.close();
             return listaUsuarios;
 
@@ -336,42 +316,31 @@ public class UsuarioConRaspberry extends AppCompatActivity implements Serializab
 
     }
 
-    private ArrayList<itemAlarma> obtenerItems() {
-        ArrayList<itemAlarma> listaDelListView = new ArrayList<itemAlarma>();//lista con los atributos del litview
+    private ArrayList<ItemAlarma> obtenerItems() {
+        ArrayList<ItemAlarma> listaDelListView = new ArrayList<ItemAlarma>();//lista con los atributos del litview
         ArrayList<Usuario> listaUsuarios = new ArrayList();
-        listaUsuarios=obtenerLista(); //recorremos la lista de usuarios y metemos la informacion que queremos
-        for(Usuario usuario1:listaUsuarios)
-        {
+        listaUsuarios = obtenerLista(); //recorremos la lista de usuarios y metemos la informacion que queremos
+        for (Usuario usuario1 : listaUsuarios) {
 
-            if(usuario1.getRol().toUpperCase().equals("ADMIN")) {
+            if (usuario1.getRol().toUpperCase().equals("ADMIN")) {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/admin"));
-            }
-            else if(usuario1.getRol().toUpperCase().equals("USUARIO"))
-            {
+                listaDelListView.add(new ItemAlarma(id, nombre, correo, "drawable/admin"));
+            } else if (usuario1.getRol().toUpperCase().equals("USUARIO")) {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/usuario"));
-            }
-            else
-            {
+                listaDelListView.add(new ItemAlarma(id, nombre, correo, "drawable/usuario"));
+            } else {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/invitado"));
+                listaDelListView.add(new ItemAlarma(id, nombre, correo, "drawable/invitado"));
             }
-
-
-
-
 
 
         }
-
-
 
 
         return listaDelListView;

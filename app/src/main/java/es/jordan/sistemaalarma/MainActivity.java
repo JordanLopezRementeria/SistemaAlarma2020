@@ -9,8 +9,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -24,7 +24,7 @@ import pojos.Usuario;
 import seguridad.Hashear;
 import voz.TTSManager;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
     private final String EXTRA_USUARIO = "";
     ImageView botonIniciar, botonRegistrar;
     EditText email1, contraseña1;
@@ -45,10 +45,12 @@ public class MainActivity extends AppCompatActivity  {
         xmlToJava(); //metodo que enchufa el xml a java
         textoToVoz(); //metodo que convierte texto en voz
         activarAnimacion(); //metodo que activa una animacion
-        Hashear e=new Hashear();
+        Hashear e = new Hashear();
 
 
-
+/**
+ * On click del boton registrar
+ */
         botonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //on click registrar
@@ -59,21 +61,22 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
-
+/**
+ * On click del boton iniciar
+ */
         botonIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //on click iniciar
                 //ComponenteAD componente = new ComponenteAD(getApplicationContext());
-              //  componente.openForWrite();
-               // componente.openForRead();
-                boolean detector0=false;
+                //  componente.openForWrite();
+                // componente.openForRead();
+                boolean detector0 = false;
                 boolean detector1 = false;
                 boolean detector2 = false;
                 boolean detector3 = false; //nos ayudaran a saber si el usuario ya existe
 
-                if (email1.getText().toString().equals("admin"))
-                {
-                    Usuario u=new Usuario();
+                if (email1.getText().toString().equals("admin")) {
+                    Usuario u = new Usuario();
                     u.setNombre("admin");
                     u.setContraseña("admin");
                     u.setEmail("admin");
@@ -82,11 +85,9 @@ public class MainActivity extends AppCompatActivity  {
                 }
 
 
-
-
                 if (email1.getText().toString().trim().length() == 0 || contraseña1.getText().toString().trim().length() == 0) {
                     Toast.makeText(getApplicationContext(), "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
-                    detector0=true;
+                    detector0 = true;
                 }
                 Usuario usuario1 = new Usuario();
                 // usuario1.setNombre(nombre1.getText().toString());
@@ -96,65 +97,48 @@ public class MainActivity extends AppCompatActivity  {
                 //ira a la pantall correspondiente.
 
                 ArrayList<Usuario> listaUsuarios = new ArrayList();
-                listaUsuarios=obtenerLista();
-                Hashear e=new Hashear();
+                listaUsuarios = obtenerLista();
+                Hashear e = new Hashear();
 
-                    for (Usuario u : listaUsuarios) {
+                for (Usuario u : listaUsuarios) {
 
-                        String contraseñaCodificada=e.encode(secretKey,usuario1.getContraseña());
-                        //si un hacker me pilla la contraseña de la bd da igual porq al introducirla en el login la hashea de nuevo
-                        //porq lo no puede entrar
-                        if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("ADMIN")))) {
-                            detector1=true;
+                    String contraseñaCodificada = e.encode(secretKey, usuario1.getContraseña());
+                    //si un hacker me pilla la contraseña de la bd da igual porq al introducirla en el login la hashea de nuevo
+                    //porq lo no puede entrar
+                    if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("ADMIN")))) {
+                        detector1 = true;
 
-                            Toast.makeText(getApplicationContext(), "Credenciales validos, eres admin", Toast.LENGTH_LONG).show();
-                            pantallaAdmin(u);
-                            finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
-                            limpiar();
-
-
-                        }
-
-                           else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("USUARIO"))))
-
-                           {
-
-                               detector2=true;
-                               Toast.makeText(getApplicationContext(), "Credenciales validos, eres usuario", Toast.LENGTH_LONG).show();
-                               pantallaUsuario(u); //vamos a la pantalla usuario pasandole ese usu
-                               finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
-                               limpiar(); //limpiamos datos del login
+                        Toast.makeText(getApplicationContext(), "Credenciales validos, eres administrador", Toast.LENGTH_LONG).show();
+                        pantallaAdmin(u);
+                        finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
+                        limpiar();
 
 
+                    } else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("USUARIO")))) {
 
-                        }
-                        else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("INVITADO"))))
-
-                        {
-                            detector3=true;
-                            Toast.makeText(getApplicationContext(), "Credenciales validos, eres invitado", Toast.LENGTH_LONG).show();
-                            pantallaInvitado(u);
-                            finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
-                            limpiar();
+                        detector2 = true;
+                        Toast.makeText(getApplicationContext(), "Credenciales validos, eres usuario", Toast.LENGTH_LONG).show();
+                        pantallaUsuario(u); //vamos a la pantalla usuario pasandole ese usu
+                        finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
+                        limpiar(); //limpiamos datos del login
 
 
-                        }
-
+                    } else if (u.getEmail().equals(usuario1.getEmail()) && (u.getContraseña().equals(contraseñaCodificada) && (u.getRol().toUpperCase().equals("INVITADO")))) {
+                        detector3 = true;
+                        Toast.makeText(getApplicationContext(), "Credenciales validos, eres invitado", Toast.LENGTH_LONG).show();
+                        pantallaInvitado(u);
+                        finish(); // es importante matar el main o de lo contrario el usuario podria volver atras
+                        limpiar();
 
 
                     }
-                   if(detector0==false && detector1==false && detector2==false && detector3==false)
-                {
+
+
+                }
+                if (detector0 == false && detector1 == false && detector2 == false && detector3 == false) {
                     Toast.makeText(getApplicationContext(), "Credenciales o usuario invalido", Toast.LENGTH_LONG).show();
 
                 }
-
-
-
-
-
-
-
 
 
             }
@@ -164,7 +148,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void limpiar() { //settea las cajas de texto vacias
-       // nombre1.setText("");
+        // nombre1.setText("");
         email1.setText("");
         contraseña1.setText("");
     }
@@ -174,7 +158,7 @@ public class MainActivity extends AppCompatActivity  {
 //        usuario1.setNombre(nombre1.getText().toString());
         Intent intent2 = new Intent(MainActivity.this, MenuAdmin.class); //ponemos en la actividad el objeto usuario
         intent2.putExtra(EXTRA_USUARIO, usuario1);
-        ttsManager.initQueue("Bienvenido "+usuario1.getNombre().toString());
+        ttsManager.initQueue("Bienvenido " + usuario1.getNombre().toString());
         finish();
         startActivity(intent2);
     }
@@ -183,7 +167,7 @@ public class MainActivity extends AppCompatActivity  {
     public void pantallaUsuario(Usuario usuario1) {
         Intent intent = new Intent(MainActivity.this, MenuVip.class); //ponemos en la actividad el objeto usuario
         intent.putExtra(EXTRA_USUARIO, usuario1);
-        ttsManager.initQueue("Bienvenido "+usuario1.getNombre().toString());
+        ttsManager.initQueue("Bienvenido " + usuario1.getNombre().toString());
         finish();
         startActivity(intent);
     }
@@ -191,7 +175,7 @@ public class MainActivity extends AppCompatActivity  {
     public void pantallaInvitado(Usuario usuario1) {
         Intent intent = new Intent(MainActivity.this, MenuInvitado.class); //ponemos en la actividad el objeto usuario
         intent.putExtra(EXTRA_USUARIO, usuario1);
-        ttsManager.initQueue("Bienvenido "+usuario1.getNombre().toString());
+        ttsManager.initQueue("Bienvenido " + usuario1.getNombre().toString());
         finish();
         startActivity(intent);
     }
@@ -208,15 +192,13 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
-    public void activarAnimacion()
-    {
+    public void activarAnimacion() {
         ImageView miImagen = findViewById(R.id.imagenXML);
         Animation miAnim = AnimationUtils.loadAnimation(this, R.anim.anim2);
         miImagen.startAnimation(miAnim);
     }
 
-    public void leerUsuario(Usuario usuario1)
-    {
+    public void leerUsuario(Usuario usuario1) {
         try {
             String equipoServidor = "192.168.1.42";
             int puertoServidor = 30501;
@@ -238,7 +220,7 @@ public class MainActivity extends AppCompatActivity  {
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
             ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaUsuarios= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            listaUsuarios = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
             socketCliente.close();
             return listaUsuarios;
 
@@ -252,7 +234,7 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-//gestion de la comunicacion de obtener lista
+    //gestion de la comunicacion de obtener lista
     public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
 
         try {
@@ -264,15 +246,12 @@ public class MainActivity extends AppCompatActivity  {
 
             InputStream inputStream = socketCliente.getInputStream();
             DataInputStream leerMensaje = new DataInputStream(inputStream);
-            if(leerMensaje.toString().equals("existe"))
-            {
+            if (leerMensaje.toString().equals("existe")) {
 
-                Toast toast = Toast.makeText(getApplicationContext(),"usuario existe pasa a siguiente menu", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(), "usuario existe pasa a siguiente menu", Toast.LENGTH_LONG);
                 toast.show();
-            }
-            else
-            {
-                Toast toast = Toast.makeText(getApplicationContext(),"usuario no existe", Toast.LENGTH_LONG);
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), "usuario no existe", Toast.LENGTH_LONG);
             }
 
 
@@ -283,12 +262,11 @@ public class MainActivity extends AppCompatActivity  {
 
 
     }
+
     public void textoToVoz() {
         ttsManager = new TTSManager();
         ttsManager.init(this);
     }
-
-
 
 
 }

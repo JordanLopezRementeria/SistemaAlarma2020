@@ -1,8 +1,5 @@
 package es.jordan.sistemaalarma;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import pojos.Usuario;
 
 public class MenuInvitado extends AppCompatActivity {
@@ -26,19 +26,19 @@ public class MenuInvitado extends AppCompatActivity {
     TextView titulo;
     Toolbar toolbar;
     private final String EXTRA_USUARIO = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_invitado);
         final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         toolbar = findViewById(R.id.toolbarInvitado);
-        toolbar.setTitle("Invitado - "+usuarioPasado.getNombre());
+        toolbar.setTitle("Invitado - " + usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         xmlTojava();
         reproducirVideo();
-
 
 
         textoCorreo.setOnClickListener(new View.OnClickListener() { //onclick del textview
@@ -47,15 +47,16 @@ public class MenuInvitado extends AppCompatActivity {
                 enlaceMail();
             }
 
-            });
+        });
 
     }
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.mimenusolosalida,menu);
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mimenusolosalida, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
@@ -68,7 +69,7 @@ public class MenuInvitado extends AppCompatActivity {
                 return true;
 
             case R.id.item2:
-                Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
+                Toast toast2 = Toast.makeText(getApplicationContext(), "pincha 2", Toast.LENGTH_LONG);
                 toast2.show();
                 return true;
 
@@ -110,42 +111,39 @@ public class MenuInvitado extends AppCompatActivity {
     }
 
 
-
     private void enlaceMail() {
         //con esto mandamos emails por gmail a la direccion que queramos con el asunto y cuerpo
-        Intent email= new Intent(Intent.ACTION_SENDTO);
+        Intent email = new Intent(Intent.ACTION_SENDTO);
         email.setData(Uri.parse("mailto:alarmajordan@gmail.com"));
         email.putExtra(Intent.EXTRA_SUBJECT, "Estoy interesado en el sistema de alarma");
         email.putExtra(Intent.EXTRA_TEXT, "Hola me gustaria adquirir mas detalles sobre el sistema de alarma.");
         startActivity(email);
 
 
-
-
         //final Intent intent = new Intent(Intent.ACTION_VIEW)
-              //  .setType("plain/text")
-               // .setData(Uri.parse("lopez.rementeria@gmail.com"))
-                //.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail")
-               // .putExtra(Intent.EXTRA_EMAIL, new String[]{"lopez.rementeria@gmail.com"})
-                //.putExtra(Intent.EXTRA_SUBJECT, "Estoy interesado en el sistema de alarma")
-                //.putExtra(Intent.EXTRA_TEXT, "Hola me gustaria adquirir mas detalles sobre el sistema de alarma.");
-       // startActivity(intent);
+        //  .setType("plain/text")
+        // .setData(Uri.parse("lopez.rementeria@gmail.com"))
+        //.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail")
+        // .putExtra(Intent.EXTRA_EMAIL, new String[]{"lopez.rementeria@gmail.com"})
+        //.putExtra(Intent.EXTRA_SUBJECT, "Estoy interesado en el sistema de alarma")
+        //.putExtra(Intent.EXTRA_TEXT, "Hola me gustaria adquirir mas detalles sobre el sistema de alarma.");
+        // startActivity(intent);
     }
 
     private void reproducirVideo() {
         String path = "android.resource://" + getPackageName() + "/" + R.raw.video; //buscamos la ruta del video dentro de nuestro package
-        Uri uri=Uri.parse(path);
+        Uri uri = Uri.parse(path);
         video.setVideoURI(uri);
-        MediaController mediacontroler=new MediaController(this); //encargado de play y stop
+        MediaController mediacontroler = new MediaController(this); //encargado de play y stop
         video.setMediaController(mediacontroler);
         mediacontroler.setAnchorView(video); //quiero que ocupe el mismo tamaño que el video
         video.start();
     }
 
     private void xmlTojava() {
-        video= findViewById(R.id.videoView3);
-        textoCorreo= findViewById(R.id.imageninfo);
-        titulo=findViewById(R.id.titulo1);
+        video = findViewById(R.id.videoView3);
+        textoCorreo = findViewById(R.id.imageninfo);
+        titulo = findViewById(R.id.titulo1);
 
 
     }

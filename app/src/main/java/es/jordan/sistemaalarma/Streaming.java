@@ -1,8 +1,5 @@
 package es.jordan.sistemaalarma;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -23,6 +20,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -34,12 +34,13 @@ import pojos.Raspberry;
 import pojos.Usuario;
 
 public class Streaming extends AppCompatActivity {
-private WebView webView;
-private final String EXTRA_USUARIO = "";
+    private WebView webView;
+    private final String EXTRA_USUARIO = "";
 
-private Toolbar toolbar;
-Spinner spinner;
-ImageView ver;
+    private Toolbar toolbar;
+    Spinner spinner;
+    ImageView ver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +51,9 @@ ImageView ver;
 
         xmlToJava();
         toolbar = findViewById(R.id.toolbar5);
-        toolbar.setTitle("Usuario VIP - "+usuarioPasado.getNombre());
+        toolbar.setTitle("Usuario VIP - " + usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-
-
-
 
 
         configuracionWebView();
@@ -68,7 +66,7 @@ ImageView ver;
         ArrayList<String> opciones4 = new ArrayList(); //en un array de string meto el modelo y la direccion
         //de cada raspB que he recibido
         for (Raspberry r : listaRaspberrysPropias) {
-            opciones4.add(r.getRaspberryId()+":"+r.getModelo() + ":" + r.getDireccion());
+            opciones4.add(r.getRaspberryId() + ":" + r.getModelo() + ":" + r.getDireccion());
         }
 
         spinner = findViewById(R.id.spinnerverstreaming);
@@ -81,29 +79,17 @@ ImageView ver;
         //necesito obtener el id de usuario y el id de raspberry para en funcion de eso cargar una direccion
 
 
-
-
-       // webView.loadUrl("http://alarmacaserajordan.ddns.net:8081/");
-
-
-
-
-
-
-
-
-
+        // webView.loadUrl("http://alarmacaserajordan.ddns.net:8081/");
 
 
         ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(spinner.getCount()==0) {
+                if (spinner.getCount() == 0) {
                     // Toast.makeText(getApplicationContext(), eleccion, Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(), "Sin raspberrys asignadas", Toast.LENGTH_SHORT).show();
 
-                }
-                else {
+                } else {
                     String ipCamaraElegida = "";
                     String eleccion = spinner.getSelectedItem().toString();
                     String[] datos = eleccion.split(":");
@@ -161,12 +147,11 @@ ImageView ver;
     }
 
 
-    public boolean onCreateOptionsMenu(Menu menu)
-{
-    MenuInflater inflater=getMenuInflater();
-    inflater.inflate(R.menu.mimenu2,menu);
-    return true;
-}
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mimenu2, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
@@ -177,15 +162,15 @@ ImageView ver;
                 //menu usuario pasando el usuario que esta logueado
                 final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
                 intent.putExtra(EXTRA_USUARIO, usuarioPasado);
-               // Toast toast = Toast.makeText(getApplicationContext(),usuarioPasado.toString(), Toast.LENGTH_LONG);
+                // Toast toast = Toast.makeText(getApplicationContext(),usuarioPasado.toString(), Toast.LENGTH_LONG);
                 //toast.show();
 
                 startActivityForResult(intent, 0);
                 return true;
 
             case R.id.item2:
-              //  Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
-              //  toast2.show();
+                //  Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
+                //  toast2.show();
                 return true;
 
             case R.id.item3:
@@ -226,16 +211,7 @@ ImageView ver;
     }
 
 
-
-
-
-
-
     private void elegirRaspberry() {
-
-
-
-
 
 
     }
@@ -243,10 +219,11 @@ ImageView ver;
     private void xmlToJava() {
         webView = findViewById(R.id.webview);
 
-        ver=findViewById(R.id.botonvisualizar);
-        spinner=findViewById(R.id.spinnerverstreaming);
+        ver = findViewById(R.id.botonvisualizar);
+        spinner = findViewById(R.id.spinnerverstreaming);
     }
-    public ArrayList<Raspberry>mandarUsuarioYrecibirListaDeSusRaspberrys(Usuario usuarioPasado){
+
+    public ArrayList<Raspberry> mandarUsuarioYrecibirListaDeSusRaspberrys(Usuario usuarioPasado) {
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
         try {
 
@@ -261,15 +238,14 @@ ImageView ver;
             objetoEntregar.flush();
             //3º paso recibir la lista de raspberrys que tiene ese usuario
             ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaRaspberrys= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            listaRaspberrys = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
 
 
             listaRecibida.close();
             objetoEntregar.close();
             return listaRaspberrys;
-        }  catch (IOException ex) {
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
-
 
 
         } catch (ClassNotFoundException e) {
@@ -281,16 +257,12 @@ ImageView ver;
     @Override
     public void onBackPressed() {
 
-        if(webView.canGoBack())
-        {
+        if (webView.canGoBack()) {
             webView.goBack();
-        }
-        else {
+        } else {
             super.onBackPressed();
         }
     }
-
-
 
 
 }

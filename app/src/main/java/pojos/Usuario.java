@@ -51,9 +51,6 @@ public class Usuario implements Serializable {
     }
 
 
-
-
-
     public String getContraseña() {
         return contraseña;
     }
@@ -74,12 +71,6 @@ public class Usuario implements Serializable {
     public String toString() {
         return "Usuario{" + "usuarioId=" + usuarioId + ", nombre=" + nombre + ", contrase\u00f1a=" + contraseña + ", email=" + email + ", rol=" + rol + '}';
     }
-
-
-
-
-
-
 
 
 }

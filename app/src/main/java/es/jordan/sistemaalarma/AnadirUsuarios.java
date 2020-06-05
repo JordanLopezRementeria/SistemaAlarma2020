@@ -32,58 +32,47 @@ import pojos.Usuario;
 import seguridad.Hashear;
 
 public class AnadirUsuarios extends AppCompatActivity {
-ImageView botonAñadir;
-Spinner spinner1;
-EditText nombreInsertar,contraseñaInsertar,direccionInsertar;
-private final String EXTRA_USUARIO = "";
-private ArrayList<Model> modelArrayList;
-private CustomAdapter customAdapter;
-String secretKey = "enigma";
+    ImageView botonAñadir;
+    Spinner spinner1;
+    EditText nombreInsertar, contraseñaInsertar, direccionInsertar;
+    private final String EXTRA_USUARIO = "";
+    private ArrayList<Model> modelArrayList;
+    private CustomAdapter customAdapter;
+    String secretKey = "enigma";
 
-private Toolbar toolbar;
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anadir_usuarios);
-        final Usuario  usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+        final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         xmlToJava();
 
 
-
-
-
         //iniciando toolbar
         toolbar = findViewById(R.id.toolbarAñadir);
-        toolbar.setTitle("Administrador - "+usuarioPasado.getNombre());
+        toolbar.setTitle("Administrador - " + usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         //iniciando spinner
 
         spinner1.setPrompt("Selecciona un rol");
-        String []opciones={"Admin","Usuario","Invitado"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, opciones);
+        String[] opciones = {"Admin", "Usuario", "Invitado"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, opciones);
         spinner1.setAdapter(adapter);
 
 
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
-        listaRaspberrys=obtenerListaRaspberry();
+        listaRaspberrys = obtenerListaRaspberry();
         ArrayList<String> opciones3 = new ArrayList(); //en un array de string meto
         //las raspberrys disponibles de la BD y lo muestro en un spinner si fuera un array
         //de objetos no funcionaria el counstrucotr del spinner
-       for(Raspberry r:listaRaspberrys)
-       {
-          opciones3.add(r.getRaspberryId()+":"+r.getModelo());
-       }
-
-
-
-
-
-
-
-
+        for (Raspberry r : listaRaspberrys) {
+            opciones3.add(r.getRaspberryId() + ":" + r.getModelo());
+        }
 
 
         String text = spinner1.getSelectedItem().toString(); //con esto obtengo el texto actual
@@ -91,10 +80,10 @@ private Toolbar toolbar;
             @Override
             public void onClick(View v) {
 
-              Hashear e=new Hashear();
+                Hashear e = new Hashear();
                 Usuario usuario1 = new Usuario();
                 usuario1.setNombre(nombreInsertar.getText().toString());
-                String contraseñaCodificada=e.encode(secretKey,contraseñaInsertar.getText().toString());
+                String contraseñaCodificada = e.encode(secretKey, contraseñaInsertar.getText().toString());
                 usuario1.setContraseña(contraseñaCodificada);
 
                 usuario1.setEmail(direccionInsertar.getText().toString());
@@ -103,29 +92,26 @@ private Toolbar toolbar;
                 if (usuario1.getNombre().trim().length() == 0 || usuario1.getContraseña().trim().length() == 0 || usuario1.getEmail().trim().length() == 0) {
                     Toast.makeText(getApplicationContext(), "Debes llenar todos los campos", Toast.LENGTH_SHORT).show();
 
-                }
-                else {
-                    boolean detector=false;
+                } else {
+                    boolean detector = false;
                     ArrayList<Usuario> listaUsuarios = new ArrayList();
-                    listaUsuarios=obtenerLista();
+                    listaUsuarios = obtenerLista();
 
 
-                    for (Usuario aux: listaUsuarios) {
+                    for (Usuario aux : listaUsuarios) {
 
                         if (aux.getNombre().equals(usuario1.getNombre()) || aux.getEmail().equals(usuario1.getEmail())) {
-                           detector=true;//hemos detectado un usuario con esos datos
+                            detector = true;//hemos detectado un usuario con esos datos
                             break;
 
                         }
 
                     }
 
-                    if(detector==true)
-                    {
+                    if (detector == true) {
                         Toast.makeText(getApplicationContext(), "Ya existe un usuario con ese nombre o email", Toast.LENGTH_SHORT).show();
                         limpiarCajas();
-                    }
-                    else {
+                    } else {
                         insertarUsuario(usuario1);
                         Toast.makeText(getApplicationContext(), "Usuario añadido con éxito", Toast.LENGTH_SHORT).show();
                         limpiarCajas();
@@ -142,25 +128,18 @@ private Toolbar toolbar;
         });
 
 
-
-
-
-
-
-
-
     }
 
-    private ArrayList<Model> getModel(boolean isSelect){ //aqui es donde obtengo lo que tiene seleccionado el checkbox
+    private ArrayList<Model> getModel(boolean isSelect) { //aqui es donde obtengo lo que tiene seleccionado el checkbox
         ArrayList<Model> list = new ArrayList<>();
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
-        listaRaspberrys=obtenerListaRaspberry();
+        listaRaspberrys = obtenerListaRaspberry();
 
-        for(Raspberry r:listaRaspberrys){
+        for (Raspberry r : listaRaspberrys) {
 
             Model model = new Model();
             model.setSelected(isSelect);
-            model.setAnimal(r.getRaspberryId()+":"+r.getModelo()+"esta clickado");
+            model.setAnimal(r.getRaspberryId() + ":" + r.getModelo() + "esta clickado");
             // Toast toast = Toast.makeText(getApplicationContext(),r.getRaspberryId()+":"+r.getModelo(), Toast.LENGTH_LONG);
             // toast.show();
             list.add(model);
@@ -168,12 +147,12 @@ private Toolbar toolbar;
         return list;
     }
 
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.mimenu2,menu);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mimenu2, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
@@ -187,7 +166,7 @@ private Toolbar toolbar;
                 return true;
 
             case R.id.item2:
-                Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
+                Toast toast2 = Toast.makeText(getApplicationContext(), "pincha 2", Toast.LENGTH_LONG);
                 toast2.show();
                 return true;
 
@@ -238,13 +217,12 @@ private Toolbar toolbar;
     }
 
     private void xmlToJava() {
-        botonAñadir= findViewById(R.id.botonAceptarXML2);
+        botonAñadir = findViewById(R.id.botonAceptarXML2);
         spinner1 = findViewById(R.id.spPais);
 
-        nombreInsertar= findViewById(R.id.nombreInsertar);
-        contraseñaInsertar= findViewById(R.id.contraseñaInsertar);
-        direccionInsertar= findViewById(R.id.direccionInsertar);
-
+        nombreInsertar = findViewById(R.id.nombreInsertar);
+        contraseñaInsertar = findViewById(R.id.contraseñaInsertar);
+        direccionInsertar = findViewById(R.id.direccionInsertar);
 
 
     }
@@ -290,7 +268,7 @@ private Toolbar toolbar;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
             ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaRaspberrys= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            listaRaspberrys = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
             socketCliente.close();
             return listaRaspberrys;
 
@@ -303,6 +281,7 @@ private Toolbar toolbar;
         return listaRaspberrys;
 
     }
+
     public ArrayList<Usuario> obtenerLista() {
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         try {
@@ -312,7 +291,7 @@ private Toolbar toolbar;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
             ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaUsuarios= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            listaUsuarios = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
             socketCliente.close();
             return listaUsuarios;
 
@@ -325,9 +304,6 @@ private Toolbar toolbar;
         return listaUsuarios;
 
     }
-
-
-
 
 
 }

@@ -1,4 +1,5 @@
 package pojos;
+
 import java.io.Serializable;
 
 
@@ -45,8 +46,6 @@ public class Incidencia implements Serializable {
     public String toString() {
         return "Notificacion{" + "incidenciaId=" + incidenciaId + ", raspberryId=" + raspberryId + ", hora=" + hora + '}';
     }
-
-
 
 
 }

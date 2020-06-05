@@ -13,8 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -24,19 +24,19 @@ import java.net.Socket;
 import pojos.Usuario;
 
 public class AdministrarRespaldo extends AppCompatActivity {
-    ImageView copia,recuperar;
+    ImageView copia, recuperar;
     private final String EXTRA_USUARIO = "";
     Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administrar_respaldo);
         final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
         toolbar = findViewById(R.id.toolbarRespaldo);
-        toolbar.setTitle("Administrador - "+usuarioPasado.getNombre());
+        toolbar.setTitle("Administrador - " + usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);//quitamos el titulo del toolbar
-
 
 
         xmlToJava();
@@ -44,15 +44,13 @@ public class AdministrarRespaldo extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
 
-
         copia.setOnClickListener(new View.OnClickListener() { //on click de desconectar
             @Override
             public void onClick(View v) {
 
                 avisarServer();
-                Toast toast = Toast.makeText(getApplicationContext(),"Copia realizada con exito", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(), "Copia realizada con exito", Toast.LENGTH_LONG);
                 toast.show();
-
 
 
             }
@@ -62,30 +60,22 @@ public class AdministrarRespaldo extends AppCompatActivity {
             public void onClick(View v) {
 
                 recuperarServer();
-                Toast toast = Toast.makeText(getApplicationContext(),"Recuperación realizada con exito", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(), "Recuperación realizada con exito", Toast.LENGTH_LONG);
                 toast.show();
-
 
 
             }
         });
 
 
-
-
-
-
-
-
-
-
     }
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.menuenbackup,menu);
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menuenbackup, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //metodo que se encarga del toolbar
         //para que cada icono asignarle tareas diferentes
@@ -144,9 +134,10 @@ public class AdministrarRespaldo extends AppCompatActivity {
 
         }
     }
+
     private void xmlToJava() {
-        copia= findViewById(R.id.botonCopia);
-        recuperar= findViewById(R.id.botonRecuperar);
+        copia = findViewById(R.id.botonCopia);
+        recuperar = findViewById(R.id.botonRecuperar);
     }
 
     public void avisarServer() {
@@ -169,8 +160,7 @@ public class AdministrarRespaldo extends AppCompatActivity {
         }
     }
 
-    public void recuperarServer()
-    {
+    public void recuperarServer() {
         try {
 
             String equipoServidor = "servidorwebjordan.ddns.net";

@@ -8,10 +8,9 @@ package pojos;
 import java.io.Serializable;
 
 /**
- *
  * @author jordan
  */
-public class Raspberry implements Serializable{
+public class Raspberry implements Serializable {
 
     Integer raspberryId;
     String modelo;
@@ -21,11 +20,11 @@ public class Raspberry implements Serializable{
     public Raspberry() {
     }
 
-    public Raspberry(Integer raspberryId, String modelo, String memoria,String direccion) {
+    public Raspberry(Integer raspberryId, String modelo, String memoria, String direccion) {
         this.raspberryId = raspberryId;
         this.modelo = modelo;
         this.memoria = memoria;
-        this.direccion=direccion;
+        this.direccion = direccion;
     }
 
     public String getDireccion() {
@@ -35,11 +34,6 @@ public class Raspberry implements Serializable{
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
-
-
-
-
 
 
     public Integer getRaspberryId() {
@@ -68,16 +62,13 @@ public class Raspberry implements Serializable{
 
     @Override
     public String toString() {
-        return raspberryId+","+modelo+","+direccion;
+        return raspberryId + "," + modelo + "," + direccion;
     }
 
     public String toString2() {
         return "Raspberry{" + "raspberryId=" + raspberryId + ", modelo=" + modelo + ", memoria=" + memoria + ", direccion=" + direccion + '}';
 
     }
-
-
-
 
 
 }

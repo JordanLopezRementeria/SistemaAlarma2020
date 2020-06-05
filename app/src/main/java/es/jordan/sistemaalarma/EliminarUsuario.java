@@ -29,42 +29,42 @@ import pojos.Raspberry;
 import pojos.Usuario;
 
 public class EliminarUsuario extends AppCompatActivity {
-ImageView eliminarUsu;
-private Toolbar toolbar;
-private final String EXTRA_USUARIO = "";
-ListView lv;
-String email="";
-String nombre="";
-int usuarioId;
-EditText texto2;
+    ImageView eliminarUsu;
+    private Toolbar toolbar;
+    private final String EXTRA_USUARIO = "";
+    ListView lv;
+    String email = "";
+    String nombre = "";
+    int usuarioId;
+    EditText texto2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eliminar_usuario);
-        final Usuario  usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
+        final Usuario usuarioPasado = (Usuario) getIntent().getSerializableExtra(EXTRA_USUARIO);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         xmlToJava();
 
 
-        final ArrayList<itemAlarma> itemsCompra = obtenerItems();
+        final ArrayList<ItemAlarma> itemsCompra = obtenerItems();
 
         final ItemAlarmaAdapter adapter = new ItemAlarmaAdapter(this, itemsCompra);
         lv.setClickable(true); //para poder pinchar en los elementos de la lista
         lv.setAdapter(adapter);
 
-        final ItemAlarmaAdapter adaptador=new ItemAlarmaAdapter();
+        final ItemAlarmaAdapter adaptador = new ItemAlarmaAdapter();
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() { //onclick de cada elemeto de la lista
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                itemAlarma itemSeleccionado= (itemAlarma) adapter.getItem(position);
+                ItemAlarma itemSeleccionado = (ItemAlarma) adapter.getItem(position);
                 texto2.setText(itemSeleccionado.nombre);
                 //ponemos en la caja de texto el nombre del seleccionado
-                nombre=itemSeleccionado.nombre;
-               usuarioId= (int) itemSeleccionado.id;
-               email=itemSeleccionado.tipo;
-
+                nombre = itemSeleccionado.nombre;
+                usuarioId = (int) itemSeleccionado.id;
+                email = itemSeleccionado.tipo;
 
 
                 //lo que queremos hacer al clickar
@@ -75,14 +75,14 @@ EditText texto2;
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                itemAlarma itemSeleccionado= (itemAlarma) adapter.getItem(position);
+                ItemAlarma itemSeleccionado = (ItemAlarma) adapter.getItem(position);
                 texto2.setText(itemSeleccionado.nombre); //ponemos en la caja de texto el nombre del seleccionado
                 AlertDialog.Builder alert = new AlertDialog.Builder(EliminarUsuario.this);
                 alert.setTitle("Advertencia");
                 alert.setCancelable(true);
                 alert.setIcon(R.drawable.eliminar1_foreground);
 
-                alert.setMessage("¿De verdad deseas borrar el usuario "+texto2.getText().toString());
+                alert.setMessage("¿De verdad deseas borrar el usuario " + texto2.getText().toString());
 
                 alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
 
@@ -112,18 +112,13 @@ EditText texto2;
                     }
                 });
                 alert.create().show();
-            return false;//si ponemos a true solo este evento se producira, si ponemos a false el onclick normal tb
+                return false;//si ponemos a true solo este evento se producira, si ponemos a false el onclick normal tb
             }
         });
 
 
-
-
-
-
-
         toolbar = findViewById(R.id.toolbarEliminar);
-        toolbar.setTitle("Administrador - "+usuarioPasado.getNombre());
+        toolbar.setTitle("Administrador - " + usuarioPasado.getNombre());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
@@ -138,7 +133,7 @@ EditText texto2;
                 alert.setCancelable(true);
                 alert.setIcon(R.drawable.eliminar1_foreground);
 
-                alert.setMessage("¿De verdad deseas borrar el usuario "+texto2.getText().toString());
+                alert.setMessage("¿De verdad deseas borrar el usuario " + texto2.getText().toString());
 
                 alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
 
@@ -157,8 +152,7 @@ EditText texto2;
                         usuario1.setNombre(nombre);
                         usuario1.setEmail(email);
 
-                        if(mandarUsuarioYrecibirListaDeSusRaspberrys(usuario1).isEmpty())
-                        {
+                        if (mandarUsuarioYrecibirListaDeSusRaspberrys(usuario1).isEmpty()) {
                             eliminarUsu(usuario1);
                             Toast.makeText(getApplicationContext(), "Usuario eliminado con exito", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), MenuAdmin.class); //flechita que vuelve al
@@ -166,9 +160,7 @@ EditText texto2;
                             intent.putExtra(EXTRA_USUARIO, usuarioPasado);
                             startActivityForResult(intent, 0);
 
-                        }
-                        else
-                        {
+                        } else {
 
                             Toast.makeText(getApplicationContext(), "Desasigna rasperries del usuario si quieres borrarlo", Toast.LENGTH_SHORT).show();
 
@@ -178,18 +170,11 @@ EditText texto2;
                 alert.create().show();
 
 
-
-
-
-
             }
 
         });
-        
-        
-        
-        
-        
+
+
     }
 
     private void eliminarUsu(Usuario usuario1) {
@@ -205,6 +190,7 @@ EditText texto2;
             System.out.println(ex.getMessage());
         }
     }
+
     public void gestionarComunicacion(Socket socketCliente, Usuario usuario1) {
 
         try {
@@ -221,10 +207,9 @@ EditText texto2;
 
     }
 
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.mimenu2,menu);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mimenu2, menu);
         return true;
     }
 
@@ -240,7 +225,7 @@ EditText texto2;
                 return true;
 
             case R.id.item2:
-                Toast toast2 = Toast.makeText(getApplicationContext(),"pincha 2", Toast.LENGTH_LONG);
+                Toast toast2 = Toast.makeText(getApplicationContext(), "pincha 2", Toast.LENGTH_LONG);
                 toast2.show();
                 return true;
 
@@ -282,57 +267,43 @@ EditText texto2;
     }
 
 
-
     public void xmlToJava() {
-        eliminarUsu= findViewById(R.id.botonEliminar);
-        texto2= findViewById(R.id.nombre2);
-        lv=findViewById(R.id.lveliminar);
+        eliminarUsu = findViewById(R.id.botonEliminar);
+        texto2 = findViewById(R.id.nombre2);
+        lv = findViewById(R.id.lveliminar);
 
-        
-        
+
     }
 
-    private ArrayList<itemAlarma> obtenerItems() {
-        ArrayList<itemAlarma> listaDelListView = new ArrayList<itemAlarma>();//lista con los atributos del litview
+    private ArrayList<ItemAlarma> obtenerItems() {
+        ArrayList<ItemAlarma> listaDelListView = new ArrayList<ItemAlarma>();//lista con los atributos del litview
         ArrayList<Usuario> listaUsuarios = new ArrayList();
-        listaUsuarios=obtenerLista(); //recorremos la lista de usuarios y metemos la informacion que queremos
-        for(Usuario usuario1:listaUsuarios)
-        {
+        listaUsuarios = obtenerLista(); //recorremos la lista de usuarios y metemos la informacion que queremos
+        for (Usuario usuario1 : listaUsuarios) {
 
-            if(usuario1.getRol().toUpperCase().equals("ADMIN")) {
+            if (usuario1.getRol().toUpperCase().equals("ADMIN")) {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/adming3"));
-            }
-            else if(usuario1.getRol().toUpperCase().equals("USUARIO"))
-            {
+                listaDelListView.add(new ItemAlarma(id, nombre, correo, "drawable/adming3"));
+            } else if (usuario1.getRol().toUpperCase().equals("USUARIO")) {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/usuariog3"));
-            }
-            else
-            {
+                listaDelListView.add(new ItemAlarma(id, nombre, correo, "drawable/usuariog3"));
+            } else {
                 int id = usuario1.getUsuarioId();
                 String nombre = usuario1.getNombre().toString();
                 String correo = usuario1.getEmail().toString();
-                listaDelListView.add(new itemAlarma(id, nombre, correo, "drawable/invitadog3"));
+                listaDelListView.add(new ItemAlarma(id, nombre, correo, "drawable/invitadog3"));
             }
-
-
-
-
 
 
         }
 
 
-
-
         return listaDelListView;
     }
-
 
 
     public ArrayList<Usuario> obtenerLista() {
@@ -344,7 +315,7 @@ EditText texto2;
             Socket socketCliente = new Socket(equipoServidor, puertoServidor);
 
             ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaUsuarios= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            listaUsuarios = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
             socketCliente.close();
             return listaUsuarios;
 
@@ -358,7 +329,7 @@ EditText texto2;
 
     }
 
-    public ArrayList<Raspberry>mandarUsuarioYrecibirListaDeSusRaspberrys(Usuario usuarioPasado){
+    public ArrayList<Raspberry> mandarUsuarioYrecibirListaDeSusRaspberrys(Usuario usuarioPasado) {
         ArrayList<Raspberry> listaRaspberrys = new ArrayList();
         try {
 
@@ -373,15 +344,14 @@ EditText texto2;
             objetoEntregar.flush();
             //3º paso recibir la lista de raspberrys que tiene ese usuario
             ObjectInputStream listaRecibida = new ObjectInputStream(socketCliente.getInputStream());//me preparo para recibir
-            listaRaspberrys= (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
+            listaRaspberrys = (ArrayList) listaRecibida.readObject(); //objeto leido y metido en usuario1 /lo recibod
 
 
             listaRecibida.close();
             objetoEntregar.close();
             return listaRaspberrys;
-        }  catch (IOException ex) {
+        } catch (IOException ex) {
             System.out.println(ex.getMessage());
-
 
 
         } catch (ClassNotFoundException e) {

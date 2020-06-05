@@ -21,7 +21,6 @@ public class Usuras implements Serializable {
     }
 
 
-
     public int getUsurasId() {
         return usurasId;
     }
@@ -50,13 +49,6 @@ public class Usuras implements Serializable {
     public String toString() {
         return "Usuras{" + "usurasId=" + usurasId + ", usuarioId=" + usuarioId + ", raspberryId=" + raspberryId + '}';
     }
-
-
-
-
-
-
-
 
 
 }
